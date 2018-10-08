@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link href="/public/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/assets/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Hind+Vadodara" rel="stylesheet">
+    <link rel="stylesheet" href="/public/assets/css/styles.css">
+    {% block stylesheet %}{% endblock %}
+    <link rel="icon" href="/public/assets/images/favicon.png">
+</head>
+
+<body>
+<header>
+    {% include 'header.html.twig' %}
+</header>
+
+
+{% block content %}{% endblock %}
+
+<footer>
+
+</footer>
+
+<script src="/public/assets/jquery/jquery.min.js"></script>
+<script src="/public/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/public/assets/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Contact form JavaScript -->
+<script src="/public/assets/js/jqBootstrapValidation.js"></script>
+<script src="/public/assets/js/contact_me.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="/public/assets/js/agency.min.js"></script>
+{% block javascript %}{% endblock %}
+</body>
+</html>

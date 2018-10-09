@@ -1,0 +1,35 @@
+<form method="post">
+    <input type="hidden" value="{{ brand.id }}" name="id">
+    <input type="text" value="{{ brand.title }}" name="title">
+    <input type="submit" value="Valider">
+</form>
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Catégorie<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">/</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/brands">Marques</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">/</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/products">Produits</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0 navbar-nav">
+            <a class="nav-link">Bonjour Administrateur !</a>
+            <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Disconnect</button>
+        </form>
+    </div>
+</nav>

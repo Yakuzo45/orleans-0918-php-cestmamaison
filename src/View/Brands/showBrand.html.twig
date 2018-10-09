@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Marques {{ brand.title }}</h1>
+    <p>{{ brand.id }}. {{ brand.title }}</p>
+    <a href="/brands/edit/{{ brand.id }}">Edit</a>
+    <a href="/brands/delete/{{brand.id}}">Supprimer</a>
+    <a href="/brands">Back</a>
+{% endblock %}

@@ -9,14 +9,14 @@
 
 namespace Controller;
 
-use Model\Item;
-use Model\ItemManager;
+use Model\Category;
+use Model\CategoryManager;
 
 /**
- * Class ItemController
+ * Class CategoryController
  *
  */
-class ItemController extends AbstractController
+class CategoryController extends AbstractController
 {
 
 
@@ -30,10 +30,10 @@ class ItemController extends AbstractController
      */
     public function index()
     {
-        $itemManager = new ItemManager($this->getPdo());
-        $items = $itemManager->selectAll();
+        $CategoryManager = new CategoryManager($this->getPdo());
+        $category = $CategoryManager->selectAll();
 
-        return $this->twig->render('Item/index.html.twig', ['items' => $items]);
+        return $this->twig->render('Category/index.html.twig', ['category' => $category]);
     }
 
 
@@ -48,10 +48,10 @@ class ItemController extends AbstractController
      */
     public function show(int $id)
     {
-        $itemManager = new ItemManager($this->getPdo());
-        $item = $itemManager->selectOneById($id);
+        $CategoryManager = new CategoryManager($this->getPdo());
+        $category = $CategoryManager->selectOneById($id);
 
-        return $this->twig->render('Item/show.html.twig', ['item' => $item]);
+        return $this->twig->render('Category/show.html.twig', ['category' => $category]);
     }
 
 
@@ -66,15 +66,15 @@ class ItemController extends AbstractController
      */
     public function edit(int $id): string
     {
-        $itemManager = new ItemManager($this->getPdo());
-        $item = $itemManager->selectOneById($id);
+        $CategoryManager = new CategoryManager($this->getPdo());
+        $category = $CategoryManager->selectOneById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $item->setTitle($_POST['title']);
-            $itemManager->update($item);
+            $category->setTitle($_POST['title']);
+            $CategoryManager->update($category);
         }
 
-        return $this->twig->render('Item/edit.html.twig', ['item' => $item]);
+        return $this->twig->render('Category/edit.html.twig', ['category' => $category]);
     }
 
 
@@ -90,14 +90,14 @@ class ItemController extends AbstractController
     {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $itemManager = new ItemManager($this->getPdo());
-            $item = new Item();
-            $item->setTitle($_POST['title']);
-            $id = $itemManager->insert($item);
-            header('Location:/item/' . $id);
+            $CategoryManager = new CategoryManager($this->getPdo());
+            $category = new Category();
+            $category->setTitle($_POST['title']);
+            $id = $CategoryManager->insert($category);
+            header('Location:/category/' . $id);
         }
 
-        return $this->twig->render('Item/add.html.twig');
+        return $this->twig->render('Category/add.html.twig');
     }
 
 
@@ -108,8 +108,8 @@ class ItemController extends AbstractController
      */
     public function delete(int $id)
     {
-        $itemManager = new ItemManager($this->getPdo());
-        $itemManager->delete($id);
+        $CategoryManager = new CategoryManager($this->getPdo());
+        $CategoryManager->delete($id);
         header('Location:/');
     }
 }

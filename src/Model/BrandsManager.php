@@ -12,12 +12,12 @@ namespace Model;
 /**
  *
  */
-class ItemManager extends AbstractManager
+class BrandsManager extends AbstractManager
 {
     /**
      *
      */
-    const TABLE = 'item';
+    const TABLE = 'brands';
 
     /**
      *  Initializes this class.
@@ -29,14 +29,14 @@ class ItemManager extends AbstractManager
 
 
     /**
-     * @param Item $item
+     * @param Category $item
      * @return int
      */
-    public function insert(Item $item): int
+    public function insert(Brands $brands): int
     {
         // prepared request
         $statement = $this->pdo->prepare("INSERT INTO $this->table (`title`) VALUES (:title)");
-        $statement->bindValue('title', $item->getTitle(), \PDO::PARAM_STR);
+        $statement->bindValue('title', $brands->getTitle(), \PDO::PARAM_STR);
 
 
         if ($statement->execute()) {
@@ -58,16 +58,16 @@ class ItemManager extends AbstractManager
 
 
     /**
-     * @param Item $item
+     * @param Category $item
      * @return int
      */
-    public function update(Item $item):int
+    public function update(Brands $brands):int
     {
 
         // prepared request
         $statement = $this->pdo->prepare("UPDATE $this->table SET `title` = :title WHERE id=:id");
-        $statement->bindValue('id', $item->getId(), \PDO::PARAM_INT);
-        $statement->bindValue('title', $item->getTitle(), \PDO::PARAM_STR);
+        $statement->bindValue('id', $brands->getId(), \PDO::PARAM_INT);
+        $statement->bindValue('title', $brands->getTitle(), \PDO::PARAM_STR);
 
 
         return $statement->execute();

@@ -10,10 +10,10 @@
 namespace Model;
 
 /**
- * Class Item
+ * Class Category
  *
  */
-class Item
+class Category
 {
     private $id;
 
@@ -30,9 +30,9 @@ class Item
     /**
      * @param mixed $id
      *
-     * @return Item
+     * @return Category
      */
-    public function setId($id): Item
+    public function setId($id): Category
     {
         $this->id = $id;
 
@@ -50,9 +50,9 @@ class Item
     /**
      * @param mixed $title
      *
-     * @return Item
+     * @return Category
      */
-    public function setTitle($title):Item
+    public function setTitle($title):Category
     {
         $this->title = $title;
 

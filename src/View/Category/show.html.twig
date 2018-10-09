@@ -1,8 +1,8 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Categorie {{ category.title }}</h1>
-    <p>{{ category.id }}. {{ category.title }}</p>
+    <h1>Categorie {{ category.name }}</h1>
+    <p>{{ category.id }}. {{ category.name }}</p>
     <a href="/category/edit/{{ category.id }}">Edit</a>
     <a href="/category/delete/{{category.id}}">Supprimer</a>
     <a href="/">Back</a>

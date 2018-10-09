@@ -32,11 +32,11 @@ class CategoryManager extends AbstractManager
      * @param Category $item
      * @return int
      */
-    public function insert(Category $item): int
+    public function insert(Category $category): int
     {
         // prepared request
-        $statement = $this->pdo->prepare("INSERT INTO $this->table (`title`) VALUES (:title)");
-        $statement->bindValue('title', $item->getTitle(), \PDO::PARAM_STR);
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (`name`) VALUES (:name)");
+        $statement->bindValue('name', $category->getTitle(), \PDO::PARAM_STR);
 
 
         if ($statement->execute()) {
@@ -61,13 +61,13 @@ class CategoryManager extends AbstractManager
      * @param Category $item
      * @return int
      */
-    public function update(Category $item):int
+    public function update(Category $category):int
     {
 
         // prepared request
-        $statement = $this->pdo->prepare("UPDATE $this->table SET `title` = :title WHERE id=:id");
-        $statement->bindValue('id', $item->getId(), \PDO::PARAM_INT);
-        $statement->bindValue('title', $item->getTitle(), \PDO::PARAM_STR);
+        $statement = $this->pdo->prepare("UPDATE $this->table SET `name` = :name WHERE id=:id");
+        $statement->bindValue('id', $category->getId(), \PDO::PARAM_INT);
+        $statement->bindValue('name', $category->getTitle(), \PDO::PARAM_STR);
 
 
         return $statement->execute();

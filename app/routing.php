@@ -10,6 +10,11 @@
  */
 
 $routes = [
+
+    'Admin' => [ // Controller
+        ['index', '/admin', 'GET'], // action, url, method
+    ],
+
     'Item' => [ // Controller
         ['index', '/', 'GET'], // action, url, method
         ['add', '/item/add', ['GET', 'POST']], // action, url, method

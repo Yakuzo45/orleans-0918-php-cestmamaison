@@ -2,6 +2,15 @@
 {% extends 'Admin/layoutAdmin.html.twig' %}
 
 {% block content %}
+    {% if error > 0%}
+        <div class="alert alert-danger">
+            <ul>
+               <li>{{ error.name }}</li>
+            </ul>
+         </div>
+    {% endif %}
+
     <h1>Ajouter une nouvelle marque</h1>
 {% include 'Admin/brand/_form.html.twig' %}
+
 {% endblock %}

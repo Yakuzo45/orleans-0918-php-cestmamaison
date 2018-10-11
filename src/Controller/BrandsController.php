@@ -25,11 +25,23 @@ class BrandsController extends AbstractController
     public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $BrandsManager = new BrandsManager($this->getPdo());
-            $brands = new Brands();
-            $brands->setName($_POST['name']);
-            $id = $BrandsManager->insert($brands);
-            header('Location:/admin/');
+
+            $errors = [];
+
+            if (empty($_POST['name'])) {
+                $errors['name'] = "La marque doit être renseignée !";
+                return $this->twig->render('Admin/brand/add.html.twig', ['error' => $errors]);
+            }
+             else {
+
+                $BrandsManager = new BrandsManager($this->getPdo());
+                $brands = new Brands();
+                $brands->setName($_POST['name']);
+                $id = $BrandsManager->insert($brands);
+            }
+
+            header('Location:/admin');
+
         }
 
         return $this->twig->render('Admin/brand/add.html.twig');

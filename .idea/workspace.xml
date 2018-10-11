@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03279994-c869-43b8-b0b7-ee51afa890cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/BrandsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Brands.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/BrandsManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Admin/brand/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Admin/brand/add.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routing.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BrandsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BrandsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/BrandsManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/BrandsManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Admin/brand/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/brand/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Admin/brand/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/brand/add.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,11 +16,25 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1280694942">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.opened" value="2" />
         </counts>
@@ -31,16 +43,16 @@
         <counts>
           <entry key="dist" value="12" />
           <entry key="dummy" value="1" />
-          <entry key="php" value="280" />
-          <entry key="twig" value="96" />
+          <entry key="php" value="560" />
+          <entry key="twig" value="182" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.rename.constructor" />
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="280" />
+          <entry key="PHP" value="560" />
           <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Twig" value="96" />
+          <entry key="Twig" value="182" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -54,18 +66,18 @@
         <counts>
           <entry key="dist" value="2" />
           <entry key="md" value="2" />
-          <entry key="php" value="32" />
+          <entry key="php" value="38" />
           <entry key="sql" value="2" />
-          <entry key="twig" value="12" />
+          <entry key="twig" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Markdown" value="2" />
-          <entry key="PHP" value="32" />
+          <entry key="PHP" value="38" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="SQL" value="2" />
-          <entry key="Twig" value="12" />
+          <entry key="Twig" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -78,8 +90,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/Admin/brand/_form.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="150">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/BrandsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="51" column="64" lean-forward="true" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -87,66 +108,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/Admin/brand/add.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/Item/add.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/routing.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/db.php">
+        <entry file="file://$PROJECT_DIR$/src/Model/BrandsManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+            <state relative-caret-position="315">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/dispatcher.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/BrandsController.php">
+        <entry file="file://$PROJECT_DIR$/src/Model/ItemManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="37" column="1" lean-forward="true" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
-              <folding>
-                <element signature="e#114#131#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/Admin/layoutAdmin.html.twig">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Brands.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+            <state relative-caret-position="563">
+              <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
             </state>
           </provider>
         </entry>
@@ -164,16 +145,17 @@
         <option value="$PROJECT_DIR$/src/View/Brands.php" />
         <option value="$PROJECT_DIR$/src/View/Item/add.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/brandsController.php" />
-        <option value="$PROJECT_DIR$/src/Model/BrandsManager.php" />
         <option value="$PROJECT_DIR$/src/View/Admin/Brand/form.html.twig.php" />
         <option value="$PROJECT_DIR$/src/View/Admin/Brand/add.html.twig.php" />
         <option value="$PROJECT_DIR$/src/View/Admin/Brand/form.html.twig" />
         <option value="$PROJECT_DIR$/src/Model/Brands.php" />
         <option value="$PROJECT_DIR$/src/View/Admin/Brand/add.html.twig" />
         <option value="$PROJECT_DIR$/src/View/Admin/brand/form.html.twig" />
-        <option value="$PROJECT_DIR$/src/View/Admin/brand/add.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/BrandsController.php" />
         <option value="$PROJECT_DIR$/app/routing.php" />
+        <option value="$PROJECT_DIR$/src/Model/BrandsManager.php" />
+        <option value="$PROJECT_DIR$/src/Controller/BrandsController.php" />
+        <option value="$PROJECT_DIR$/src/View/Admin/brand/add.html.twig" />
+        <option value="$PROJECT_DIR$/src/View/Admin/brand/_form.html.twig" />
       </list>
     </option>
   </component>
@@ -197,10 +179,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1047" />
-    <option name="y" value="27" />
-    <option name="width" value="863" />
-    <option name="height" value="1053" />
+    <option name="x" value="67" />
+    <option name="y" value="25" />
+    <option name="width" value="927" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -213,16 +195,6 @@
             <path>
               <item name="orleans-0918-php-cestmamaison" type="b2602c69:ProjectViewProjectNode" />
               <item name="orleans-0918-php-cestmamaison" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="orleans-0918-php-cestmamaison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="orleans-0918-php-cestmamaison" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="orleans-0918-php-cestmamaison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="orleans-0918-php-cestmamaison" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="orleans-0918-php-cestmamaison" type="b2602c69:ProjectViewProjectNode" />
@@ -286,6 +258,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -316,18 +289,18 @@
       <option name="presentableId" value="Default" />
       <updated>1539073127430</updated>
       <workItem from="1539073128591" duration="5223000" />
-      <workItem from="1539152469718" duration="13893000" />
+      <workItem from="1539152469718" duration="22495000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19116000" />
+    <option name="totallyTimeSpent" value="27718000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3591588" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27780852" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -340,12 +313,12 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4997233" visible="true" weight="0.32972974" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5002767" side_tool="true" visible="true" weight="0.32972974" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4997233" visible="true" weight="0.32972974" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5002767" side_tool="true" weight="0.32972974" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32982844" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,22 +363,8 @@
         <state relative-caret-position="-180" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/ItemManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/header.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ItemController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1605">
-          <caret line="114" column="1" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
@@ -427,13 +386,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/BrandsManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-47">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
@@ -470,10 +422,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/Admin/layoutAdmin.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/db.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ItemController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1352">
+          <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/BrandsManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
@@ -484,37 +460,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/Admin/brand/_form.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Model/ItemManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="563">
+          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Admin/brand/add.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/Admin/brand/_form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/BrandsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="37" column="1" lean-forward="true" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
-          <folding>
-            <element signature="e#114#131#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/Admin/layoutAdmin.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        <state relative-caret-position="465">
+          <caret line="51" column="64" lean-forward="true" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
         </state>
       </provider>
     </entry>

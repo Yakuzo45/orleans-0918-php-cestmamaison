@@ -18,19 +18,21 @@ class CategoryController extends AbstractController
 
             $errors = [];
 
-            if (empty($_POST['name'])) {
+            if (empty(trim($_POST['name']))) {
                 $errors['name'] = "La catégorie doit être renseignée";
-                return $this->twig->render('Admin/Category/add.html.twig', ['error' => $errors]);
+            } elseif (strlen($_POST['name']) > 255) {
+                $errors['name'] = "La catégorie doit contenir moins de 255 caractères";
             } else {
 
                 $categoryManager = new CategoryManager($this->getPdo());
                 $category = new Category;
-                $category->setName($_POST['name']);
+                $category->setName(($_POST['name']));
                 $id = $categoryManager->insert($category);
 
                 header('Location:/admin');
+                exit();
             }
         }
-        return $this->twig->render('Admin/Category/add.html.twig');
+        return $this->twig->render('Admin/Category/add.html.twig', ['error' => $errors]);
     }
 }

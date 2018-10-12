@@ -24,7 +24,7 @@ class Category
     /**
      * @param mixed $id
      *
-     * @return Item
+     * @return Category
      */
     public function setId($id): Category
     {

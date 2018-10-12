@@ -20,13 +20,13 @@ class CategoryController extends AbstractController
 
             if (empty(trim($_POST['name']))) {
                 $errors['name'] = "La catégorie doit être renseignée";
-            } elseif (strlen($_POST['name']) > 255) {
+            } elseif (strlen(trim($_POST['name'])) > 255) {
                 $errors['name'] = "La catégorie doit contenir moins de 255 caractères";
             } else {
 
                 $categoryManager = new CategoryManager($this->getPdo());
                 $category = new Category;
-                $category->setName(($_POST['name']));
+                $category->setName(trim(($_POST['name'])));
                 $id = $categoryManager->insert($category);
 
                 header('Location:/admin');

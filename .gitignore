@@ -2,5 +2,5 @@
 /temp/*
 *.cache
 app/db.php
-.idea
-git add.
+.idea/
+

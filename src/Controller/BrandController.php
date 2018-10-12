@@ -12,7 +12,7 @@ use Model\Brand;
 use Model\BrandManager;
 
 /**
-     * Display item creation page
+     * Display brand creation page
      *
      * @return string
      * @throws \Twig_Error_Loader
@@ -28,23 +28,27 @@ class BrandController extends AbstractController
 
             $errors = [];
 
-            if (empty($_POST['name'])) {
+            if (empty(trim($_POST['name']))) {
                 $errors['name'] = "La marque doit être renseignée !";
-                return $this->twig->render('Admin/brand/add.html.twig', ['error' => $errors]);
-            }
-             else {
+
+            } elseif (strlen($_POST['name'])>255){
+                $errors['name'] = "La marque doit faire moins de 255 caractères";
+
+            } else {
 
                 $BrandManager = new BrandManager($this->getPdo());
                 $brand = new Brand();
                 $brand->setName($_POST['name']);
                 $id = $BrandManager->insert($brand);
-            }
 
-            header('Location:/admin');
+
+                header('Location:/admin');
+                exit();
+            }
 
         }
 
-        return $this->twig->render('Admin/brand/add.html.twig');
+        return $this->twig->render('Admin/brand/add.html.twig',['error' => $errors]);
     }
 
 }

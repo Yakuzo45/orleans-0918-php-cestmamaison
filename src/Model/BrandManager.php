@@ -26,7 +26,7 @@ class BrandManager extends AbstractManager
 
 
     /**
-     * @param Brand $item
+     * @param Brand $brand
      * @return int
      */
     public function insert(Brand $brand): int

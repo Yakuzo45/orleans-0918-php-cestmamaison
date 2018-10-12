@@ -51,7 +51,7 @@ class Brand
      *
      * @return Brand
      */
-    public function setName($name): Brand
+    public function setName(string $name): Brand
     {
         $this->name = $name;
 

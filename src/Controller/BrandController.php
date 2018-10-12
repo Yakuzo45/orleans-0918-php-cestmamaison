@@ -24,18 +24,15 @@ class BrandController extends AbstractController
 {
     public function add()
     {
+        $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-            $errors = [];
-
             if (empty(trim($_POST['name']))) {
                 $errors['name'] = "La marque doit être renseignée !";
 
-            } elseif (strlen(trim($_POST['name']))>255){
+            } elseif (strlen(trim($_POST['name']))>255) {
                 $errors['name'] = "La marque doit faire moins de 255 caractères";
 
             } else {
-
                 $BrandManager = new BrandManager($this->getPdo());
                 $brand = new Brand();
                 $brand->setName(trim($_POST['name']));
@@ -48,7 +45,8 @@ class BrandController extends AbstractController
 
         }
 
-        return $this->twig->render('Admin/brand/add.html.twig',['error' => $errors]);
+        return $this->twig->render('Admin/brand/add.html.twig', ['error' => $errors]);
     }
 
 }
+

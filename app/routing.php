@@ -22,4 +22,10 @@ $routes = [
         ['show', '/item/{id:\d+}', 'GET'], // action, url, method
         ['delete', '/item/delete/{id:\d+}', 'GET'], // action, url, method
     ],
+
+    'Brand' => [ // Controller
+
+        ['add', '/admin/brand/add', ['GET', 'POST']], // action, url, method
+        ]
+
 ];

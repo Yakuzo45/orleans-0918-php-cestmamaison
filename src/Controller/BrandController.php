@@ -8,7 +8,7 @@
 
 
 namespace Controller;
-use Model\Brands;
+use Model\Brand;
 use Model\BrandManager;
 
 /**
@@ -34,10 +34,10 @@ class BrandController extends AbstractController
             }
              else {
 
-                $BrandsManager = new BrandManager($this->getPdo());
-                $brands = new Brands();
-                $brands->setName($_POST['name']);
-                $id = $BrandsManager->insert($brands);
+                $BrandManager = new BrandManager($this->getPdo());
+                $brand = new Brand();
+                $brand->setName($_POST['name']);
+                $id = $BrandManager->insert($brand);
             }
 
             header('Location:/admin');

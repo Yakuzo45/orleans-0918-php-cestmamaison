@@ -26,14 +26,14 @@ class BrandManager extends AbstractManager
 
 
     /**
-     * @param Brands $item
+     * @param Brand $item
      * @return int
      */
-    public function insert(Brands $brands): int
+    public function insert(Brand $brand): int
     {
         // prepared request
         $statement = $this->pdo->prepare("INSERT INTO $this->table (`name`) VALUES (:name)");
-        $statement->bindValue('name', $brands->getName(), \PDO::PARAM_STR);
+        $statement->bindValue('name', $brand->getName(), \PDO::PARAM_STR);
 
 
         if ($statement->execute()) {

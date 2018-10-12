@@ -9,10 +9,10 @@
 namespace Model;
 
 /**
- * Class Brands
+ * Class Brand
  *
  */
-class Brands
+class Brand
 {
     private $id;
 
@@ -29,9 +29,9 @@ class Brands
     /**
      * @param mixed $id
      *
-     * @return Brands
+     * @return Brand
      */
-    public function setId($id): Brands
+    public function setId($id): Brand
     {
         $this->id = $id;
 
@@ -49,9 +49,9 @@ class Brands
     /**
      * @param mixed $name
      *
-     * @return Brands
+     * @return Brand
      */
-    public function setName($name): Brands
+    public function setName($name): Brand
     {
         $this->name = $name;
 

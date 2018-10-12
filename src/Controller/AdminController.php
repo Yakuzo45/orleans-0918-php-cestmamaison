@@ -20,6 +20,6 @@ class AdminController extends AbstractController
 {
     public function index()
     {
-        return $this->twig->render('Admin/layoutAdmin.html.twig');
+        return $this->twig->render('Admin/Homepage/contentAdmin.html.twig');
     }
 }

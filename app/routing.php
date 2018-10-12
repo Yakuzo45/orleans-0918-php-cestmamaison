@@ -14,6 +14,8 @@ $routes = [
     'Admin' => [ // Controller
         ['index', '/admin', 'GET'], // action, url, method
     ],
+    'Category' => [ // Controller
+        ['add', '/admin/category/add', ['GET', 'POST']], // action, url, method
 
     'Item' => [ // Controller
         ['index', '/', 'GET'], // action, url, method
@@ -27,5 +29,4 @@ $routes = [
 
         ['add', '/admin/brand/add', ['GET', 'POST']], // action, url, method
         ]
-
 ];

@@ -31,7 +31,7 @@ class Brand
      *
      * @return Brand
      */
-    public function setId($id): Brand
+    public function setId(int $id): Brand
     {
         $this->id = $id;
 

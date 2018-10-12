@@ -31,14 +31,14 @@ class BrandController extends AbstractController
             if (empty(trim($_POST['name']))) {
                 $errors['name'] = "La marque doit être renseignée !";
 
-            } elseif (strlen($_POST['name'])>255){
+            } elseif (strlen(trim($_POST['name']))>255){
                 $errors['name'] = "La marque doit faire moins de 255 caractères";
 
             } else {
 
                 $BrandManager = new BrandManager($this->getPdo());
                 $brand = new Brand();
-                $brand->setName($_POST['name']);
+                $brand->setName(trim($_POST['name']));
                 $id = $BrandManager->insert($brand);
 
 

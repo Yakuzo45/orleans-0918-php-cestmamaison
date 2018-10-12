@@ -34,10 +34,3 @@ class CategoryController extends AbstractController
         return $this->twig->render('Admin/Category/add.html.twig');
     }
 }
-/*                <div class="alert alert-danger">
-                    <ul>
-                        <?php foreach ($errors as $error) : ?>
-                        <li><?= $error ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>*/

@@ -22,11 +22,11 @@ class Category
     }
 
     /**
-     * @param mixed int
+     * @param mixed $id
      *
      * @return Category
      */
-    public function setId(int $id): Category
+    public function setId($id): Category
     {
         $this->id = $id;
 
@@ -42,11 +42,11 @@ class Category
     }
 
     /**
-     * @param mixed string
+     * @param mixed $name
      *
      * @return Category
      */
-    public function setName(string $name):Category
+    public function setName($name):Category
     {
         $this->name = $name;
 

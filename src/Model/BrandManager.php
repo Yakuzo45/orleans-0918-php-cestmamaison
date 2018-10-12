@@ -9,7 +9,7 @@
 namespace Model;
 
 
-class BrandsManager extends AbstractManager
+class BrandManager extends AbstractManager
 {
     /**
      *

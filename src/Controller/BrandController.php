@@ -9,7 +9,7 @@
 
 namespace Controller;
 use Model\Brands;
-use Model\BrandsManager;
+use Model\BrandManager;
 
 /**
      * Display item creation page
@@ -20,7 +20,7 @@ use Model\BrandsManager;
      * @throws \Twig_Error_Syntax
      */
 
-class BrandsController extends AbstractController
+class BrandController extends AbstractController
 {
     public function add()
     {
@@ -34,7 +34,7 @@ class BrandsController extends AbstractController
             }
              else {
 
-                $BrandsManager = new BrandsManager($this->getPdo());
+                $BrandsManager = new BrandManager($this->getPdo());
                 $brands = new Brands();
                 $brands->setName($_POST['name']);
                 $id = $BrandsManager->insert($brands);

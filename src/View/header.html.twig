@@ -13,9 +13,20 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#">Présentation</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#">Catégories</a>
-                </li>
+            </ul>
+            <div class="dropdown ml-auto">
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Catégorie
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {% for category in categories %}
+                        <a class="dropdown-item" href="/categorie/{{ category.id }}">{{ category.name }}</a>
+                    {% else %}
+                        <a class="dropdown-item">Pas de catégorie</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <ul class="navbar-nav text-uppercase ml-auto">
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#">Marques</a>
                 </li>

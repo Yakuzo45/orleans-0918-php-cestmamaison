@@ -1,0 +1,26 @@
+{% extends 'Admin/layoutAdmin.html.twig' %}
+{% block content %}
+<div class="container pt-5">
+    <div class="row pt-3 justify-content-center">
+        <h5 class="justify-content-center">Catégories</h5>
+    </div>
+    <div class="row pt-3 justify-content-center">
+        <a href="/admin/category/add" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Ajouter</a>
+    </div>
+    {% for category in categories %}
+    <div class="row justify-content-center pt-5">
+        <div class="col-3">
+            <h5>{{ category.name }}</h5>
+            <img src="{{ category.picture }}" alt="Image Catégorie">
+        </div>
+        <div class="col-2">
+            <a href="#" class="btn btn-secondary btn-md active align-self-center" role="button" aria-pressed="true">Modifier</a>
+        </div>
+        <div class="col-2">
+            <a href="#" class="btn btn-secondary btn-md active align-self-center" role="button" aria-pressed="true">Supprimer</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+

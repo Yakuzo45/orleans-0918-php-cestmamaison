@@ -1,0 +1,21 @@
+{% extends 'Admin/layoutAdmin.html.twig' %}
+{% block content %}
+    <div class="container pt-5">
+        <div class="row justify-content-center">
+            <h1>Produits</h1>
+        </div>
+        <div class="row justify-content-center pt-5">
+            <a href="/product/add" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Ajouter</a>
+
+        </div>
+        {% for product in products %}
+            <div class="row justify-content-around pt-5">
+                <div class="col"><h5>{{ product.name }}</h5><img src ="{{ product.picture }}"></div>
+                <div class="col align-self-center"><a href="/product/{{ product.id }}" class="btn btn-secondary btn-md active" role="button" aria-pressed="true">Modifier</a></div>
+                <div class="col align-self-center"><a href="/product/show{{ product.id }}" class="btn btn-secondary btn-md active" role="button" aria-pressed="true">Supprimer</a></div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+{% endblock %}

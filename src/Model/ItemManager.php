@@ -57,7 +57,6 @@ class ItemManager extends AbstractManager
         $statement->execute();
     }
 
-
     /**
      * @param Item $item
      * @return int

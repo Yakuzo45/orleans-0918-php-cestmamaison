@@ -1,0 +1,20 @@
+{% extends 'Admin/layoutAdmin.html.twig' %}
+{% block content %}
+    <div class="container pt-5">
+<div class="row justify-content-center">
+    <h1>Marques</h1>
+</div>
+<div class="row justify-content-center pt-5">
+    <a href="/admin/brand/add" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Ajouter</a>
+
+</div>
+{% for brand in brands %}
+    <div class="row justify-content-around pt-5">
+        <div class="col"><p>{{ brand.name }}</p><img src ="{{ brand.picture }}" alt="photo de la marque correspondante"></div>
+        <div class="col align-self-center"><a href="/product/{{ brand.id }}" class="btn btn-secondary btn-md active" role="button" aria-pressed="true">Modifier</a></div>
+        <div class="col align-self-center"><a href="/product/show{{ brand.id }}" class="btn btn-secondary btn-md active" role="button" aria-pressed="true">Supprimer</a></div>
+    </div>
+
+{% endfor %}
+</div>
+{% endblock %}

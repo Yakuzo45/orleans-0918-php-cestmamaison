@@ -167,14 +167,14 @@ nav .dropdown-toggle:hover {
     color: #BFD58E;
     background-color: transparent;
 }
-nav .btn:focus {
-    border:10px;
+nav .dropdown-toggle:focus {
+    border:none;
 }
 nav .dropdown-item{
     font-family: 'Hind Vadodara', sans-serif;
 }
 nav .dropdown-item:hover{
-    background-color:#BFD58E;
+    background-color:#D0ADE1;
 }
 nav .dropdown-menu{
     background-color:#D0ADE1;

@@ -30,7 +30,7 @@ $routes = [
         ['add', '/admin/brand/add', ['GET', 'POST']], // action, url, method
         ],
 
-    'Presentation' => [//Controller
+    'Home' => [//Controller
         ['index', '/presentation', 'GET'],
         ],
 ];

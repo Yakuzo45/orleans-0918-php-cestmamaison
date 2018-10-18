@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: wcs
+ * Visitor: wcs
  * Date: 23/10/17
  * Time: 10:57
  * PHP version 7

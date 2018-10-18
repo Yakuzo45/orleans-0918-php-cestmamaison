@@ -1,8 +1,18 @@
-<form method="post" class="col-6 justify-content-center">
+<form method="post" class="col-6 justify-content-center" enctype="multipart/form-data">
     <div class="form-group">
         <input type="hidden" value="{{ category.id }}" name="id">
-        <label for="name">Nom</label>
+        <label for="name">Nom : </label>
         <input type="text" class="form-control" value="{{ category.name }}" id="name" name="name" placeholder="Doudou">
+        <div class="row justify-content-start">
+            <div class="col-5 btn-file">
+                <label for="fichier">Ajouter un fichier : </label>
+                <input type="file" name="fichier"/>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-2">
+                <button type="submit" class="btn btn-success">Valider</button>
+            </div>
+        </div>
     </div>
-    <button type="submit" class="btn btn-success">Valider</button>
 </form>

@@ -14,6 +14,7 @@ body {
 
 p {
     line-height: 1.75;
+
 }
 
 a {
@@ -41,7 +42,7 @@ h6 {
 }
 
 section {
-    padding: 100px 0;
+    padding: 30px 0;
     background-color:white;
 }
 

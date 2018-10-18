@@ -15,7 +15,6 @@
                 <th scope="col">Nom de la marque</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
-                <th scope="col"></th>
 
             </tr>
             <tbody>
@@ -27,8 +26,8 @@
                     <td><a href="https://placeholder.com"><img src="https://via.placeholder.com/350x150" alt="Photo de la marque correspondante"></a></td>
                 {% endif %}
                 <td>{{ brand.name }}</td>
-                <td class="btn btn-secondary btn-md active mr-5 mt-5">Modifier</td>
-                <td class="btn btn-danger btn-md active mt-5">Supprimer</td>
+                <td><a href="#" class="btn btn-secondary btn-md active mr-5 mt-5">Modifier</a></td>
+                <td><a href="#" class="btn btn-danger btn-md active mt-5">Supprimer</a></td>
             </tr>
             </tbody>
             {% endfor %}

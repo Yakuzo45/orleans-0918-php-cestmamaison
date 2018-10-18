@@ -28,7 +28,7 @@ $routes = [
     'Brand' => [ // Controller
 
         ['add', '/admin/brand/add', ['GET', 'POST']], // action, url, method
-        ['index', '/admin/brand', ['GET','POST']], // action, url, method
+        ['index', '/admin/brand', ['GET']], // action, url, method
         ],
 
 ];

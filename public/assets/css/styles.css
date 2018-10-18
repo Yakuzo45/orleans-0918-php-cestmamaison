@@ -711,3 +711,10 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
     margin-top: 109px;
 
 }
+@media (max-width: 576px) {
+    .horaires{
+        flex-direction: column-reverse;
+
+
+    }
+}

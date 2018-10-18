@@ -26,10 +26,19 @@
                     {% endfor %}
                 </div>
             </div>
+            <div class="dropdown ml-auto">
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Marques
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {% for brand in brands %}
+                        <a class="dropdown-item" href="/brand/{{ brand.id }}">{{ brand.name }}</a>
+                    {% else %}
+                        <a class="dropdown-item">Pas de marques</a>
+                    {% endfor %}
+                </div>
+            </div>
             <ul class="navbar-nav text-uppercase  ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#">Marques</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#">Contact</a>
                 </li>

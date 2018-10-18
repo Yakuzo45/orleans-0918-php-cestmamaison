@@ -25,8 +25,8 @@ class DropdownService extends AbstractController
     public function getBrands()
     {
         $brandManager = new BrandManager($this->getPdo());
-        $brand = $brandManager->selectAll();
+        $brands = $brandManager->selectAll();
 
-        return $brand;
+        return $brands;
     }
 }

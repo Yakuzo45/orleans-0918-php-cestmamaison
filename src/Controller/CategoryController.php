@@ -19,21 +19,24 @@ class CategoryController extends AbstractController
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (empty(trim($_POST['name']))) {
-                $errors['name'] = "La catégorie doit être renseignée";
-            } elseif (strlen(trim($_POST['name'])) > 255) {
-                $errors['name'] = "La catégorie doit contenir moins de 255 caractères";
-            } elseif (empty($_FILES['fichier']['name'])) {
-                $errors['name'] = 'L\'image doit être renseignée';
-            } else {
-
-                $length = filesize($_FILES['fichier']['tmp_name']);
-                $ext = pathinfo($_FILES['fichier']['name'], PATHINFO_EXTENSION);
-                if ($length > self::MAX_SIZE) {
-                    $errors['name'] = 'Votre fichier ne peut exceder 1Mo';
-                } elseif (!in_array($ext, self::EXTENSION)) {
-                    $errors['name'] = 'Votre fichier peut uniquement posseder l\'extension ' . implode(' , ', self::EXTENSION);
-                }
+                $errors[] = "La catégorie doit être renseignée";
             }
+            if (strlen(trim($_POST['name'])) > 255) {
+                $errors[] = "La catégorie doit contenir moins de 255 caractères";
+            }
+            if (empty($_FILES['fichier']['name'])) {
+                $errors[] = 'L\'image doit être renseignée';
+            }
+
+
+            $length = filesize($_FILES['fichier']['tmp_name']);
+            $ext = pathinfo($_FILES['fichier']['name'], PATHINFO_EXTENSION);
+            if ($length > self::MAX_SIZE) {
+                $errors[] = 'Votre fichier ne peut exceder 1Mo';
+            } elseif ((!in_array($ext, self::EXTENSION)) and (!empty($_FILES['fichier']['name']))) {
+                $errors[] = 'Votre fichier peut uniquement posseder l\'extension ' . implode(' , ', self::EXTENSION);
+            }
+
 
             if (empty($errors)) {
                 $fileName = 'image' . uniqid() . '.' . $ext[1];
@@ -52,6 +55,6 @@ class CategoryController extends AbstractController
 
             }
         }
-        return $this->twig->render('Admin/Category/add.html.twig', ['error' => $errors]);
+        return $this->twig->render('Admin/Category/add.html.twig', ['errors' => $errors]);
     }
 }

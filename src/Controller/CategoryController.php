@@ -33,4 +33,11 @@ class CategoryController extends AbstractController
         }
         return $this->twig->render('Admin/Category/add.html.twig', ['error' => $errors]);
     }
+    public function index()
+    {
+        $categoryManager = new CategoryManager($this->getPdo());
+        $categories = $categoryManager->selectAll();
+
+        return $this->twig->render('Admin/Category/index.html.twig', ['categories' => $categories]);
+    }
 }

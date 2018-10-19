@@ -16,87 +16,97 @@ class Product
     private $price;
     private $picture;
 
+
     /**
-     * @return mixed
+     * @return int
      */
     public function getId(): int
     {
         return $this->id;
     }
 
+
     /**
-     * @param mixed $id
+     * @param int $id
      * @return Product
      */
-    public function setId($id): Product
+    public function setId(int $id): Product
     {
         $this->id = $id;
     }
 
+
     /**
-     * @return mixed
+     * @return string
      */
     public function getName(): string
     {
         return $this->name;
     }
 
+
     /**
-     * @param mixed $name
+     * @param string $name
      * @return Product
      */
-    public function setName($name): Product
+    public function setName(string $name): Product
     {
         $this->name = $name;
     }
 
+
     /**
-     * @return mixed
+     * @return string
      */
     public function getDescription(): string
     {
         return $this->description;
     }
 
+
     /**
-     * @param mixed $description
+     * @param string $description
      * @return Product
      */
-    public function setDescription($description): Product
+    public function setDescription(string $description): Product
     {
         $this->description = $description;
     }
 
+
     /**
-     * @return mixed
+     * @return float
      */
     public function getPrice(): float
     {
         return $this->price;
     }
 
+
     /**
-     * @param mixed $price
+     * @param float $price
      * @return Product
      */
-    public function setPrice($price): Product
+    public function setPrice(float $price): Product
     {
         $this->price = $price;
     }
 
+
     /**
-     * @return mixed
+     * @return string
      */
     public function getPicture(): string
     {
         return $this->picture;
     }
 
+
     /**
-     * @param mixed $picture
+     * @param string $picture
      * @return Product
      */
-    public function setPicture($picture): Product
+    public function setPicture(string $picture): Product
     {
         $this->picture = $picture;
     }

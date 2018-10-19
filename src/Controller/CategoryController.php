@@ -12,6 +12,8 @@ use Model\CategoryManager;
 
 class CategoryController extends AbstractController
 {
+    const EXTENSION = ['png','jpeg','jpg'];
+    const MAX_SIZE = 1048576;
     public function add()
     {
         $errors = [];
@@ -27,20 +29,19 @@ class CategoryController extends AbstractController
                 if ($_FILES) {
                     $length = filesize($_FILES['fichier']['tmp_name']);
                     $ext = explode('.', $_FILES['fichier']['name']);
-                    if ($length > 1048576) {
+                    if ($length > self::MAX_SIZE) {
                         $errors['name'] = 'Votre fichier ne peut exceder 1Mo';
-                    } elseif (!in_array($ext[1], $extension)) {
-                        $errors['name'] = 'Votre fichier peut uniquement posseder l\'extension ".png" , ".jpeg" ou ".jpg".';
+                    } elseif (!in_array($ext[1], self::EXTENSION)) {
+                        $errors['name'] = 'Votre fichier peut uniquement posseder l\'extension ' . implode(' , ', self::EXTENSION);
                     } else {
-                        $rename = pathinfo($_FILES['fichier']['name'], PATHINFO_EXTENSION);
-                        $_FILES['fichier']['name'] = 'image' . uniqid() . '.' . $rename;
+                        $fileName = 'image' . uniqid() . '.' . $ext[1];
                         $uploadDir = 'assets/images/CategoryImages/';
-                        $uploadFile = $uploadDir . basename($_FILES['fichier']['name']);
+                        $uploadFile = $uploadDir . basename($fileName);
                         move_uploaded_file($_FILES['fichier']['tmp_name'], $uploadFile);
                         $categoryManager = new CategoryManager($this->getPdo());
                         $category = new Category;
                         $category->setName(trim(($_POST['name'])));
-                        $category->setImage($_FILES['fichier']['name']);
+                        $category->setImage($fileName);
                         $id = $categoryManager->insert($category);
                         header('Location:/admin');
                         exit();

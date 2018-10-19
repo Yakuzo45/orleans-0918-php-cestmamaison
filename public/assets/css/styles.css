@@ -149,7 +149,41 @@ img::-moz-selection {
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
     color: #BFD58E;
 }
-
+nav .btn {
+    background-color:#D0ADE1;
+    border:none;
+}
+nav .dropdown-toggle{
+    font-size: 16px;
+    right: 0;
+    padding: 13px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: white;
+    border: 0;
+    font-family: 'Hind Vadodara', sans-serif;
+}
+nav .dropdown-toggle:hover {
+    color: #BFD58E;
+    background-color: transparent;
+}
+nav .dropdown-toggle:focus {
+    border:none;
+}
+nav .dropdown-item{
+    font-family: 'Hind Vadodara', sans-serif;
+}
+nav .dropdown-item:hover{
+    background-color:#D0ADE1;
+}
+nav .dropdown-menu{
+    background-color:#D0ADE1;
+    color:white;
+    font-family: 'Hind Vadodara', sans-serif;
+}
+nav .dropdown-menu:hover{
+    background-color:#BFD58E;
+}
 @media (min-width: 992px) {
     #mainNav {
         padding-top: 25px;
@@ -175,6 +209,10 @@ img::-moz-selection {
     #mainNav.navbar-shrink .navbar-brand {
         font-size: 1.25em;
         padding: 12px 0;
+    }
+    nav .btn {
+        background-color:transparent;
+        border:none;
     }
 }
 
@@ -658,7 +696,6 @@ section#contact :-ms-input-placeholder {
 }
 
 footer {
-    padding: 25px 0;
     text-align: center;
 }
 

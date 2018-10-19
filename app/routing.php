@@ -23,19 +23,13 @@ $routes = [
 
     ],
 
-    'Item' => [ // Controller
-        ['add', '/item/add', ['GET', 'POST']], // action, url, method
-        ['edit', '/item/edit/{id:\d+}', ['GET', 'POST']], // action, url, method
-        ['show', '/item/{id:\d+}', 'GET'], // action, url, method
-        ['delete', '/item/delete/{id:\d+}', 'GET'], // action, url, method
-    ],
-
-    'Brand' => [ // Controller
-
-        ['add', '/admin/brand/add', ['GET', 'POST']], // action, url, method
-        ],
     'Product' => [ // Controller
 
         ['index', '/admin/product/index', 'GET'], // action, url, method
     ],
+
+    'Brand' => [ // Controller
+        ['add', '/admin/brand/add', ['GET', 'POST']], // action, url, method
+        ['index', '/admin/brand', ['GET']], // action, url, method
+        ],
 ];

@@ -22,7 +22,7 @@
         <tr>
             <td>{{ category.name }}</td>
             {% if category.picture is not empty %}
-                <td><img src="{{ category.picture }}" alt=""></td>
+                <td><img src="{{ category.picture }}" alt="Illustration de {{ category.name }}"></td>
             {% else %}
                 <td><img src="https://via.placeholder.com/350x150" alt=""></td>
             {% endif %}

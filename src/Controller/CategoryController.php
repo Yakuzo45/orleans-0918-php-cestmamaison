@@ -14,10 +14,8 @@ class CategoryController extends AbstractController
 {
     public function add()
     {
+        $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-            $errors = [];
-
             if (empty(trim($_POST['name']))) {
                 $errors['name'] = "La catégorie doit être renseignée";
             } elseif (strlen(trim($_POST['name'])) > 255) {

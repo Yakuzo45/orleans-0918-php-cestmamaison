@@ -1,0 +1,40 @@
+{% extends 'Admin/layoutAdmin.html.twig' %}
+{% block content %}
+    <div class="container pt-5">
+        <div class="row justify-content-center">
+            <h1>Produits</h1>
+        </div>
+        <div class="row justify-content-center pt-5 pb-5">
+            <a href="/product/add" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Ajouter</a>
+
+        </div>
+
+            <table class="table text-center">
+                <thead class="thead-dark">
+                <tr>
+
+                    <th scope="col">Noms</th>
+                    <th scope="col">Images</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for product in products %}
+                <tr>
+
+                    <td>{{ product.name }}</td>
+                    {% if product.picture is not empty %}
+                        <td><img src="{{product.picture }}" alt="{{product.name}}"></td>
+                    {% else %}
+                        <td><img src="https://via.placeholder.com/150x150" alt=""></td>
+                    {% endif %}
+                    <td><a href="/product/{{ product.id }}" class="btn btn-secondary btn-md active mt-5" role="button" aria-pressed="true">Modifier</a></td>
+                    <td><a href="/admin/product/show{{ product.id }}" class="btn btn-danger btn-md active mt-5" role="button" aria-pressed="true">Supprimer</a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+    </div>
+{% endblock %}

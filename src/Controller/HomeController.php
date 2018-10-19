@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: wilder7
- * Date: 18/10/18
- * Time: 08:12
- */
+
+
 
 namespace Controller;
 
@@ -26,6 +22,11 @@ class HomeController extends AbstractController
         return $this->twig->render('Visitor/index.html.twig', ['categories' => $this->dropdownService->getCategories(), 'brands' => $this->dropdownService->getBrands()]);
 
     }
+    public function presentation()
+    {
+        return $this->twig->render('Visitor/Presentation/index.html.twig');
+    }
 
 
 }
+

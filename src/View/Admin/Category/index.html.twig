@@ -21,10 +21,10 @@
         {% for category in categories %}
         <tr>
             <td>{{ category.name }}</td>
-            {% if brand.picture is not empty %}
-                <td><img src="{{ category.picture }}" alt="Image Catégorie"></td>
+            {% if category.picture is not empty %}
+                <td><img src="{{ category.picture }}" alt=""></td>
             {% else %}
-                <td><img src="https://via.placeholder.com/350x150" alt="Photo de la catégorie correspondante"></td>
+                <td><img src="https://via.placeholder.com/350x150" alt=""></td>
             {% endif %}
             <td><a href="#" class="btn btn-secondary btn-md active mr-5 mt-5" role="button" aria-pressed="true">Modifier</a></td>
             <td><a href="#" class="btn btn-danger btn-md active mt-5" role="button" aria-pressed="true">Supprimer</a></td>

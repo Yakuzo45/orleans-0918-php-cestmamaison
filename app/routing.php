@@ -14,6 +14,10 @@ $routes = [
     'Admin' => [ // Controller
         ['index', '/admin', 'GET'], // action, url, method
     ],
+    'Home' => [ // Controller
+        ['index', '/', 'GET'], // action, url, method
+        ['index', '/presentation', 'GET'],
+    ],
     'Category' => [ // Controller
         ['add', '/admin/category/add', ['GET', 'POST']], // action, url, method
     ],
@@ -28,9 +32,5 @@ $routes = [
     'Brand' => [ // Controller
 
         ['add', '/admin/brand/add', ['GET', 'POST']], // action, url, method
-        ],
-
-    'Home' => [//Controller
-        ['index', '/presentation', 'GET'],
         ],
 ];

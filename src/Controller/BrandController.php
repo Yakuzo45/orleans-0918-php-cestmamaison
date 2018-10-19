@@ -47,6 +47,13 @@ class BrandController extends AbstractController
 
         return $this->twig->render('Admin/brand/add.html.twig', ['error' => $errors]);
     }
+    public function index()
+    {
+        $brandManager = new BrandManager($this->getPdo());
+        $brands = $brandManager->selectAll();
+
+        return $this->twig->render('Admin/brand/index.html.twig', ['brands' => $brands]);
+    }
 
 }
 

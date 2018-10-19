@@ -27,8 +27,9 @@ class CategoryManager extends AbstractManager
     public function insert(Category $category): int
     {
         // prepared request
-        $statement = $this->pdo->prepare("INSERT INTO $this->table (`name`) VALUES (:name)");
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (`name`,`image`) VALUES (:name, :image)");
         $statement->bindValue('name', $category->getName(), \PDO::PARAM_STR);
+        $statement->bindValue('image', $category->getImage(), \PDO::PARAM_STR);
 
 
         if ($statement->execute()) {

@@ -13,6 +13,8 @@ class Category
 
     private $name;
 
+    private $image;
+
     /**
      * @return int
      */
@@ -49,6 +51,22 @@ class Category
     public function setName(string $name):Category
     {
         $this->name = $name;
+
+        return $this;
+    }
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     *
+     * @return Category
+     */
+    public function setImage(string $image)
+    {
+        $this->image = $image;
 
         return $this;
     }

@@ -27,7 +27,7 @@ $routes = [
     'Product' => [ // Controller
 
         ['index', '/admin/product/index', 'GET'], // action, url, method
-
+        ['show', '/admin/product/show{id:\d+}', 'GET'],
     ],
 
     'Brand' => [ // Controller

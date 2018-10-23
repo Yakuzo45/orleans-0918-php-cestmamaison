@@ -57,7 +57,7 @@ class BrandController extends AbstractController
                 $brandManager = new BrandManager($this->getPdo());
                 $brand = new Brand;
                 $brand->setName(trim(($_POST['name'])));
-                $brand->setImage($fileName);
+                $brand->setPicture($fileName);
                 $id = $brandManager->insert($brand);
 
                 header('Location:/admin');

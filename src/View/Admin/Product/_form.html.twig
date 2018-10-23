@@ -3,12 +3,17 @@
     <input type="hidden" value="{{ product.id }}" name="id">
     <label for="name">Nom : </label>
     <input type="text" class="form-control" value="{{ product.name }}" id="name" name="name" placeholder="Doudou">
-    <label for="name">Nom : </label>
+    <label for="name">Description : </label>
     <input type="text" class="form-control" value="{{ product.description }}" id="description" name="Description" placeholder="description">
-    <label for="name">Nom : </label>
+    <label for="name">Prix : </label>
     <input type="text" class="form-control" value="{{ product.price }}" id="Price" name="Price" placeholder="Price">
-    <label for="name">Nom : </label>
+    <label for="name">Image : </label>
     <input type="text" class="form-control" value="{{ product.picture }}" id="picture" name="picture" placeholder="Picture">
+    {% if category.picture is not empty %}
+        <img src="{{ product.picture }}" alt="Illustration de {{ product.name }}">
+    {% else %}
+        <img src="https://via.placeholder.com/150x150" alt="">
+    {% endif %}
     <div class="row justify-content-start">
         <div class="col-5 btn-file">
             <label for="fichier">Ajouter un fichier : </label>

@@ -19,12 +19,18 @@ class HomeController extends AbstractController
 
     public function index()
     {
-        return $this->twig->render('Visitor/index.html.twig', ['categories' => $this->dropdownService->getCategories(), 'brands' => $this->dropdownService->getBrands()]);
+        return $this->twig->render('Visitor/index.html.twig', [
+            'categories' => $this->dropdownService->getCategories(),
+            'brands' => $this->dropdownService->getBrands()]
+        );
 
     }
     public function presentation()
     {
-        return $this->twig->render('Visitor/Presentation/index.html.twig',['categories' => $this->dropdownService->getCategories(), 'brands' => $this->dropdownService->getBrands()]);
+        return $this->twig->render('Visitor/Presentation/index.html.twig',[
+            'categories' => $this->dropdownService->getCategories(),
+            'brands' => $this->dropdownService->getBrands()]
+        );
     }
 
 

@@ -24,7 +24,7 @@ class HomeController extends AbstractController
     }
     public function presentation()
     {
-        return $this->twig->render('Visitor/Presentation/index.html.twig');
+        return $this->twig->render('Visitor/Presentation/index.html.twig',['categories' => $this->dropdownService->getCategories(), 'brands' => $this->dropdownService->getBrands()]);
     }
 
 

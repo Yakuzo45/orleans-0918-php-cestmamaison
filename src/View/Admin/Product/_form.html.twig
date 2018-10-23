@@ -9,7 +9,7 @@
     <input type="text" class="form-control" value="{{ product.price }}" id="Price" name="Price" placeholder="Price">
     <label for="name">Image : </label>
     <input type="text" class="form-control" value="{{ product.picture }}" id="picture" name="picture" placeholder="Picture">
-    {% if category.picture is not empty %}
+    {% if product.picture is not empty %}
         <img src="{{ product.picture }}" alt="Illustration de {{ product.name }}">
     {% else %}
         <img src="https://via.placeholder.com/150x150" alt="">

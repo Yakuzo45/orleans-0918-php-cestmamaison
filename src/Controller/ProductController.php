@@ -41,10 +41,14 @@ class ProductController extends AbstractController
 
         return $this->twig->render('Admin/Product/show.html.twig', ['product' => $product]) ;
     }
+
+    /**
+     * @param int $id
+     */
     public function delete(int $id)
     {
         $productManager = new ProductManager($this->getPdo());
         $productManager->delete($id);
-        header('Location:/Admin/Product/index.html.twig');
+        header('Location:/admin/product/index');
     }
 }

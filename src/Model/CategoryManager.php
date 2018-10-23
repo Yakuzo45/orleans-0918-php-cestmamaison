@@ -36,4 +36,16 @@ class CategoryManager extends AbstractManager
             return $this->pdo->lastInsertId();
         }
     }
+    public function update(Category $category): int
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("UPDATE $this->table (`name`,`image`) VALUES (:name, :image)");
+        $statement->bindValue('name', $category->getName(), \PDO::PARAM_STR);
+        $statement->bindValue('image', $category->getImage(), \PDO::PARAM_STR);
+
+
+        if ($statement->execute()) {
+            return $this->pdo->lastInsertId();
+        }
+    }
 }

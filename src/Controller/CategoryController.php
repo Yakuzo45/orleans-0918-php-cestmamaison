@@ -39,7 +39,7 @@ class CategoryController extends AbstractController
 
 
             if (empty($errors)) {
-                $fileName = 'image' . uniqid() . '.' . $ext[1];
+                $fileName = 'image' . uniqid() . '.' . $ext;
                 $uploadDir = 'assets/images/CategoryImages/';
                 $uploadFile = $uploadDir . basename($fileName);
                 move_uploaded_file($_FILES['fichier']['tmp_name'], $uploadFile);
@@ -47,7 +47,7 @@ class CategoryController extends AbstractController
                 $categoryManager = new CategoryManager($this->getPdo());
                 $category = new Category;
                 $category->setName(trim(($_POST['name'])));
-                $category->setImage($fileName);
+                $category->setPicture($fileName);
                 $id = $categoryManager->insert($category);
 
                 header('Location:/admin');

@@ -18,6 +18,25 @@ class Brand
 
     private $name;
 
+    private $image;
+
+    /**
+     * @return mixed
+     */
+    public function getImage() : string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage(string $image): Brand
+    {
+        $this->image = $image;
+        return $this;
+    }
+
     /**
      * @return int
      */

@@ -22,30 +22,50 @@ use Model\BrandManager;
 
 class BrandController extends AbstractController
 {
+    const EXTENSION = ['png','jpeg','jpg'];
+    const MAX_SIZE = 1048576;
     public function add()
     {
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (empty(trim($_POST['name']))) {
-                $errors['name'] = "La marque doit être renseignée !";
+                $errors[] = "La catégorie doit être renseignée";
+            }
+            if (strlen(trim($_POST['name'])) > 255) {
+                $errors[] = "La catégorie doit contenir moins de 255 caractères";
+            }
+            if (empty($_FILES['fichier']['name'])) {
+                $errors[] = 'L\'image doit être renseignée';
+            }
 
-            } elseif (strlen(trim($_POST['name']))>255) {
-                $errors['name'] = "La marque doit faire moins de 255 caractères";
 
-            } else {
-                $BrandManager = new BrandManager($this->getPdo());
-                $brand = new Brand();
-                $brand->setName(trim($_POST['name']));
-                $id = $BrandManager->insert($brand);
+            $length = filesize($_FILES['fichier']['tmp_name']);
+            $ext = pathinfo($_FILES['fichier']['name'], PATHINFO_EXTENSION);
+            if ($length > self::MAX_SIZE) {
+                $errors[] = 'Votre fichier ne peut exceder 1Mo';
+            } elseif ((!in_array($ext, self::EXTENSION)) and (!empty($_FILES['fichier']['name']))) {
+                $errors[] = 'Votre fichier peut uniquement posseder l\'extension ' . implode(' , ', self::EXTENSION);
+            }
 
+
+            if (empty($errors)) {
+                $fileName = 'image' . uniqid() . '.' . $ext;
+                $uploadDir = 'assets/images/BrandImages/';
+                $uploadFile = $uploadDir . basename($fileName);
+                move_uploaded_file($_FILES['fichier']['tmp_name'], $uploadFile);
+
+                $brandManager = new BrandManager($this->getPdo());
+                $brand = new Brand;
+                $brand->setName(trim(($_POST['name'])));
+                $brand->setImage($fileName);
+                $id = $brandManager->insert($brand);
 
                 header('Location:/admin');
                 exit();
+
             }
-
         }
-
-        return $this->twig->render('Admin/brand/add.html.twig', ['error' => $errors]);
+        return $this->twig->render('Admin/brand/add.html.twig', ['errors' => $errors]);
     }
     public function index()
     {

@@ -148,7 +148,7 @@ img::-moz-selection {
     font-family: 'Hind Vadodara', sans-serif;
 }
 
-#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {/presentation
+#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
     color: #BFD58E;
 }
 nav .btn {

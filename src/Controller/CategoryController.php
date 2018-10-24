@@ -67,8 +67,10 @@ class CategoryController extends AbstractController
         return $this->twig->render('Admin/Category/index.html.twig', ['categories' => $categories]);
     }
 
-    public function update()
+    public function update(int $id)
     {
+        $categoryManager = new CategoryManager($this->getPdo());
+        $categories = $categoryManager->selectOneById($id);
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (empty(trim($_POST['name']))) {
@@ -99,16 +101,21 @@ class CategoryController extends AbstractController
 
                 $categoryManager = new CategoryManager($this->getPdo());
                 $category = new Category();
+                $category->setId($id);
                 $category->setName($_POST['name']);
+                $category->setPicture($fileName);
 
-                $id = $categoryManager->update($category);
+                $categoryManager->update($category);
                 header('Location:/admin/category/index');
                 exit();
             }
 
         }
 
-        return $this->twig->render('Admin/Category/update.html.twig', ['errors' => $errors]);
+        return $this->twig->render('Admin/Category/update.html.twig', [
+            'errors' => $errors,
+            'category' => $categories,
+        ]);
     }
 
 }

@@ -98,17 +98,16 @@ class CategoryController extends AbstractController
                 move_uploaded_file($_FILES['fichier']['tmp_name'], $uploadFile);
 
                 $categoryManager = new CategoryManager($this->getPdo());
-                $category = new Category;
-                $category->setName(trim(($_POST['name'])));
-                $category->setImage($fileName);
-                $id = $categoryManager->insert($category);
-
-                header('Location:/admin');
+                $category = new Category();
+                $category->setName($_POST['name']);
+                $id = $categoryManager->update($category);
+                header('Location:/admin/category/index');
                 exit();
-
             }
 
-            return $this->twig->render('Admin/Category/update.html.twig', ['errors' => $errors]);
         }
+
+        return $this->twig->render('Admin/Category/update.html.twig', ['errors' => $errors]);
     }
+
 }

@@ -21,7 +21,7 @@ $routes = [
     'Category' => [ // Controller
         ['add', '/admin/category/add', ['GET', 'POST']],// action, url, method
         ['index', '/admin/category/index', ['GET']],// action, url, method
-        ['update', '/admin/category/update', ['GET', 'POST']],//action, url, method
+        ['update', '/admin/category/update/{id:\d+}', ['GET', 'POST']],//action, url, method
 
     ],
 

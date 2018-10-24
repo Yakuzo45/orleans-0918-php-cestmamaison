@@ -1,7 +1,7 @@
 {% extends 'Admin/layoutAdmin.html.twig' %}
 
 {% block content %}
-    <h1>Ajouter une nouvelle catégorie</h1>
+    <h1>Modifier la catégorie</h1>
     {% if error is not empty %}
         <div class="alert alert-danger">
             <ul>
@@ -9,5 +9,6 @@
             </ul>
         </div>
     {% endif %}
-    {% include 'Admin/Category/_formeupd.html.twig' %}
+    {% include 'Admin/Category/formupd.html.twig' %}
 {% endblock %}
+

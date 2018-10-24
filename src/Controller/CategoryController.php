@@ -109,9 +109,7 @@ class CategoryController extends AbstractController
                 header('Location:/admin/category/index');
                 exit();
             }
-
         }
-
         return $this->twig->render('Admin/Category/update.html.twig', [
             'errors' => $errors,
             'category' => $categories,

@@ -34,8 +34,8 @@ class ProductManager extends AbstractManager
         $statement->bindValue('picture', $product->getPicture(), \PDO::PARAM_STR);
         $statement->bindValue('description',$product->getDescription(),\PDO::PARAM_STR);
         $statement->bindValue('price',$product->getPrice(),\PDO::PARAM_STR);
-        $statement->bindValue('price',$product->getCategory(),\PDO::PARAM_STR);
-        $statement->bindValue('price',$product->getBrand(),\PDO::PARAM_STR);
+        $statement->bindValue('category',$product->getCategory(),\PDO::PARAM_STR);
+        $statement->bindValue('brand',$product->getBrand(),\PDO::PARAM_STR);
 
 
 

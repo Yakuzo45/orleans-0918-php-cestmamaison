@@ -21,16 +21,16 @@ class HomeController extends AbstractController
     {
         return $this->twig->render('Visitor/index.html.twig', [
             'categories' => $this->dropdownService->getCategories(),
-            'brands' => $this->dropdownService->getBrands()]
-        );
+            'brands' => $this->dropdownService->getBrands(),
+        ]);
 
     }
     public function presentation()
     {
         return $this->twig->render('Visitor/Presentation/index.html.twig',[
             'categories' => $this->dropdownService->getCategories(),
-            'brands' => $this->dropdownService->getBrands()]
-        );
+            'brands' => $this->dropdownService->getBrands(),
+        ]);
     }
 
 

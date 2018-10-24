@@ -23,7 +23,7 @@ class Brand
     /**
      * @return mixed
      */
-    public function getPicture() : string
+    public function getPicture(): string
     {
         return $this->picture;
     }

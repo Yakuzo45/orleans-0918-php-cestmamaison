@@ -29,26 +29,22 @@ class ProductController extends AbstractController
 
     /**
      * @param int $id
-     * @return string
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
-     */
-    public function show(int $id):string
-    {
-        $productManager = new ProductManager($this->getPdo());
-        $product = $productManager->selectOneById($id);
-
-        return $this->twig->render('Admin/Product/show.html.twig', ['product' => $product]) ;
-    }
-
-    /**
-     * @param int $id
      */
     public function delete(int $id)
     {
-        $productManager = new ProductManager($this->getPdo());
-        $productManager->delete($id);
-        header('Location:/admin/product/index');
+        $errors=[];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['deleteProduct'])) {
+
+                $productManager = new ProductManager($this->getPdo());
+                $productManager->delete($id);
+
+                header('location:/admin/product/index');
+                exit();
+            }
+        } else {
+            $errors['post']= 'Echec de la suppression';
+        }
+        return $this->twig->render('Admin/Product/delete.html.twig');
     }
 }

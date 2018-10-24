@@ -31,7 +31,7 @@
                         <td><img src="https://via.placeholder.com/150x150" alt=""></td>
                     {% endif %}
                     <td><a href="/product/{{ product.id }}" class="btn btn-secondary btn-md active mt-5" role="button" aria-pressed="true">Modifier</a></td>
-                    <td><a href="/admin/product/show{{ product.id }}" class="btn btn-danger btn-md active mt-5" role="button" aria-pressed="true">Supprimer</a></td>
+                    <td><a href="/admin/product/delete/{{ product.id }}" class="btn btn-danger btn-md active mt-5" role="button" aria-pressed="true">Supprimer</a></td>
                 </tr>
                 {% endfor %}
                 </tbody>

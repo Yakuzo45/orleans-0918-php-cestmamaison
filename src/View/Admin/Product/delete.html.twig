@@ -13,8 +13,24 @@
                 <h5 class="card-title">{{ product.name }}</h5>
                 <p class="card-text">{{ product.description }}</p>
                 <p>Pour confirmer votre choix, cliquez-ci après :</p>
-                <a id="delete" href="/admin/product/delete/{{product.id}}" class="btn btn-danger ">Supprimer</a>
+                <form action="" method="post" role="form">
+                    <input type="hidden"  name="deleteProduct" value="{{ product.id }}" >
+                    <button type="submit" class="btn btn-danger" name="delete">Supprimer</button>
+                </form>
             </div>
+            {% if errors is not empty %}
+                <div class="alert alert-danger">
+                    <ul>
+                        <li>{{ errors.post }}</li>
+                    </ul>
+                </div>
+                {% elseif success is not empty%}
+                <div class="alert alert-success">
+                    <ul>
+                        <li>{{ success.post }}</li>
+                    </ul>
+                </div>
+            {% endif %}
         </div>
         </div>
             <div class="row justify-content-center pt-5">
@@ -22,7 +38,4 @@
             </div>
 
     </div>
-{% endblock %}
-{% block text_javascript %}
-<script type="text/javascript" src="/assets/js/alert.js"></script>
 {% endblock %}

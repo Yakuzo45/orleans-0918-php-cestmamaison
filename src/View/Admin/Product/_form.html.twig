@@ -13,10 +13,20 @@
             <input type="text" class="form-control" value="{{ product.price }}" id="price" name="Price" pattern="/^[0-9]+$/" placeholder="Price">
 
             <label for="name">Catégorie : </label>
-            <input type="text" class="form-control" value="{{ product.category }}" id="category" name="Category" pattern="/^[a-zA-Z0-9]+$/" placeholder="Category">
+            <select class="form-control custom-select mr-sm-2" id="category"name="Category"  placeholder="Category">
+                <option selected>Category</option>
+                <option value="{{ product.category_id }}">Category{{ product.category }}</option>
+                <option value="{{ product.category_id}}">Category{{ product.category }}</option>
+                <option value="{{ product.category_id}}">Category{{ product.category }}</option>
+            </select>
 
             <label for="name">Marque : </label>
-            <input type="text" class="form-control" value="{{ product.brand }}" id="brand" name="Brand" pattern="/^[a-zA-Z0-9]+$/" placeholder="Brand">
+            <select class="form-control custom-select mr-sm-2" id="brand" name="Brand" placeholder="Brand">
+                <option selected>Brand</option>
+                <option value="{{ product.brand_id }}">Brand{{ product.brand }}</option>
+                <option value="{{ product.brand_id }}">Brand{{ product.brand }}</option>
+                <option value="{{ product.brand_id }}">Brand{{ product.brand }}</option>
+            </select>
 
             <div class="row justify-content-start">
                 <label for="name">Image : </label>

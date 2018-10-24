@@ -48,7 +48,7 @@ class CategoryController extends AbstractController
                 $categoryManager = new CategoryManager($this->getPdo());
                 $category = new Category;
                 $category->setName(trim(($_POST['name'])));
-                $category->setImage($fileName);
+                $category->setPicture($fileName);
                 $id = $categoryManager->insert($category);
 
                 header('Location:/admin');

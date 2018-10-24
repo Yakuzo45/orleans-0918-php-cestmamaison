@@ -1,27 +1,36 @@
-<form method="post" class="col-6 justify-content-center" enctype="multipart/form-data">
-<div class="form-group">
-    <input type="hidden" value="{{ product.id }}" name="id">
-    <label for="name">Nom du Produit: </label>
-    <input type="text" class="form-control" value="{{ product.name }}" id="name" name="name"  pattern="/^[a-zA-Z0-9]+$/" placeholder="Doudou" required/>
-    <label for="msg">Description : </label>
-    <textarea type="text" class="form-control" value="{{ product.description }}" id="msg" name="Description" pattern="/^[a-zA-Z0-9]+$/" placeholder="description" cols="25" required>{{ product.description }}</textarea>
-    <label for="name">Prix : </label>
-    <input type="text" class="form-control" value="{{ product.price }}" id="price" name="Price" pattern="/^[0-9]+$/" placeholder="Price">
-    <label for="name">Catégorie : </label>
-    <input type="text" class="form-control" value="{{ product.category }}" id="category" name="Category" pattern="/^[a-zA-Z0-9]+$/" placeholder="Category">
-    <label for="name">Marque : </label>
-    <input type="text" class="form-control" value="{{ product.brand }}" id="brand" name="Brand" pattern="/^[a-zA-Z0-9]+$/" placeholder="Brand">
-    <div class="row justify-content-start">
-        <label for="name">Image : </label>
-        <div class="col-5 btn-file">
-            <label for="fichier">Ajouter un fichier : </label>
-            <input type="file" name="fichier"/>
+<div class="container">
+    <form method="post" class="col-6 justify-content-center" enctype="multipart/form-data">
+        <div class="form-group">
+            <input type="hidden" value="{{ product.id }}" name="id">
+
+            <label for="name">Nom du Produit: </label>
+            <input type="text" class="form-control" value="{{ product.name }}" id="name" name="name"  pattern="/^[a-zA-Z0-9]+$/" placeholder="Doudou" required/>
+
+            <label for="msg">Description : </label>
+            <textarea type="text" class="form-control" value="{{ product.description }}" id="msg" name="Description" pattern="/^[a-zA-Z0-9]+$/" placeholder="description" cols="25" required>{{ product.description }}</textarea>
+
+            <label for="name">Prix : </label>
+            <input type="text" class="form-control" value="{{ product.price }}" id="price" name="Price" pattern="/^[0-9]+$/" placeholder="Price">
+
+            <label for="name">Catégorie : </label>
+            <input type="text" class="form-control" value="{{ product.category }}" id="category" name="Category" pattern="/^[a-zA-Z0-9]+$/" placeholder="Category">
+
+            <label for="name">Marque : </label>
+            <input type="text" class="form-control" value="{{ product.brand }}" id="brand" name="Brand" pattern="/^[a-zA-Z0-9]+$/" placeholder="Brand">
+
+            <div class="row justify-content-start">
+                <label for="name">Image : </label>
+                <div class="col-5 btn-file">
+                    <label for="fichier">Ajouter un fichier : </label>
+                    <input type="file" name="fichier"/>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="col-2">
+                    <button type="submit" class="btn btn-success">Valider</button>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="row justify-content-end">
-        <div class="col-2">
-            <button type="submit" class="btn btn-success">Valider</button>
-        </div>
-    </div>
+    </form>
 </div>
-</form>
+

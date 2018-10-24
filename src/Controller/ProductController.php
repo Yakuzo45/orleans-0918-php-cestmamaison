@@ -80,7 +80,7 @@ class ProductController extends AbstractController
                 $id = $productManager->insert($product);
             }
         }
-        return $this->twig->render('Admin/Product/index.html.twig', ['errors' => $errors, 'values' => $_POST]);
+        return $this->twig->render('Admin/Product/add.html.twig', ['errors' => $errors, 'values' => $_POST]);
     }
 
     public function index()

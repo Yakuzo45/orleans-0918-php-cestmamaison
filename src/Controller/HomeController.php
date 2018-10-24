@@ -26,7 +26,10 @@ class HomeController extends AbstractController
     {
         return $this->twig->render('Visitor/Presentation/index.html.twig');
     }
-
-
+    public function contact()
+    {
+        return $this->twig->render('Visitor/Contact/index.html.twig');
+    }
 }
+
 

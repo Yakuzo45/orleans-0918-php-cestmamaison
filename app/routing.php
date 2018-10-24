@@ -17,10 +17,11 @@ $routes = [
     'Home' => [ // Controller
         ['index', '/', 'GET'], // action, url, method
         ['presentation', '/presentation', 'GET'],
+        ['contact', '/contact', 'GET'],
     ],
     'Category' => [ // Controller
         ['add', '/admin/category/add', ['GET', 'POST']],// action, url, method
-        ['index', '/admin/category/index', ['GET']],// action, url, method
+        ['index', '/admin/category/index', 'GET'],// action, url, method
 
     ],
 
@@ -32,6 +33,8 @@ $routes = [
 
     'Brand' => [ // Controller
         ['add', '/admin/brand/add', ['GET', 'POST']], // action, url, method
-        ['index', '/admin/brand', ['GET']], // action, url, method
+        ['index', '/admin/brand', 'GET'], // action, url, method
     ],
 ];
+
+

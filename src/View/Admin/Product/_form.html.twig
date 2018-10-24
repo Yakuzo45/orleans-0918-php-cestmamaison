@@ -1,20 +1,18 @@
 <form method="post" class="col-6 justify-content-center" enctype="multipart/form-data">
 <div class="form-group">
     <input type="hidden" value="{{ product.id }}" name="id">
-    <label for="name">Nom : </label>
+    <label for="name">Nom du Produit: </label>
     <input type="text" class="form-control" value="{{ product.name }}" id="name" name="name" placeholder="Doudou">
     <label for="name">Description : </label>
     <input type="text" class="form-control" value="{{ product.description }}" id="description" name="Description" placeholder="description">
     <label for="name">Prix : </label>
     <input type="text" class="form-control" value="{{ product.price }}" id="Price" name="Price" placeholder="Price">
-    <label for="name">Image : </label>
-    <input type="text" class="form-control" value="{{ product.picture }}" id="picture" name="picture" placeholder="Picture">
-    {% if product.picture is not empty %}
-        <img src="{{ product.picture }}" alt="Illustration de {{ product.name }}">
-    {% else %}
-        <img src="https://via.placeholder.com/150x150" alt="">
-    {% endif %}
+    <label for="name">Catégorie : </label>
+    <input type="text" class="form-control" value="{{ product.category }}" id="Price" name="Price" placeholder="Price">
+    <label for="name">Marque : </label>
+    <input type="text" class="form-control" value="{{ product.brand }}" id="Price" name="Price" placeholder="Price">
     <div class="row justify-content-start">
+        <label for="name">Image : </label>
         <div class="col-5 btn-file">
             <label for="fichier">Ajouter un fichier : </label>
             <input type="file" name="fichier"/>

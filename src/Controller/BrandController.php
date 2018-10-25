@@ -8,7 +8,7 @@
 
 
 namespace Controller;
-use A\B;
+
 use Model\Brand;
 use Model\BrandManager;
 
@@ -64,7 +64,6 @@ class BrandController extends AbstractController
 
                 header('Location:/admin');
                 exit();
-
             }
         }
         return $this->twig->render('Admin/brand/add.html.twig', ['errors' => $errors]);
@@ -73,8 +72,8 @@ class BrandController extends AbstractController
     {
         $brandManager = new BrandManager($this->getPdo());
         $brands = $brandManager->selectAll();
-        if (isset($_GET['errors'])){
-            $errors = explode('_', $_GET['errors']);
+        if (isset($_GET['error'])) {
+            $errors = explode('_', $_GET['error']);
             $error = implode(' ', $errors);
         }
 
@@ -99,4 +98,3 @@ class BrandController extends AbstractController
         exit();
     }
 }
-

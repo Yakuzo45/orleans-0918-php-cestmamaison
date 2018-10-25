@@ -20,18 +20,18 @@ $routes = [
     ],
     'Category' => [ // Controller
         ['add', '/admin/category/add', ['GET', 'POST']],// action, url, method
-        ['index', '/admin/category/index', ['GET']],// action, url, method
+        ['index', '/admin/category/index', 'GET'],// action, url, method
 
     ],
 
     'Product' => [ // Controller
 
         ['index', '/admin/product/index', 'GET'], // action, url, method
-        ['delete', '/admin/product/delete/{id:\d+}', ['GET','POST']], // action, url, method
+        ['delete', '/admin/product/index', 'POST'], // action, url, method
     ],
 
     'Brand' => [ // Controller
         ['add', '/admin/brand/add', ['GET', 'POST']], // action, url, method
-        ['index', '/admin/brand', ['GET']], // action, url, method
+        ['index', '/admin/brand', 'GET'], // action, url, method
     ],
 ];

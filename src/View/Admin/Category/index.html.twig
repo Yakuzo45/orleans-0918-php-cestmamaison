@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container pt-5">
     <div class="row pt-3 justify-content-center">
-        <h5 class="justify-content-center">Catégories</h5>
+        <h1 class="justify-content-center">Catégories</h1>
     </div>
     <div class="row pt-3 justify-content-center">
         <a href="/admin/category/add" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Ajouter</a>
@@ -11,8 +11,8 @@
         <table class="table">
             <thead class="thead-dark">
             <tr>
-                <th scope="col">Image</th>
                 <th scope="col">Nom de la catégorie</th>
+                <th scope="col">Image</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
                 <th scope="col"></th>
@@ -24,7 +24,7 @@
             {% if category.picture is not empty %}
                 <td><img src="{{ category.picture }}" alt="Illustration de {{ category.name }}"></td>
             {% else %}
-                <td><img src="https://via.placeholder.com/350x150" alt=""></td>
+                <td><img src="https://via.placeholder.com/150x150" alt=""></td>
             {% endif %}
             <td><a href="#" class="btn btn-secondary btn-md active mr-5 mt-5" role="button" aria-pressed="true">Modifier</a></td>
             <td><a href="#" class="btn btn-danger btn-md active mt-5" role="button" aria-pressed="true">Supprimer</a></td>

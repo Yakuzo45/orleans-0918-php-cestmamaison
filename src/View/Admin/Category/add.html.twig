@@ -1,10 +1,12 @@
 {% extends 'Admin/layoutAdmin.html.twig' %}
 {% block content %}
     <h1>Ajouter une nouvelle catégorie</h1>
-    {% if error is not empty %}
+    {% if errors is not empty %}
         <div class="alert alert-danger">
             <ul>
-                <li>{{ error.name }}</li>
+                {% for error in errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
             </ul>
         </div>
     {% endif %}

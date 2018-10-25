@@ -41,5 +41,14 @@ class BrandManager extends AbstractManager
             return $this->pdo->lastInsertId();
         }
     }
+    public function update(Brand $brand): int
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("UPDATE $this->table SET `name` = :name, `picture`= :picture  WHERE id=:id");
+        $statement->bindValue('id', $brand->getId(), \PDO::PARAM_INT);
+        $statement->bindValue('name', $brand->getName(), \PDO::PARAM_STR);
+        $statement->bindValue('picture', $brand->getPicture(), \PDO::PARAM_STR);
+        return $statement->execute();
+    }
 }
 

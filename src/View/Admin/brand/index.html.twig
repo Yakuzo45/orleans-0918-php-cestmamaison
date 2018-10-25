@@ -26,11 +26,12 @@
                 {% else %}
                     <td><a href="https://placeholder.com"><img src="https://via.placeholder.com/150x150" alt=""></a></td>
                 {% endif %}
-                <td><a href="#" class="btn btn-secondary btn-md active mr-5 mt-5">Modifier</a></td>
+                <td><a href="/admin/brand/update/{{ brand.id }}" class="btn btn-secondary btn-md active mr-5 mt-5">Modifier</a></td>
                 <td><a href="#" class="btn btn-danger btn-md active mt-5">Supprimer</a></td>
             </tr>
             </tbody>
             {% endfor %}
+        </table>
     </div>
 
 </div>

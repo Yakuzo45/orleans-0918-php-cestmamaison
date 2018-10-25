@@ -19,11 +19,28 @@ class ProductController extends AbstractController
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function index()
+    public function index():string
     {
         $productManager = new ProductManager($this->getPdo());
         $products = $productManager->selectAll();
 
         return $this->twig->render('Admin/Product/index.html.twig', ['products' => $products]);
+    }
+
+    /**
+     * @param int $id
+     */
+    public function delete()
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['deleteProduct'])) {
+                $productManager = new ProductManager($this->getPdo());
+                $productManager->delete($_POST['deleteProduct']);
+
+                header('location:/admin/product/index');
+                exit();
+            }
+        }
     }
 }

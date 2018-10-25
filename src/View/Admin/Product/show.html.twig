@@ -1,8 +1,0 @@
-{% extends 'Admin/layoutAdmin.html.twig' %}
-{% block content %}
-    <h1>Produit {{ product.name }}</h1>
-    <p>{{ product.id }}. {{ product.name }}</p>
-    <a href="/product/edit/{{ product.id }}">Edit</a>
-    <a href="/product/delete/{{product.id}}">Supprimer</a>
-    <a href='/Product/'>Back to list</a>
-{% endblock %}

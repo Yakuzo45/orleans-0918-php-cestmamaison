@@ -37,7 +37,7 @@ class ProductController extends AbstractController
         $brands = $brandManager->selectAll();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (preg_match("/^[a-zA-Z0-9]+$/",$_POST['name'])) {
+            if (!preg_match("/^[a-zA-Z0-9]+$/",$_POST['name'])) {
                 $errors['name'] = 'Veuillez remplir le champ "Nom" uniquement avec des caractères alphanumériques';
             }
             if (empty(trim($_POST['name']))) {
@@ -46,7 +46,7 @@ class ProductController extends AbstractController
                 $errors['name'] = 'Veuillez remplir le champ "Nom" uniquement avec des 255 caractères maximum';
             }
 
-            if (preg_match("/^[a-zA-Z0-9]+$/",$_POST['description'])) {
+            if (!preg_match("/[a-z]{1,30}(,[a-z]{1,30})*/",$_POST['description'])) {
                 $errors['description'] = 'Veuillez remplir le champ "Description" uniquement avec des caractères alphanumériques';
             }
             if (empty(trim($_POST['description']))) {
@@ -55,7 +55,7 @@ class ProductController extends AbstractController
                 $errors['description'] = 'Veuillez remplir le champ "Description" uniquement avec des 5000 caractères maximum';
             }
 
-           if (!preg_match(" /^[0-9]+$/",$_POST['price'])) {
+           if (!preg_match(" /[0-9]+./",$_POST['price'])) {
                $errors['price'] = 'Veuillez remplir le champ "Prix" uniquement avec des caractères alphanumériques';
            }
             if (empty(trim($_POST['price']))) {
@@ -71,11 +71,11 @@ class ProductController extends AbstractController
             } elseif ((!in_array($ext, self::EXTENSION)) and (!empty($_FILES['fichier']['name']))) {
                 $errors[] = 'Votre fichier peut uniquement posseder l\'extension ' . implode(' , ', self::EXTENSION);
             }
-            if(empty($_POST['brand_id'])){
-                $errors['brand_id'] = 'Veuillez selectionner votre "Marque"';
+            if(!empty($_POST['brand'])){
+                $errors['brand'] = 'Veuillez selectionner votre "Marque"';
             }
-            if(empty($_POST['category_id'])){
-                $errors['category_id'] = 'Veuillez selectionner votre "Catégorie"';
+            if(!empty($_POST['category'])){
+                $errors['category'] = 'Veuillez selectionner votre "Catégorie"';
             }
 
 
@@ -93,6 +93,10 @@ class ProductController extends AbstractController
                 $product->setDescription(trim(($_POST['description'])));
                 $product->setPicture($fileName);
                 $id = $productManager->insert($product);
+
+                header('Location:/admin');
+                exit();
+
             }
         }
         return $this->twig->render('Admin/Product/add.html.twig', ['errors' => $errors, 'product' => $_POST, 'categories' => $categories,'brands' => $brands]);

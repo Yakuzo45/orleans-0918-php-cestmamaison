@@ -5,11 +5,9 @@
         {% if errors is not empty %}
             <div class="alert alert-danger">
                 <ul>
-                    <li>{{ errors.name }}</li>
-                    <li>{{ errors.description }}</li>
-                    <li>{{ errors.price }}</li>
-                    <li>{{ errors.category_id }}</li>
-                    <li>{{ errors.brand_id }}</li>
+                    {% for error in errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
                 </ul>
             </div>
         {% endif %}

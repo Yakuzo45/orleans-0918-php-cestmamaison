@@ -8,6 +8,7 @@
 
 
 namespace Controller;
+use A\B;
 use Model\Brand;
 use Model\BrandManager;
 
@@ -24,6 +25,7 @@ class BrandController extends AbstractController
 {
     const EXTENSION = ['png','jpeg','jpg'];
     const MAX_SIZE = 1048576;
+    const MAX_HIGHLIGHTED = 3;
     public function add()
     {
         $errors = [];
@@ -71,9 +73,30 @@ class BrandController extends AbstractController
     {
         $brandManager = new BrandManager($this->getPdo());
         $brands = $brandManager->selectAll();
+        if (isset($_GET['errors'])){
+            $errors = explode('_', $_GET['errors']);
+            $error = implode(' ', $errors);
+        }
 
-        return $this->twig->render('Admin/brand/index.html.twig', ['brands' => $brands]);
+        return $this->twig->render('Admin/brand/index.html.twig', ['brands' => $brands, 'error' =>$error]);
     }
 
+
+    public function highlightedBrands(int $id)
+    {
+        $brandManager = new BrandManager($this->getPdo());
+        $brand = $brandManager->selectOneById($id);
+        $brands = $brandManager->selectHighlightedBrand();
+
+        $length = count($brands);
+
+        if (($length >= self::MAX_HIGHLIGHTED) && ($brand->getHighlightedBrand() == false)) {
+            $error = "?error=Vous_ne_pouvez_pas_mettre_plus_de_" . self::MAX_HIGHLIGHTED . "_marques_en_avant";
+        } else {
+            $brandManager->highlightedBrandById($brand);
+        }
+        header("Location:/admin/brand$error");
+        exit();
+    }
 }
 

@@ -1,12 +1,18 @@
 {% extends 'Admin/layoutAdmin.html.twig' %}
 {% block content %}
-    <h1>Ajouter un nouveau produit</h1>
-    {% if error is not empty %}
-        <div class="alert alert-danger">
-            <ul>
-                <li>{{ error.name }}</li>
-            </ul>
-        </div>
-    {% endif %}
-    {% include 'Admin/Product/_form.html.twig' %}
+    <div class="container-fluid">
+        <h1>Ajouter un nouveau produit</h1>
+        {% if errors is not empty %}
+            <div class="alert alert-danger">
+                <ul>
+                    <li>{{ errors.name }}</li>
+                    <li>{{ errors.description }}</li>
+                    <li>{{ errors.price }}</li>
+                    <li>{{ errors.category_id }}</li>
+                    <li>{{ errors.brand_id }}</li>
+                </ul>
+            </div>
+        {% endif %}
+        {% include 'Admin/Product/_form.html.twig' %}
+    </div>
 {% endblock %}

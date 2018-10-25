@@ -29,7 +29,7 @@ class ProductManager extends AbstractManager
      */
     public function insert(product $product):int
     {
-        $statement = $this->pdo->prepare("INSERT INTO $this->table (`name`,`description`,`price`,`picture`,`brand_id`,`category_id`) VALUES (:name)");
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (`name`,`description`,`price`,`picture`,`brand_id`,`category_id`) VALUES (:name, :description, :price, :picture, :brand_id, :category_id)");
         $statement->bindValue('name', $product->getName(), \PDO::PARAM_STR);
         $statement->bindValue('description',$product->getDescription(),\PDO::PARAM_STR);
         $statement->bindValue('price',$product->getPrice(),\PDO::PARAM_STR);

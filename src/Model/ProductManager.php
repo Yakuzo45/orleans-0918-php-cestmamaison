@@ -34,6 +34,7 @@ class ProductManager extends AbstractManager
                                           ON product.category_id = category.id WHERE category_id = $id");
         $statement->setFetchMode(\PDO::FETCH_ASSOC);
         return $statement->fetchAll();
+    }
     public function delete(int $id): void
     {
         // prepared request

@@ -75,8 +75,7 @@ class CategoryController extends AbstractController
     public function update(int $id)
     {
         $categoryManager = new CategoryManager($this->getPdo());
-        $categories = $categoryManager->selectOneById($id);
-
+        $category = $categoryManager->selectOneById($id);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors = $this->checkErrors();
             if (empty($errors)) {
@@ -85,26 +84,16 @@ class CategoryController extends AbstractController
                 $uploadDir = 'assets/images/CategoryImages/';
                 $uploadFile = $uploadDir . basename($fileName);
                 move_uploaded_file($_FILES['fichier']['tmp_name'], $uploadFile);
-
-                $categoryManager = new CategoryManager($this->getPdo());
-                $category = new Category();
-                $category->setId($id);
                 $category->setName(trim($_POST['name']));
                 $category->setPicture($fileName);
-
                 $categoryManager->update($category);
                 header('Location:/admin/category/index');
                 exit();
-            } else {
-                return $this->twig->render('Admin/Category/update.html.twig', [
-                    'errors' => $errors,
-                    'category' => $categories,
-                ]);
             }
         }
-        return $this->twig->render('Admin/Category/update.html.twig', ['category' => $categories,]);
-
+        return $this->twig->render('Admin/Category/update.html.twig', [
+        'errors' => $errors,
+        'category' => $category,
+    ]);
     }
-
-
 }

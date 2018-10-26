@@ -639,7 +639,25 @@ nav .dropdown-menu:hover{
 .team-member p {
     margin-top: 0;
 }
+#ProductsByCategory {
+    margin-top:200px;
+    background:none;
+    text-align:center;
+}
+.card{
+    margin-top:100px;
+    background:#87CEEB;
+}
+.ImgHeight{
+    min-height: 350px;
+    max-height: 350px;
+}
 
+.ProductHeight{
+    min-height:30px;
+    max-height:30px;
+    font-size:1.5em;
+}
 section#contact {
     background-color: #212529;
     background-image: url("../img/map-image.png");

@@ -27,4 +27,14 @@ class ProductManager extends AbstractManager
      * @param Product $product
      * @return int
      */
+
+    public function selectAllProducts(int $id): array
+    {
+        $statement = $this->pdo->query("SELECT category.id as idCategory, category.name as nameCategory, 
+                                          category.picture as pictureCategory,product.id, product.name, product.picture
+                                          FROM category LEFT JOIN $this->table
+                                          ON product.category_id = category.id WHERE category_id = $id");
+        $statement->setFetchMode(\PDO::FETCH_ASSOC);
+        return $statement->fetchAll();
+    }
 }

@@ -20,26 +20,41 @@ class Brand
 
     private $picture;
 
+    private $highlightedBrand;
+
     /**
      * @return mixed
      */
-    public function getPicture() : string
+    public function getPicture()
     {
         return $this->picture;
     }
 
     /**
-     * @param mixed $image
+     * @param mixed $picture
      */
-    public function setPicture(string $picture): Brand
+    public function setPicture($picture)
     {
         $this->picture = $picture;
-        return $this;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getHighlightedBrand()
+    {
+        return $this->highlightedBrand;
     }
 
     /**
-     * @return int
+     * @param mixed $highlightedBrand
      */
+    public function setHighlightedBrand($highlightedBrand)
+    {
+        $this->highlightedBrand = $highlightedBrand;
+    }
+
     public function getId(): int
     {
         return $this->id;

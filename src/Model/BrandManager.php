@@ -8,7 +8,6 @@
 
 namespace Model;
 
-
 class BrandManager extends AbstractManager
 {
     /**
@@ -42,6 +41,11 @@ class BrandManager extends AbstractManager
             return $this->pdo->lastInsertId();
         }
     }
+
+    /**
+     * @param Brand $brand
+     * @return int
+     */
     public function highlightedBrandById(Brand $brand): int
     {
         $statement = $this->pdo->prepare("UPDATE $this->table SET `highlightedBrand` = :highlightedBrand WHERE id= :id");
@@ -49,6 +53,11 @@ class BrandManager extends AbstractManager
         $statement->bindValue('highlightedBrand', !$brand->getHighlightedBrand(), \PDO::PARAM_BOOL);
         return $statement->execute();
     }
+
+
+    /**
+     * @return array
+     */
     public function selectHighlightedBrand(): array
     {
         $statement = $this->pdo->query("SELECT * FROM $this->table WHERE highlightedBrand = 1");
@@ -56,4 +65,3 @@ class BrandManager extends AbstractManager
         return $statement->fetchAll();
     }
 }
-

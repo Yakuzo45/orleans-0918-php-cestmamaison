@@ -17,7 +17,7 @@ class CategoryController extends AbstractController
 
     private function checkErrors()
     {
-        $errors = [];
+
         if (empty(trim($_POST['name']))) {
             $errors[] = "La catégorie doit être renseignée";
         }
@@ -74,6 +74,7 @@ class CategoryController extends AbstractController
 
     public function update(int $id)
     {
+        $errors=[];
         $categoryManager = new CategoryManager($this->getPdo());
         $category = $categoryManager->selectOneById($id);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -89,10 +89,10 @@ class BrandController extends AbstractController
 
         $length = count($brands);
 
-        if (($length >= self::MAX_HIGHLIGHTED) && ($brand->getHighlightedBrand() == false)) {
+        if (($length >= self::MAX_HIGHLIGHTED) && ($brand->isHighlightedBrand() == false)) {
             $error = "?error=Vous_ne_pouvez_pas_mettre_plus_de_" . self::MAX_HIGHLIGHTED . "_marques_en_avant";
         } else {
-            $brandManager->highlightedBrandById($brand);
+            $brandManager->updateHighlightedBrandById($brand);
         }
         header("Location:/admin/brand$error");
         exit();

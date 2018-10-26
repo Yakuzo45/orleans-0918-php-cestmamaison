@@ -46,11 +46,11 @@ class BrandManager extends AbstractManager
      * @param Brand $brand
      * @return int
      */
-    public function highlightedBrandById(Brand $brand): int
+    public function updateHighlightedBrandById(Brand $brand): int
     {
         $statement = $this->pdo->prepare("UPDATE $this->table SET `highlightedBrand` = :highlightedBrand WHERE id= :id");
         $statement->bindValue('id', $brand->getId(), \PDO::PARAM_INT);
-        $statement->bindValue('highlightedBrand', !$brand->getHighlightedBrand(), \PDO::PARAM_BOOL);
+        $statement->bindValue('highlightedBrand', !$brand->isHighlightedBrand(), \PDO::PARAM_BOOL);
         return $statement->execute();
     }
 

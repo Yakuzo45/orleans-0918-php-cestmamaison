@@ -17,6 +17,7 @@ $routes = [
     'Home' => [ // Controller
         ['index', '/', 'GET'], // action, url, method
         ['presentation', '/presentation', 'GET'],
+        ['productsByOneCategory', '/category/{id:\d}', 'GET'],
         ['contact', '/contact', 'GET'],
     ],
     'Category' => [ // Controller

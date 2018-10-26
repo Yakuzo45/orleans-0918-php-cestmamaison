@@ -64,6 +64,7 @@ class Category
      *
      * @return Category
      */
+
     public function setPicture(string $picture) : Category
     {
         $this->picture = $picture;

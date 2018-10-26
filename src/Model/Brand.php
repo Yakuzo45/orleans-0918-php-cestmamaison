@@ -27,7 +27,9 @@ class Brand
     /**
      * @var string
      */
+
     private $picture;
+
 
     /**
      * @var bool

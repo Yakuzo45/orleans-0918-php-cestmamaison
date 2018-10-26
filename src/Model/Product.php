@@ -80,19 +80,19 @@ class Product
 
 
     /**
-     * @return float
+     * @return string
      */
-    public function getPrice(): float
+    public function getPrice(): string
     {
         return $this->price;
     }
 
 
     /**
-     * @param float $price
+     * @param string $price
      * @return Product
      */
-    public function setPrice(float $price): Product
+    public function setPrice(string $price): Product
     {
         $this->price = $price;
         return $this;

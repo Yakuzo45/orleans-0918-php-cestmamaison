@@ -112,7 +112,6 @@ class ProductController extends AbstractController
 
             }
         }
-        var_dump($_POST);
         return $this->twig->render('Admin/Product/add.html.twig', ['errors' => $errors, 'product' => $_POST, 'categories' => $categories,'brands' => $brands]);
     }
 

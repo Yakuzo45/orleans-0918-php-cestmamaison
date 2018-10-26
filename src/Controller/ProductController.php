@@ -51,18 +51,31 @@ class ProductController extends AbstractController
             }
             if (empty(trim($_POST['description']))) {
                 $errors['description'] = 'Veuillez remplir le champ "Description"';
-            } elseif (strlen(trim($_POST['description']))> 5000) {
-                $errors['description'] = 'Veuillez remplir le champ "Description" uniquement avec des 5000 caractères maximum';
+            } elseif (strlen(trim($_POST['description']))> 100) {
+                $errors['description'] = 'Veuillez remplir le champ "Description" uniquement avec des 100 caractères maximum';
             }
 
-           if (!preg_match(" /[0-9]+./",$_POST['price'])) {
-               $errors['price'] = 'Veuillez remplir le champ "Prix" uniquement avec des caractères alphanumériques';
+           if (!preg_match(" /^([0-9]+[\.]?[0-9]*)\d$/",$_POST['price'])) {
+               $errors['price'] = 'Veuillez remplir le champ "Prix" uniquement avec des caractères numériques';
            }
+
             if (empty(trim($_POST['price']))) {
                 $errors['price'] = 'Veuillez remplir le champ "Prix"';
             } elseif ($_POST['price'] <= 0) {
-                $errors['price'] = 'Veuillez remplir le champ "Prix" avec une valeur supérieur à 0';
+                $errors['price'] = 'Veuillez remplir le champ "Prix" avec des caractères numériques et  une valeur supérieur à 0';
             }
+
+            if (($_POST['category'] === 'Categories')) {
+                $errors['category'] = 'Veuillez selectionner votre "Catégorie"';
+            }
+
+            if (($_POST['brand'] === 'Marques')) {
+                $errors['brand'] = 'Veuillez selectionner votre "Marque"';
+            }
+
+
+
+
 
             $length = filesize($_FILES['fichier']['tmp_name']);
             $ext = pathinfo($_FILES['fichier']['name'], PATHINFO_EXTENSION);
@@ -71,11 +84,9 @@ class ProductController extends AbstractController
             } elseif ((!in_array($ext, self::EXTENSION)) and (!empty($_FILES['fichier']['name']))) {
                 $errors[] = 'Votre fichier peut uniquement posseder l\'extension ' . implode(' , ', self::EXTENSION);
             }
-            if(!empty($_POST['brand'])){
-                $errors['brand'] = 'Veuillez selectionner votre "Marque"';
-            }
-            if(!empty($_POST['category'])){
-                $errors['category'] = 'Veuillez selectionner votre "Catégorie"';
+
+            if (empty($_FILES['fichier']['name'])) {
+                $errors[] = 'L\'image doit être renseignée';
             }
 
 
@@ -91,14 +102,17 @@ class ProductController extends AbstractController
                 $product->setName(trim(($_POST['name'])));
                 $product->setPrice(trim(($_POST['price'])));
                 $product->setDescription(trim(($_POST['description'])));
+                $product->setBrandId((($_POST['brand'])));
+                $product->setCategoryId((($_POST['category'])));
                 $product->setPicture($fileName);
                 $id = $productManager->insert($product);
 
-                header('Location:/admin');
+                header('Location:/admin/product/index');
                 exit();
 
             }
         }
+        var_dump($_POST);
         return $this->twig->render('Admin/Product/add.html.twig', ['errors' => $errors, 'product' => $_POST, 'categories' => $categories,'brands' => $brands]);
     }
 

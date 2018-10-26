@@ -1,5 +1,10 @@
 {% extends 'Admin/layoutAdmin.html.twig' %}
 {% block content %}
+    {% if error is not empty %}
+        <div class="alert alert-danger">
+                    <p>{{ error }}</p>
+        </div>
+    {% endif %}
     <div class="container pt-5">
         <div class="row justify-content-center">
             <h1>Marques</h1>
@@ -15,6 +20,7 @@
                 <th scope="col">Image</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
+                <th scope="col"></th>
 
             </tr>
             <tbody>
@@ -28,6 +34,13 @@
                 {% endif %}
                 <td><a href="/admin/brand/update/{{ brand.id }}" class="btn btn-secondary btn-md active mr-5 mt-5">Modifier</a></td>
                 <td><a href="#" class="btn btn-danger btn-md active mt-5">Supprimer</a></td>
+                <td>
+                    {% if brand.highlightedBrand == 0 %}
+                    <a class="highlight btn btn-info btn-md ml-5 mt-5" href="/admin/brand/highlighted/{{ brand.id }}">Je souhaite mettre en avant ce produit</a>
+                    {% elseif brand.highlightedBrand == 1%}
+                    <a class="highlight btn btn-warning btn-md ml-5 mt-5" href="/admin/brand/highlighted/{{ brand.id }}">Ne plus mettre mettre en avant ce produit</a>
+                    {% endif %}
+                </td>
             </tr>
             </tbody>
             {% endfor %}

@@ -28,7 +28,6 @@ class CategoryController extends AbstractController
             $errors[] = 'L\'image doit être renseignée';
         }
 
-
         $length = filesize($_FILES['fichier']['tmp_name']);
         $ext = pathinfo($_FILES['fichier']['name'], PATHINFO_EXTENSION);
         if ($length > self::MAX_SIZE) {
@@ -41,6 +40,7 @@ class CategoryController extends AbstractController
 
     public function add()
     {
+        $errors=[];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors = $this->checkErrors();
             if (empty($errors)) {

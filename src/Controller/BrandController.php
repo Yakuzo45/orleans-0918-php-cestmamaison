@@ -97,4 +97,18 @@ class BrandController extends AbstractController
         header("Location:/admin/brand$error");
         exit();
     }
+
+    public function delete()
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['deleteBrand'])) {
+                $brandManager = new BrandManager($this->getPdo());
+                $brandManager->delete($_POST['deleteBrand']);
+
+                header('location:/admin/brand');
+                exit();
+            }
+        }
+    }
 }

@@ -31,34 +31,32 @@
         </div>
         <div class="container">
             <div class="mt-5 mb-5 pt-5">
-                <h2>Contactez-nous!</h2>
-                    <form>
+                <div>
+                    <h2>Contactez-nous!</h2>
+                </div>
+                <div class="mt-5 col-10 offset-1">
+                    <form method="post" action="index.html.twig" enctype="multipart/form-data" novalidate="novalidate">
                         <div class="form-row">
-                            <div class="col-md-4 mb-3">
-                                <label for="validationServer01">Votre Prénom:</label>
-                                <input type="text" class="form-control is-valid" id="validationServer01" placeholder="Votre Prénom..." value="Mark" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName">Votre Prénom:</label>
+                                <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Votre Prénom..." value="Prenom" pattern="/^[a-zA-Z0-9]+$/"required="required" data-validation-required-message="Please enter your name.">
                             </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="validationServer02">Votre Nom:</label>
-                                <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Votre Nom..." value="Otto" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName">Votre Nom:</label>
+                                <input type="text" name="lastName" class="form-control " id="lastName" placeholder="Votre Nom..." value="nom" pattern="/^[a-zA-Z0-9]+$/"required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Votre commentaire:</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ecrire votre commentaire ici..."></textarea>
+                            <label for="msg">Votre commentaire:</label>
+                            <textarea class="form-control" name="msg" id="msg" rows="3" cols="25"placeholder="Ecrire votre commentaire ici..." required="required" data-validation-required-message="Please enter a message."></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlInput1">Votre adresse mail !</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nom@example.com">
+                            <label for="email">Votre adresse mail:</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="nom@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{,}$" value="email"required="required" data-validation-required-message="Please enter your email address.">
                         </div>
                         <button class="btn btn-secondary" type="submit">Validation du formulaire</button>
                     </form>
+                </div>
             </div>
         </div>
     </div>

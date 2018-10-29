@@ -53,8 +53,7 @@ class ProductController extends AbstractController
                 if (empty($cleanPost['description'])) {
                     $errors['description'] = 'Veuillez remplir le champ "Description"';
                 }
-
-                if (is_numeric($cleanPost['price'])) {
+                if (!is_numeric((float)$cleanPost['price'])) {
                     $errors['price'] = 'Veuillez remplir le champ "Prix" uniquement avec des caractères numériques';
                 }
                 if (empty($cleanPost['price'])) {

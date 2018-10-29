@@ -1,16 +1,16 @@
 <div class="container-fluid">
     <form method="post" class="col-6 justify-content-center" enctype="multipart/form-data">
         <div class="form-group">
-            <input type="hidden" value="{{ product.id }}" name="id">
+            <input type="hidden" value="{{ post.id }}" name="id">
 
             <label for="name">Nom du Produit: </label>
-            <input type="text" class="form-control" value="{{ product.name }}" id="name" name="name" placeholder="Nom">
+            <input type="text" class="form-control" value="{{ post.name }}" id="name" name="name" placeholder="Nom">
 
             <label for="description">Description : </label>
-            <textarea type="text" class="form-control" value="{{ product.description }}" id="description" name="description" placeholder="description" cols="25" required> {{ product.description }} </textarea>
+            <textarea type="text" class="form-control" id="description" name="description" placeholder="description" cols="25" required> {{ post.description }} </textarea>
 
             <label for="price">Prix : </label>
-            <input type="text" class="form-control" value="{{ product.price }}" id="price" name="price" placeholder="Prix">
+            <input type="text" class="form-control" value="{{ post.price }}" id="price" name="price" placeholder="Prix">
 
             <label for="category">Catégories : </label>
             <select class="form-control custom-select mr-sm-2" id="category" name="category">

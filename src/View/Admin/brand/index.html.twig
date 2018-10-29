@@ -32,9 +32,9 @@
                 {% else %}
                     <td><a href="https://placeholder.com"><img src="https://via.placeholder.com/150x150" alt=""></a></td>
                 {% endif %}
-                <td><a href="#" class="btn btn-secondary btn-md active mr-5 mt-5">Modifier</a></td>
-                <td><button type="button" class="btn btn-danger mt-5" data-toggle="modal" data-target="#exampleModal{{ brand.id }}">Supprimer</button>
 
+                <td><a href="/admin/brand/update/{{ brand.id }}" class="btn btn-secondary btn-md active mr-5 mt-5">Modifier</a></td>
+                <td><button type="button" class="btn btn-danger mt-5" data-toggle="modal" data-target="#exampleModal{{ brand.id }}">Supprimer</button>
                     <div class="modal fade" id="exampleModal{{ brand.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -68,6 +68,7 @@
             </tr>
             </tbody>
             {% endfor %}
+        </table>
     </div>
 
 </div>

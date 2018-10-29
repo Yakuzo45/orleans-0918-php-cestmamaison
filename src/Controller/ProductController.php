@@ -53,8 +53,6 @@ class ProductController extends AbstractController
 
                 if (empty($cleanPost['description'])) {
                     $errors['description'] = 'Veuillez remplir le champ "Description"';
-                } elseif (strlen($cleanPost['description'])> 1000) {
-                    $errors['description'] = 'Veuillez remplir le champ "Description" uniquement avec des 100 caractères maximum';
                 }
 
                 if (is_numeric($cleanPost['price'])) {
@@ -66,11 +64,11 @@ class ProductController extends AbstractController
                     $errors['price'] = 'Veuillez remplir le champ "Prix" avec des caractères numériques et  une valeur supérieur à 0';
                 }
 
-                if (($cleanPost['category'] === 'Categories')) {
+                if (empty($categoryManager->selectOneById(['category']))) {
                     $errors['category'] = 'Veuillez selectionner votre "Catégorie"';
                 }
 
-                if (($cleanPost['brand'] === 'Marques')) {
+                if (empty($categoryManager->selectOneById(['brand']))) {
                     $errors['brand'] = 'Veuillez selectionner votre "Marque"';
                 }
 
@@ -81,7 +79,7 @@ class ProductController extends AbstractController
                 $length = filesize($_FILES['fichier']['tmp_name']);
                 $ext = pathinfo($_FILES['fichier']['name'], PATHINFO_EXTENSION);
                 if ($length > self::MAX_SIZE) {
-                    $errors[] = 'Votre fichier ne peut exceder 1Mo';
+                    $errors[] = 'Votre fichier ne peut exceder self::MAX_SIZE';
                 } elseif ((!in_array($ext, self::EXTENSION)) and (!empty($_FILES['fichier']['name']))) {
                     $errors[] = 'Votre fichier peut uniquement posseder l\'extension ' . implode(' , ', self::EXTENSION);
                 }

@@ -48,6 +48,7 @@ class Brand
 
     /**
      * @param int $id
+     * @return Brand
      */
     public function setId(int $id): Brand
     {

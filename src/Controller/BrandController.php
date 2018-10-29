@@ -109,6 +109,7 @@ class BrandController extends AbstractController
         exit();
     }
 
+
     public function update(int $id)
     {
         $errors=[];
@@ -133,5 +134,18 @@ class BrandController extends AbstractController
             'errors' => $errors,
             'brand' => $brand,
         ]);
+    }
+    public function delete()
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['deleteBrand'])) {
+                $brandManager = new BrandManager($this->getPdo());
+                $brandManager->delete($_POST['deleteBrand']);
+
+                header('location:/admin/brand');
+                exit();
+            }
+        }
     }
 }

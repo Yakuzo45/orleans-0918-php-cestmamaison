@@ -53,6 +53,7 @@ class BrandController extends AbstractController
         }
         return $errors;
     }
+
     public function add()
     {
         $errors=[];
@@ -78,6 +79,7 @@ class BrandController extends AbstractController
 
         return $this->twig->render('Admin/brand/add.html.twig', ['errors' => $errors]);
     }
+
     public function index()
     {
         $brandManager = new BrandManager($this->getPdo());
@@ -106,6 +108,7 @@ class BrandController extends AbstractController
         header("Location:/admin/brand$error");
         exit();
     }
+
     public function update(int $id)
     {
         $errors=[];

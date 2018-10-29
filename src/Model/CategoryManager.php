@@ -27,13 +27,24 @@ class CategoryManager extends AbstractManager
     public function insert(Category $category): int
     {
         // prepared request
-        $statement = $this->pdo->prepare("INSERT INTO $this->table (`name`,`image`) VALUES (:name, :image)");
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (`name`,`picture`) VALUES (:name, :picture)");
         $statement->bindValue('name', $category->getName(), \PDO::PARAM_STR);
-        $statement->bindValue('image', $category->getImage(), \PDO::PARAM_STR);
+        $statement->bindValue('picture', $category->getPicture(), \PDO::PARAM_STR);
 
 
         if ($statement->execute()) {
             return $this->pdo->lastInsertId();
         }
+    }
+    public function update(Category $category): int
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("UPDATE $this->table SET `name` = :name, `picture`= :picture  WHERE id=:id");
+        $statement->bindValue('id', $category->getId(), \PDO::PARAM_INT);
+        $statement->bindValue('name', $category->getName(), \PDO::PARAM_STR);
+        $statement->bindValue('picture', $category->getPicture(), \PDO::PARAM_STR);
+
+        return $statement->execute();
+
     }
 }

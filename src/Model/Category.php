@@ -13,7 +13,7 @@ class Category
 
     private $name;
 
-    private $image;
+    private $picture;
 
     /**
      * @return int
@@ -54,19 +54,20 @@ class Category
 
         return $this;
     }
-    public function getImage(): string
+    public function getPicture(): string
     {
-        return $this->image;
+        return $this->picture;
     }
 
     /**
-     * @param string $image
+     * @param string $picture
      *
      * @return Category
      */
-    public function setImage(string $image)
+
+    public function setPicture(string $picture) : Category
     {
-        $this->image = $image;
+        $this->picture = $picture;
 
         return $this;
     }

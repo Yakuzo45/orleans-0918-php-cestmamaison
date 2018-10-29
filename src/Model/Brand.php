@@ -14,9 +14,29 @@ namespace Model;
  */
 class Brand
 {
+    /**
+     * @var int
+     */
     private $id;
 
+    /**
+     * @var string
+     */
     private $name;
+
+    /**
+     * @var string
+     */
+
+    private $picture;
+
+
+    /**
+     * @var bool
+     */
+    private  $highlightedBrand;
+
+
 
     /**
      * @return int
@@ -27,19 +47,15 @@ class Brand
     }
 
     /**
-     * @param mixed $id
-     *
-     * @return Brand
+     * @param int $id
      */
-    public function setId(int $id): Brand
+    public function setId(int $id)
     {
         $this->id = $id;
-
-        return $this;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName(): string
     {
@@ -47,16 +63,44 @@ class Brand
     }
 
     /**
-     * @param mixed $name
-     *
-     * @return Brand
+     * @param string $name
      */
-    public function setName(string $name): Brand
+    public function setName(string $name)
     {
         $this->name = $name;
-
-        return $this;
-
     }
+
+    /**
+     * @return string
+     */
+    public function getPicture(): string
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param string $picture
+     */
+    public function setPicture(string $picture)
+    {
+        $this->picture = $picture;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isHighlightedBrand(): bool
+    {
+        return $this->highlightedBrand;
+    }
+
+    /**
+     * @param bool $highlightedBrand
+     */
+    public function setHighlightedBrand(bool $highlightedBrand)
+    {
+        $this->highlightedBrand = $highlightedBrand;
+    }
+
 
 }

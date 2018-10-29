@@ -17,7 +17,12 @@ p {
     font-family: 'Hind Vadodara', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 }
-
+.highlight{
+    color:white;
+}
+.highlight:hover{
+    color:black;
+}
 a {
     color: white;
     font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -219,22 +224,22 @@ nav .dropdown-menu:hover{
     }
 }
 
-header.masthead {
+.masthead {
     text-align: center;
     color: white;
-    background-image: url("../img/header-bg.jpg");
+    background-image: url("../images/banniere.jpg");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
     background-size: cover;
 }
 
-header.masthead .intro-text {
+.masthead .intro-text {
     padding-top: 150px;
     padding-bottom: 100px;
 }
 
-header.masthead .intro-text .intro-lead-in {
+.masthead .intro-text .intro-lead-in {
     font-size: 22px;
     font-style: italic;
     line-height: 22px;
@@ -242,7 +247,7 @@ header.masthead .intro-text .intro-lead-in {
     font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-header.masthead .intro-text .intro-heading {
+.masthead .intro-text .intro-heading {
     font-size: 50px;
     font-weight: 700;
     line-height: 50px;
@@ -251,18 +256,18 @@ header.masthead .intro-text .intro-heading {
 }
 
 @media (min-width: 768px) {
-    header.masthead .intro-text {
+    .masthead .intro-text {
         padding-top: 300px;
         padding-bottom: 200px;
     }
-    header.masthead .intro-text .intro-lead-in {
+    .masthead .intro-text .intro-lead-in {
         font-size: 40px;
         font-style: italic;
         line-height: 40px;
         margin-bottom: 25px;
         font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     }
-    header.masthead .intro-text .intro-heading {
+    .masthead .intro-text .intro-heading {
         font-size: 75px;
         font-weight: 700;
         line-height: 75px;
@@ -639,7 +644,25 @@ header.masthead .intro-text .intro-heading {
 .team-member p {
     margin-top: 0;
 }
+#ProductsByCategory {
+    margin-top:200px;
+    background:none;
+    text-align:center;
+}
+.card{
+    margin-top:100px;
+    background:#87CEEB;
+}
+.ImgHeight{
+    min-height: 350px;
+    max-height: 350px;
+}
 
+.ProductHeight{
+    min-height:30px;
+    max-height:30px;
+    font-size:1.5em;
+}
 section#contact {
     background-color: #212529;
     background-image: url("../img/map-image.png");
@@ -699,6 +722,9 @@ section#contact :-ms-input-placeholder {
 }
 #contact, h2{
     font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+.card{
+    border: 0px;
 }
 footer {
     text-align: center;

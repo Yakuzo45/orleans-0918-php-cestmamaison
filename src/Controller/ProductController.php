@@ -29,7 +29,7 @@ class ProductController extends AbstractController
     public function add()
     {
         $errors = [];
-
+        $cleanPost=[];
         $categoryManager = new CategoryManager($this->getPdo());
         $categories = $categoryManager->selectAll();
 
@@ -37,11 +37,10 @@ class ProductController extends AbstractController
         $brands = $brandManager->selectAll();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $cleanPost=[];
+
             foreach ($_POST as $key => $value){
                 $cleanPost[$key]=trim($value);
             }
-            if ($_POST){
                 if (!preg_match("/^[a-zA-Z0-9]+$/",$cleanPost['name'])) {
                     $errors['name'] = 'Veuillez remplir le champ "Nom" uniquement avec des caractères alphanumériques';
                 }
@@ -64,11 +63,11 @@ class ProductController extends AbstractController
                     $errors['price'] = 'Veuillez remplir le champ "Prix" avec des caractères numériques et  une valeur supérieur à 0';
                 }
 
-                if (empty($categoryManager->selectOneById(['category']))) {
+                if (empty($categoryManager->selectOneById(intval($cleanPost['category'])))) {
                     $errors['category'] = 'Veuillez selectionner votre "Catégorie"';
                 }
 
-                if (empty($categoryManager->selectOneById(['brand']))) {
+                if (empty($categoryManager->selectOneById(intval($cleanPost['brand'])))) {
                     $errors['brand'] = 'Veuillez selectionner votre "Marque"';
                 }
 
@@ -79,7 +78,7 @@ class ProductController extends AbstractController
                 $length = filesize($_FILES['fichier']['tmp_name']);
                 $ext = pathinfo($_FILES['fichier']['name'], PATHINFO_EXTENSION);
                 if ($length > self::MAX_SIZE) {
-                    $errors[] = 'Votre fichier ne peut exceder self::MAX_SIZE';
+                    $errors[] = "Votre fichier ne peut exceder 1Mo";
                 } elseif ((!in_array($ext, self::EXTENSION)) and (!empty($_FILES['fichier']['name']))) {
                     $errors[] = 'Votre fichier peut uniquement posseder l\'extension ' . implode(' , ', self::EXTENSION);
                 }
@@ -110,10 +109,9 @@ class ProductController extends AbstractController
                     exit();
 
                 }
-            }
 
         }
-        return $this->twig->render('Admin/Product/add.html.twig', ['errors' => $errors, 'product' => $cleanPost, 'categories' => $categories,'brands' => $brands]);
+        return $this->twig->render('Admin/Product/add.html.twig', ['errors' => $errors, 'post' => $cleanPost, 'categories' => $categories,'brands' => $brands]);
     }
 
     public function index()

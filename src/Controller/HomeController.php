@@ -51,7 +51,7 @@ class HomeController extends AbstractController
         return $this->twig->render('Visitor/Contact/index.html.twig');
     }
 
-    private function checkErrors(array $cleanPost)
+    private function checkErrors()
     {
         $errorsForm=[];
         if (empty($_post['firstName'])) {
@@ -87,7 +87,7 @@ class HomeController extends AbstractController
             foreach ($_POST as $key => $value){
                 $cleanPost[$key]=trim($value);
             }
-            $errorsForm = $this->checkErrors($cleanPost);
+            $errorsForm = $this->checkErrors();
             header('location:/visitor/contact/index.html.twig');
             exit();
         }

@@ -7,9 +7,10 @@
  */
 
 namespace Controller;
+
 use \Swift_SmtpTransport;
 use \Swift_Mailer;
-use \Swift_msg;
+use \Swift_Msg;
 
 class contactController extends AbstractController
 {
@@ -23,10 +24,20 @@ class contactController extends AbstractController
     {
 
 
+        session_start();
         $errors= [];
         $cleanPost = [];
         $mailSent="";
         $mailNotSent ="";
+
+        if (isset($_SESSION['mailSent']) && !empty($_SESSION['mailSent'])) {
+            $mailSent =$_SESSION['mailSent'];
+            unset($_SESSION['mailSent']);
+        }
+        if (isset($_SESSION['mailNotSent'])&& !empty($_SESSION['mailNotSent'])) {
+            $mailNotSent =$_SESSION['mailNotSent'];
+            unset($_SESSION['mailNotSent']);
+        }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -68,14 +79,15 @@ class contactController extends AbstractController
                             ->setPassword(MAIL_PASSWORD)
                             ->setEncrytion(MAIL_ENCRYPTION);
                         $mailer = new Swift_Mailer($transport);
-                        $msg = new Swift_MSG();
+                        $msg = new Swift_Msg();
                         $msg->setSubject("Message du formulaire de contact du site C'est ma Maison");
                         $msg->setFrom([$cleanPost['email'] => 'sender name']);
                         $msg->addTo('wcs.cmm@gmail.com', 'recipient name');
                         $msg->setBody("Vous avez un nouveau message de" . $cleanPost['lastName'] . " " . $cleanPost['firstName'] . " : " . $cleanPost['msg']);
-                        $result['mailSent'] = 'Votre message a été envoyé';
+                        $result=$mailer-> send($msg);
+                        $_SESSION['mailSent'] = 'Votre message a été envoyé';
                     }catch (\Exception $e){
-                        $_SESSION['mailNoSent'] = $e ->getMessage();
+                        $_SESSION['mailNotSent'] = $e ->getMessage();
                     }
                     header('location:/visitor/contact/index.html.twig');
                     exit();

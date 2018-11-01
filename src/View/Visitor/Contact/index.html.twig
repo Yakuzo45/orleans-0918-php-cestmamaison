@@ -36,32 +36,46 @@
                 </div>
                 <div class="textForm">
                     {% if errors is not empty %}
-                        <p class="text-danger">Les champs ne sont pas renseigné correctement, le mail n'a pas été envoyé</p>
+                        <div class="text-danger">Les champs ne sont pas renseigné correctement, le mail n'a pas été envoyé</div>
+                    {% endif %}
+                    {% if mailSent is not empty %}
+                        <div class="text-danger">{{ mailSent }}</div>
+                    {% endif %}
+                    {% if mailNotSent is not empty %}
+                        <div class="text-danger">{{ mailNotSent }}</div>
                     {% endif %}
                 </div>
                 <div class="mt-5 col-10 offset-1">
-                    <form method="post" action="index.html.twig" enctype="multipart/form-data" novalidate="novalidate">
+                    <form method="post" action="" enctype="multipart/form-data" novalidate="novalidate">
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <label for="firstName">Votre Prénom:</label>
-                                <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Votre Prénom..." value="{{ post.firstName }}" pattern="/^[a-zA-Z0-9]+$/"required="required" data-validation-required-message="Please enter your name.">
-                                <div class="text-danger">{{ errors.firstName }}</div>
+                                {% if errors.firstName is defined %}
+                                    <div class="text-danger">{{ errors.firstName }}</div>
+                                {% endif %}
+                                <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Votre Prénom..." value="{{ post.firstName }}" required/>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="lastName">Votre Nom:</label>
-                                <input type="text" name="lastName" class="form-control " id="lastName" placeholder="Votre Nom..." value="{{ post.lastName }}" pattern="/^[a-zA-Z0-9]+$/"required>
-                                <div class="text-danger">{{ errors.lastName }}</div>
+                                {% if errors.lastName is defined %}
+                                    <div class="text-danger">{{ errors.lastName }}</div>
+                                {% endif %}
+                                <input type="text" name="lastName" class="form-control " id="lastName" placeholder="Votre Nom..." value="{{ post.lastName }}" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="msg">Votre commentaire:</label>
-                            <textarea class="form-control" name="msg" id="msg" rows="3" cols="25"placeholder="Ecrire votre commentaire ici..." required="required" data-validation-required-message="Please enter a message."></textarea>
-                            <div class="text-danger">{{ errors.msg }}</div>
+                            {% if errors.msg is defined %}
+                                <div class="text-danger">{{ errors.msg }}</div>
+                            {% endif %}
+                            <textarea class="form-control" name="msg" id="msg" rows="3" cols="25"placeholder="Ecrire votre commentaire ici..." required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="email">Votre adresse mail:</label>
-                            <input type="email" name="email" class="form-control" id="email" placeholder="nom@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{,}$" value="{{ post.email }}"required="required" data-validation-required-message="Please enter your email address.">
-                            <div class="text-danger">{{ errors.email }}</div>
+                            {% if  errors.email is defined %}
+                                <div class="text-danger">{{ errors.email }}</div>
+                            {% endif %}
+                            <input type="email" name="email" class="form-control" id="email" placeholder="nom@example.com" value="{{ post.email }}"required/>
                         </div>
                         <button class="btn btn-secondary" type="submit">Validation du formulaire</button>
                     </form>

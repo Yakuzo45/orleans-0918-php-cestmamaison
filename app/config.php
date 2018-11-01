@@ -4,7 +4,7 @@
  *
  * PHP version 7
  *
- * @author   WCS <contact@wildcodeschool.fr>
+ * @author   WCS <contactController@wildcodeschool.fr>
  *
  * @link     https://github.com/WildCodeSchool/simple-mvc
  */

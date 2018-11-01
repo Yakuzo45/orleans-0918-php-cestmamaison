@@ -1,0 +1,46 @@
+<div class="container-fluid">
+<form method="post" class="col-6 justify-content-center" enctype="multipart/form-data">
+    <div class="form-group">
+        <input type="hidden" value="{{product.id }}" name="id">
+
+        <label for="name">Nom du Produit: </label>
+        <input type="text" class="form-control" value="{{ product.name }}" id="name" name="name" placeholder="{{product.name}}">
+
+        <label for="description">Description : </label>
+        <textarea type="text" class="form-control" id="description" name="description" placeholder="{{ product.description}}" cols="25" required> "{{ product.description }}" </textarea>
+
+        <label for="price">Prix : </label>
+        <input type="text" class="form-control" value="{{product.price }}" id="price" name="price" placeholder="{{product.price}}">
+
+        <label for="category">Catégories : </label>
+        <select class="form-control custom-select mr-sm-2" id="category" name="category">
+            <option selected >Categories</option>
+            {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="brand">Marques : </label>
+        <select class="form-control custom-select mr-sm-2" id="brand" name="brand" placeholder="Marques">
+            <option selected >Marques</option>
+            {% for brand in brands %}
+                <option value="{{ brand.id }}">{{ brand.name }}</option>
+            {% endfor %}
+
+        </select>
+
+        <div class="row justify-content-start">
+            <div class="col-5 btn-file">
+                <label for="fichier">Ajouter une Image : </label>
+                <input type="file" name="fichier"/>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-2">
+                <button type="submit" class="btn btn-success">Valider</button>
+            </div>
+        </div>
+    </div>
+</form>
+    <div class="col-5 offset-2 justify-content-end"><img src="/assets/images/ProductImages/{{ product.picture }}" alt="Photo du produit"/></div>
+</div>

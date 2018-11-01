@@ -32,7 +32,7 @@ class Product
      * @param int $id
      * @return Product
      */
-    public function setId(int $id): Product
+    public function setId(int $id)
     {
         $this->id = $id;
         return $this;
@@ -52,7 +52,7 @@ class Product
      * @param string $name
      * @return Product
      */
-    public function setName(string $name): Product
+    public function setName(string $name)
     {
         $this->name = $name;
         return $this;
@@ -72,7 +72,7 @@ class Product
      * @param string $description
      * @return Product
      */
-    public function setDescription(string $description): Product
+    public function setDescription(string $description)
     {
         $this->description = $description;
         return $this;
@@ -92,7 +92,7 @@ class Product
      * @param string $price
      * @return Product
      */
-    public function setPrice(string $price): Product
+    public function setPrice(string $price)
     {
         $this->price = $price;
         return $this;
@@ -112,7 +112,7 @@ class Product
      * @param string $picture
      * @return Product
      */
-    public function setPicture(string $picture): Product
+    public function setPicture(string $picture)
     {
         $this->picture = $picture;
         return $this;

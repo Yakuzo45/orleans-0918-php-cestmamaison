@@ -7,6 +7,7 @@
  */
 
 namespace Controller;
+
 use Model\Category;
 use Model\CategoryManager;
 
@@ -28,7 +29,6 @@ class CategoryController extends AbstractController
             $errors[] = 'L\'image doit être renseignée';
         }
 
-
         $length = filesize($_FILES['fichier']['tmp_name']);
         $ext = pathinfo($_FILES['fichier']['name'], PATHINFO_EXTENSION);
         if ($length > self::MAX_SIZE) {
@@ -41,6 +41,7 @@ class CategoryController extends AbstractController
 
     public function add()
     {
+        $errors=[];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors = $this->checkErrors();
             if (empty($errors)) {
@@ -58,7 +59,6 @@ class CategoryController extends AbstractController
 
                 header('Location:/admin');
                 exit();
-
             }
         }
         return $this->twig->render('Admin/Category/add.html.twig', ['errors' => $errors]);
@@ -95,6 +95,23 @@ class CategoryController extends AbstractController
         return $this->twig->render('Admin/Category/update.html.twig', [
         'errors' => $errors,
         'category' => $category,
-    ]);
+        ]);
+    }
+
+    /**
+     *
+     */
+    public function delete()
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['deleteCategory'])) {
+                $categoryManager = new CategoryManager($this->getPdo());
+                $categoryManager->delete($_POST['deleteCategory']);
+
+                header('location:/admin/category/index');
+                exit();
+            }
+        }
     }
 }

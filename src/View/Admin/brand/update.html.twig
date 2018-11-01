@@ -1,6 +1,7 @@
+
 {% extends 'Admin/layoutAdmin.html.twig' %}
 {% block content %}
-    <h1>Ajouter une nouvelle marque</h1>
+    <h1>Modifier la marque {{ brand.name }} </h1>
     {% if errors is not empty %}
         <div class="alert alert-danger">
             <ul>
@@ -10,5 +11,5 @@
             </ul>
         </div>
     {% endif %}
-    {% include 'Admin/brand/_form.html.twig' %}
+    {% include 'Admin/brand/update_form.html.twig' %}
 {% endblock %}

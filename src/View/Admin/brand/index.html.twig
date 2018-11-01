@@ -32,8 +32,32 @@
                 {% else %}
                     <td><a href="https://placeholder.com"><img src="https://via.placeholder.com/150x150" alt=""></a></td>
                 {% endif %}
-                <td><a href="#" class="btn btn-secondary btn-md active mr-5 mt-5">Modifier</a></td>
-                <td><a href="#" class="btn btn-danger btn-md active mt-5">Supprimer</a></td>
+
+                <td><a href="/admin/brand/update/{{ brand.id }}" class="btn btn-secondary btn-md active mr-5 mt-5">Modifier</a></td>
+                <td><button type="button" class="btn btn-danger mt-5" data-toggle="modal" data-target="#exampleModal{{ brand.id }}">Supprimer</button>
+                    <div class="modal fade" id="exampleModal{{ brand.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title pl-1" id="exampleModalLabel">Confirmation</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Vous souhaitez supprimer la Marque {{ brand.name }} ?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <form action="" method="post" role="form">
+                                        <input type="hidden"  name="deleteBrand" value="{{ brand.id }}" >
+                                        <button type="submit" class="btn btn-danger" name="delete">Supprimer</button>
+                                    </form>
+                                    <button type="button" class="btn btn-secondary mb-3" data-dismiss="modal">Annuler</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
                 <td>
                     {% if brand.highlightedBrand == 0 %}
                     <a class="highlight btn btn-info btn-md ml-5 mt-5" href="/admin/brand/highlighted/{{ brand.id }}">Je souhaite mettre en avant ce produit</a>
@@ -44,6 +68,7 @@
             </tr>
             </tbody>
             {% endfor %}
+        </table>
     </div>
 
 </div>

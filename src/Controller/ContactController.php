@@ -79,12 +79,12 @@ class contactController extends AbstractController
                             ->setPassword(MAIL_PASSWORD)
                             ->setEncrytion(MAIL_ENCRYPTION);
                         $mailer = new Swift_Mailer($transport);
-                        $msg = new Swift_Msg();
-                        $msg->setSubject("Message du formulaire de contact du site C'est ma Maison");
-                        $msg->setFrom([$cleanPost['email'] => 'sender name']);
-                        $msg->addTo('wcs.cmm@gmail.com', 'recipient name');
-                        $msg->setBody("Vous avez un nouveau message de" . $cleanPost['lastName'] . " " . $cleanPost['firstName'] . " : " . $cleanPost['msg']);
-                        $result=$mailer-> send($msg);
+                        $message = new Swift_Massage();
+                        $message->setSubject("Message du formulaire de contact du site C'est ma Maison");
+                        $message->setFrom([$cleanPost['email'] => 'sender name']);
+                        $message->addTo('wcs.cmm@gmail.com', 'recipient name');
+                        $message->setBody("Vous avez un nouveau message de" . $cleanPost['lastName'] . " " . $cleanPost['firstName'] . " : " . $cleanPost['msg']);
+                        $result=$mailer-> send($message);
                         $_SESSION['mailSent'] = 'Votre message a été envoyé';
                     }catch (\Exception $e){
                         $_SESSION['mailNotSent'] = $e ->getMessage();

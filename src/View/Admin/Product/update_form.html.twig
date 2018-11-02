@@ -1,13 +1,13 @@
 <div class="container-fluid">
 <form method="post" class="col-6 justify-content-center" enctype="multipart/form-data">
     <div class="form-group">
-        <input type="hidden" value="{{product.id }}" name="id">
+        <input type="hidden" value="{{ product.id }}" name="id">
 
         <label for="name">Nom du Produit: </label>
-        <input type="text" class="form-control" value="{{ product.name }}" id="name" name="name" placeholder="{{product.name}}">
+        <input type="text" class="form-control" value="{{ product.name }}" id="name" name="name" placeholder="chaise">
 
         <label for="description">Description : </label>
-        <textarea type="text" class="form-control" id="description" name="description" placeholder="{{ product.description}}" cols="25" required> "{{ product.description }}" </textarea>
+        <textarea type="text" class="form-control" id="description" name="description" placeholder="{{ product.description}}" cols="25"></textarea>
 
         <label for="price">Prix : </label>
         <input type="text" class="form-control" value="{{product.price }}" id="price" name="price" placeholder="{{product.price}}">
@@ -21,7 +21,7 @@
         </select>
 
         <label for="brand">Marques : </label>
-        <select class="form-control custom-select mr-sm-2" id="brand" name="brand" placeholder="Marques">
+        <select class="form-control custom-select mr-sm-2" id="brand" name="brand" >
             <option selected >Marques</option>
             {% for brand in brands %}
                 <option value="{{ brand.id }}">{{ brand.name }}</option>

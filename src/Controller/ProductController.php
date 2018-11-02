@@ -182,7 +182,7 @@ class ProductController extends AbstractController
             }
 
             if (empty($errors)) {
-                $fileName = 'image' . uniqid() . '.' . $ext[1];
+                $fileName = 'image' . uniqid() . '.' . $ext;
                 $uploadDir = 'assets/images/ProductImages/';
                 $uploadFile = $uploadDir . basename($fileName);
                 move_uploaded_file($_FILES['fichier']['tmp_name'], $uploadFile);
@@ -208,6 +208,8 @@ class ProductController extends AbstractController
             'post' => $cleanPost,
             'categories' => $categories,
             'brands' => $brands,
+
+
         ]);
     }
 }

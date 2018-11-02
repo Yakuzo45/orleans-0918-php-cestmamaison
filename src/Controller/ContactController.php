@@ -10,7 +10,7 @@ namespace Controller;
 
 use \Swift_SmtpTransport;
 use \Swift_Mailer;
-use \Swift_Msg;
+use \Swift_Message;
 
 class contactController extends AbstractController
 {
@@ -79,14 +79,14 @@ class contactController extends AbstractController
                             ->setPassword(MAIL_PASSWORD)
                             ->setEncrytion(MAIL_ENCRYPTION);
                         $mailer = new Swift_Mailer($transport);
-                        $message = new Swift_Massage();
+                        $message = new Swift_Message();
                         $message->setSubject("Message du formulaire de contact du site C'est ma Maison");
                         $message->setFrom([$cleanPost['email'] => 'sender name']);
                         $message->addTo('wcs.cmm@gmail.com', 'recipient name');
                         $message->setBody("Vous avez un nouveau message de" . $cleanPost['lastName'] . " " . $cleanPost['firstName'] . " : " . $cleanPost['msg']);
                         $result=$mailer-> send($message);
                         $_SESSION['mailSent'] = 'Votre message a été envoyé';
-                    }catch (\Exception $e){
+                    }catch (\PDOException $e){
                         $_SESSION['mailNotSent'] = $e ->getMessage();
                     }
                     header('location:/visitor/contact/index.html.twig');

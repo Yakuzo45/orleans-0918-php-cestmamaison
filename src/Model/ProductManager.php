@@ -44,6 +44,7 @@ class ProductManager extends AbstractManager
             return $this->pdo->lastInsertId();
         }
     }
+
   
 
     public function selectAllProductsByOneCategory(int $id): array
@@ -77,4 +78,25 @@ class ProductManager extends AbstractManager
         $statement->execute();
 
     }
+
+    /**
+     * @param product $product
+     * @return int
+     */
+
+    public function update(product $product):int
+    {
+        $statement = $this->pdo->prepare("UPDATE $this->table SET `name`=:name,`description`=:description,`price`=:price,`picture`=:picture,`brand_id`=:brand_id,`category_id`=:category_id WHERE id=:id");
+        $statement->bindValue('id', $product->getId(), \PDO::PARAM_INT);
+        $statement->bindValue('name', $product->getName(), \PDO::PARAM_STR);
+        $statement->bindValue('description', $product->getDescription(), \PDO::PARAM_STR);
+        $statement->bindValue('price', $product->getPrice(), \PDO::PARAM_STR);
+        $statement->bindValue('brand_id', $product->getBrandId(), \PDO::PARAM_INT);
+        $statement->bindValue('category_id', $product->getCategoryId(), \PDO::PARAM_INT);
+        $statement->bindValue('picture', $product->getPicture(), \PDO::PARAM_STR);
+
+
+        return $statement->execute();
+        }
+
 }

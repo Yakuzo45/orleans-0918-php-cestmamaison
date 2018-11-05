@@ -13,6 +13,7 @@ use Model\ProductManager;
 
 class ProductController extends AbstractController
 {
+    const MAX_HIGHLIGHTED = 3;
     /**
      * @return string
      * @throws \Twig_Error_Loader
@@ -24,7 +25,12 @@ class ProductController extends AbstractController
         $productManager = new ProductManager($this->getPdo());
         $products = $productManager->selectAll();
 
-        return $this->twig->render('Admin/Product/index.html.twig', ['products' => $products]);
+        if (isset($_GET['error'])) {
+            $errors = explode('_', $_GET['error']);
+            $error = implode(' ', $errors);
+        }
+
+        return $this->twig->render('Admin/Product/index.html.twig', ['products' => $products, 'error' =>$error]);
     }
 
     /**
@@ -42,5 +48,21 @@ class ProductController extends AbstractController
                 exit();
             }
         }
+    }
+    public function highlightedProducts(int $id)
+    {
+        $productManager = new ProductManager($this->getPdo());
+        $product = $productManager->selectOneById($id);
+        $products = $productManager->selectHighlightedProduct();
+
+        $length = count($products);
+
+        if (($length >= self::MAX_HIGHLIGHTED) && ($product->isHighlightedProduct() == false)) {
+            $error = "?error=Vous_ne_pouvez_pas_mettre_plus_de_" . self::MAX_HIGHLIGHTED . "_produits_en_avant";
+        } else {
+            $productManager->updateHighlightedProductById($product);
+        }
+        header("Location:/admin/product/index$error");
+        exit();
     }
 }

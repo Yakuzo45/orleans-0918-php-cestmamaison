@@ -42,4 +42,26 @@ class ProductManager extends AbstractManager
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
+    /**
+     * @param Product $product
+     * @return int
+     */
+    public function updateHighlightedProductById(Product $product): int
+    {
+        $statement = $this->pdo->prepare("UPDATE $this->table SET `highlightedProduct` = :highlightedProduct WHERE id= :id");
+        $statement->bindValue('id', $product->getId(), \PDO::PARAM_INT);
+        $statement->bindValue('highlightedProduct', !$product->isHighlightedProduct(), \PDO::PARAM_BOOL);
+        return $statement->execute();
+    }
+
+
+    /**
+     * @return array
+     */
+    public function selectHighlightedProduct(): array
+    {
+        $statement = $this->pdo->query("SELECT * FROM $this->table WHERE highlightedProduct = 1");
+        $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
+        return $statement->fetchAll();
+    }
 }

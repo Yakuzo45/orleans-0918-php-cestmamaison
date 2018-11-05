@@ -33,10 +33,10 @@ class ProductController extends AbstractController
 
         if (empty($cleanPost['name'])) {
             $errors['name'] = 'Le "Nom" du produit doit être renseignée!';
-        } elseif (strlen($cleanPost['name']) > 255) {
+        }
+        if (strlen($cleanPost['name']) > 255) {
             $errors['name'] = 'Veuillez remplir le champ "Nom" uniquement avec des 255 caractères maximum';
         }
-
         if (empty($cleanPost['description'])) {
             $errors['description'] = 'Veuillez remplir le champ "Description"';
         }
@@ -45,10 +45,10 @@ class ProductController extends AbstractController
         }
         if (empty($cleanPost['price'])) {
             $errors['price'] = 'Veuillez remplir le champ "Prix"';
-        } elseif ($cleanPost['price'] <= 0) {
-            $errors['price'] = 'Veuillez remplir le champ "Prix" avec des caractères numériques et  une valeur supérieur à 0';
         }
-
+        if ($cleanPost['price'] <= 0) {
+            $errors['price'] = 'Le prix doit avoir une valeur supérieur à 0';
+        }
         if (empty($categoryManager->selectOneById(intval($cleanPost['category'])))) {
             $errors['category'] = 'Veuillez selectionner votre "Catégorie"';
         }

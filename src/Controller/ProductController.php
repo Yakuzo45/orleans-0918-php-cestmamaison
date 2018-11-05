@@ -30,15 +30,13 @@ class ProductController extends AbstractController
         $brandManager = new BrandManager($this->getPdo());
         $brands = $brandManager->selectAll();
 
-        if (!preg_match("/^[a-zA-Z0-9]+$/", $cleanPost['name'])) {
-            $errors['name'] = 'Veuillez remplir le champ "Nom" uniquement avec des caractères alphanumériques';
-        }
+
         if (empty($cleanPost['name'])) {
             $errors['name'] = 'Le "Nom" du produit doit être renseignée!';
-        } elseif (strlen($cleanPost['name']) > 255) {
+        }
+        if (strlen($cleanPost['name']) > 255) {
             $errors['name'] = 'Veuillez remplir le champ "Nom" uniquement avec des 255 caractères maximum';
         }
-
         if (empty($cleanPost['description'])) {
             $errors['description'] = 'Veuillez remplir le champ "Description"';
         }
@@ -47,10 +45,10 @@ class ProductController extends AbstractController
         }
         if (empty($cleanPost['price'])) {
             $errors['price'] = 'Veuillez remplir le champ "Prix"';
-        } elseif ($cleanPost['price'] <= 0) {
-            $errors['price'] = 'Veuillez remplir le champ "Prix" avec des caractères numériques et  une valeur supérieur à 0';
         }
-
+        if ($cleanPost['price'] <= 0) {
+            $errors['price'] = 'Le prix doit avoir une valeur supérieur à 0';
+        }
         if (empty($categoryManager->selectOneById(intval($cleanPost['category'])))) {
             $errors['category'] = 'Veuillez selectionner votre "Catégorie"';
         }
@@ -70,7 +68,7 @@ class ProductController extends AbstractController
      */
     public function add()
     {
-        $errors=[];
+        $errors = [];
         $cleanPost = [];
         $categoryManager = new CategoryManager($this->getPdo());
         $categories = $categoryManager->selectAll();
@@ -89,7 +87,7 @@ class ProductController extends AbstractController
             $length = filesize($_FILES['fichier']['tmp_name']);
             $ext = pathinfo($_FILES['fichier']['name'], PATHINFO_EXTENSION);
             if ($length > self::MAX_SIZE) {
-                $errors[] = 'Votre fichier ne peut exceder' . self::MAX_SIZE/1000000 .'Mo';
+                $errors[] = 'Votre fichier ne peut exceder' . self::MAX_SIZE / 1000000 . 'Mo';
             } elseif ((!in_array($ext, self::EXTENSION)) and (!empty($_FILES['fichier']['name']))) {
                 $errors[] = 'Votre fichier peut uniquement posseder l\'extension ' . implode(' , ', self::EXTENSION);
             }
@@ -99,7 +97,8 @@ class ProductController extends AbstractController
             }
 
             if (empty($errors)) {
-                $fileName = 'image' . uniqid() . '.' . $ext[1];
+                $ext = pathinfo($_FILES['fichier']['name'], PATHINFO_EXTENSION);
+                $fileName = 'image' . uniqid() . '.' . $ext;
                 $uploadDir = 'assets/images/ProductImages/';
                 $uploadFile = $uploadDir . basename($fileName);
                 move_uploaded_file($_FILES['fichier']['tmp_name'], $uploadFile);
@@ -150,5 +149,67 @@ class ProductController extends AbstractController
                 exit();
             }
         }
+    }
+
+    public function update(int $id)
+    {
+        $errors = [];
+        $cleanPost = [];
+        $categoryManager = new CategoryManager($this->getPdo());
+        $categories = $categoryManager->selectAll();
+
+        $brandManager = new BrandManager($this->getPdo());
+        $brands = $brandManager->selectAll();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            foreach ($_POST as $key => $value) {
+                $cleanPost[$key] = trim($value);
+            }
+
+            $errors = $this->checkErrors($cleanPost);
+
+            $length = filesize($_FILES['fichier']['tmp_name']);
+            $ext = pathinfo($_FILES['fichier']['name'], PATHINFO_EXTENSION);
+            if ($length > self::MAX_SIZE) {
+                $errors[] = 'Votre fichier ne peut exceder' . self::MAX_SIZE / 1000000 . 'Mo';
+            } elseif ((!in_array($ext, self::EXTENSION)) and (!empty($_FILES['fichier']['name']))) {
+                $errors[] = 'Votre fichier peut uniquement posseder l\'extension ' . implode(' , ', self::EXTENSION);
+            }
+
+            if (empty($_FILES['fichier']['name'])) {
+                $errors[] = 'L\'image doit être renseignée';
+            }
+
+            if (empty($errors)) {
+                $fileName = 'image' . uniqid() . '.' . $ext;
+                $uploadDir = 'assets/images/ProductImages/';
+                $uploadFile = $uploadDir . basename($fileName);
+                move_uploaded_file($_FILES['fichier']['tmp_name'], $uploadFile);
+
+                $productManager = new ProductManager($this->getPdo());
+                $product = $productManager->selectOneById($id);
+                $product->setName($cleanPost['name']);
+                $product->setDescription($cleanPost['description']);
+                $product->setPrice($cleanPost['price']);
+                $product->setPicture($fileName);
+                $product->setBrandId($cleanPost['brand']);
+                $product->setCategoryId($cleanPost['category']);
+
+
+                $productManager->update($product);
+
+                header('Location:/admin/product/index');
+                exit();
+            }
+        }
+        return $this->twig->render('Admin/Product/update.html.twig', [
+            'errors' => $errors,
+            'post' => $cleanPost,
+            'categories' => $categories,
+            'brands' => $brands,
+
+
+        ]);
     }
 }

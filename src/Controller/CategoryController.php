@@ -57,7 +57,7 @@ class CategoryController extends AbstractController
                 $category->setPicture($fileName);
                 $id = $categoryManager->insert($category);
 
-                header('Location:/admin/category/index');
+                header('Location:/admin');
                 exit();
             }
         }

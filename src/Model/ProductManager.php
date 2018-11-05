@@ -50,8 +50,8 @@ class ProductManager extends AbstractManager
     {
         $statement = $this->pdo->prepare("SELECT category.id as idCategory, category.name as nameCategory, 
                                           category.picture as pictureCategory,product.id, product.name, product.picture
-                                          FROM category LEFT JOIN $this->table
-                                          ON category.id = product.category_id WHERE category_id = :id");
+                                          FROM $this->table LEFT JOIN category
+                                          ON product.category_id = category.id WHERE category_id = :id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->setFetchMode(\PDO::FETCH_ASSOC);
         $statement->execute();

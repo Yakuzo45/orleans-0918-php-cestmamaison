@@ -41,7 +41,7 @@ class HomeController extends AbstractController
     public function productsByOneCategory(int $id)
     {
         $productManager = new ProductManager($this->getPdo());
-        $productsAndCategory = $productManager->selectAllProducts($id);
+        $productsAndCategory = $productManager->selectAllProductsByOneCategory($id);
         return $this->twig->render('Visitor/Category/showProductsWithCategory.html.twig',[
             'productAndCategory' => $productsAndCategory,
             'categories' => $this->dropdownService->getCategories(),
@@ -49,12 +49,17 @@ class HomeController extends AbstractController
         ]);
     }
 
-    /**
-     * @return array|string
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
-     */
+    public function productsByOneBrand(int $id)
+    {
+        $productManager = new ProductManager($this->getPdo());
+        $productsAndBrand = $productManager->selectAllProductsByOneBrand($id);
+        return $this->twig->render('Visitor/Brand/showProductsWithBrand.html.twig',[
+            'productAndBrand' => $productsAndBrand,
+            'categories' => $this->dropdownService->getCategories(),
+            'brands' => $this->dropdownService->getBrands(),
+        ]);
+    }
+
     public function contact()
     {
         session_start();

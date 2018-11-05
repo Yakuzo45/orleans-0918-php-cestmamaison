@@ -72,7 +72,7 @@ class BrandController extends AbstractController
                 $brand->setPicture($fileName);
                 $id = $brandManager->insert($brand);
 
-                header('Location:/admin');
+                header('Location:/admin/brand');
                 exit();
             }
         }

@@ -18,8 +18,8 @@ $routes = [
         ['index', '/', 'GET'], // action, url, method
         ['presentation', '/presentation', 'GET'],
         ['productsByOneCategory', '/category/{id:\d}', 'GET'],
-        ['productsByOneBrand', '/brand/{id:\d}', 'GET'],
-        ['contact', '/contact', 'GET'],
+        ['contact', '/contact', ['GET', 'POST']],
+
     ],
     'Category' => [ // Controller
         ['add', '/admin/category/add', ['GET', 'POST']],// action, url, method
@@ -34,6 +34,7 @@ $routes = [
         ['index', '/admin/product/index', 'GET'], // action, url, method
         ['add','/product/add',['GET','POST']],//action, url,method
         ['delete', '/admin/product/index', 'POST'], // action, url, method
+        ['update','/admin/product/update/{id:\d+}',['GET','POST']], //action, url, method
     ],
 
     'Brand' => [ // Controller

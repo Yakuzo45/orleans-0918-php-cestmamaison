@@ -18,6 +18,7 @@ use Model\CategoryManager;
 
 class ProductController extends AbstractController
 {
+    const MAX_HIGHLIGHTED = 3;
     const EXTENSION = ['png', 'jpeg', 'jpg'];
     const MAX_SIZE = 1048576;
 
@@ -59,7 +60,6 @@ class ProductController extends AbstractController
 
         return $errors;
     }
-
     /**
      * @return string
      * @throws \Twig_Error_Loader
@@ -131,7 +131,11 @@ class ProductController extends AbstractController
         $productManager = new ProductManager($this->getPdo());
         $products = $productManager->selectAll();
 
-        return $this->twig->render('Admin/Product/index.html.twig', ['products' => $products]);
+        if (isset($_GET['error'])) {
+
+            $error = urldecode($_GET['error']);
+        }
+        return $this->twig->render('Admin/Product/index.html.twig', ['products' => $products, 'error' =>$error]);
     }
 
     /**
@@ -150,6 +154,20 @@ class ProductController extends AbstractController
             }
         }
     }
+    public function highlightedProducts(int $id)
+    {
+        $productManager = new ProductManager($this->getPdo());
+        $product = $productManager->selectOneById($id);
+        $highlightedProducts = $productManager->selectHighlightedProduct();
+
+
+        if ((count($highlightedProducts) === self::MAX_HIGHLIGHTED) && ($product->isHighlightedProduct() == false)) {
+            $error = urlencode("Vous ne pouvez pas mettre plus de " . self::MAX_HIGHLIGHTED . " produits en avant");
+        } else {
+            $productManager->updateHighlightedProductById($product);
+        }
+        header("Location:/admin/product/index?error=$error");
+        exit();
 
     public function update(int $id)
     {
@@ -208,8 +226,6 @@ class ProductController extends AbstractController
             'post' => $cleanPost,
             'categories' => $categories,
             'brands' => $brands,
-
-
         ]);
     }
 }

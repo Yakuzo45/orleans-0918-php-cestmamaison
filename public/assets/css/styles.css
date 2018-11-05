@@ -32,7 +32,15 @@ a:hover {
     color: white;
     text-decoration: none;
 }
-
+.highlightbrand{
+    color:black;
+    min-height:30px;
+    max-height:30px;
+    font-size:1.5em;
+}
+.highlightbrand:hover{
+    color:lightblue;
+}
 .text-primary {
     color: #fed136 !important;
 }
@@ -603,8 +611,8 @@ nav .dropdown-menu:hover{
     background:#87CEEB;
 }
 .ImgHeight{
-    min-height: 350px;
-    max-height: 350px;
+    width: 200px;
+    height: 200px;
 }
 
 .ProductHeight{

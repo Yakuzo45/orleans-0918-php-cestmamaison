@@ -26,10 +26,9 @@ class ProductController extends AbstractController
         $products = $productManager->selectAll();
 
         if (isset($_GET['error'])) {
-            $errors = explode('_', $_GET['error']);
-            $error = implode(' ', $errors);
-        }
 
+            $error = urldecode($_GET['error']);
+        }
         return $this->twig->render('Admin/Product/index.html.twig', ['products' => $products, 'error' =>$error]);
     }
 
@@ -58,11 +57,11 @@ class ProductController extends AbstractController
         $length = count($products);
 
         if (($length >= self::MAX_HIGHLIGHTED) && ($product->isHighlightedProduct() == false)) {
-            $error = "?error=Vous_ne_pouvez_pas_mettre_plus_de_" . self::MAX_HIGHLIGHTED . "_produits_en_avant";
+            $error = urlencode("Vous ne pouvez pas mettre plus de " . self::MAX_HIGHLIGHTED . " produits en avant");
         } else {
             $productManager->updateHighlightedProductById($product);
         }
-        header("Location:/admin/product/index$error");
+        header("Location:/admin/product/index?error=$error");
         exit();
     }
 }

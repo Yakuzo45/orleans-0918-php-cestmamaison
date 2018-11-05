@@ -30,11 +30,18 @@
         </div>
     </section>
     <section>
-        <div class="row">
-        <div class="frise col-lg-12 text-center mt-5">
-            <h2 class="section-heading text-uppercase">Nos marques a la une</h2>
-            <h3 class="section-subheading text-muted">Venez découvrir nos marques phares !</h3>
-        </div>
+        <div class="row justify-content-center text-center">
+            <div class="frise col-lg-12 text-center mt-5">
+                <h2 class="section-heading text-uppercase">Nos marques a la une</h2>
+                <h3 class="section-subheading text-muted">Venez découvrir nos marques phares !</h3>
+            </div>
+            {% for brand in highlightedBrands %}
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <img class ="img-fluid" src="assets/images/BrandImages/{{ brand.picture }}" alt=""/>
+                <h4 class="service-heading">{{ brand.name }}</h4>
+                <p class="text-muted">{{ brand.price }}</p>
+            </div>
+            {% endfor %}
         </div>
     </section>
 

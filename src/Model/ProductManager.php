@@ -44,6 +44,7 @@ class ProductManager extends AbstractManager
             return $this->pdo->lastInsertId();
         }
     }
+
   
 
     public function selectAllProductsByOneCategory(int $id): array
@@ -82,6 +83,7 @@ class ProductManager extends AbstractManager
      * @param product $product
      * @return int
      */
+
     public function update(product $product):int
     {
         $statement = $this->pdo->prepare("UPDATE $this->table SET `name`=:name,`description`=:description,`price`=:price,`picture`=:picture,`brand_id`=:brand_id,`category_id`=:category_id WHERE id=:id");

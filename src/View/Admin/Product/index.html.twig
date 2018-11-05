@@ -64,9 +64,9 @@
                         </div>
                     </td>
                     <td>
-                        {% if product.highlightedProduct == 0 %}
+                        {% if product.highlightedProduct == FALSE %}
                             <a class="highlight btn btn-info btn-md ml-5 mt-5" href="/admin/product/highlighted/{{ product.id }}">Je souhaite mettre en avant ce produit</a>
-                        {% elseif product.highlightedProduct == 1%}
+                        {% elseif product.highlightedProduct ==  TRUE %}
                             <a class="highlight btn btn-warning btn-md ml-5 mt-5" href="/admin/product/highlighted/{{ product.id }}">Ne plus mettre mettre en avant ce produit</a>
                         {% endif %}
                     </td>

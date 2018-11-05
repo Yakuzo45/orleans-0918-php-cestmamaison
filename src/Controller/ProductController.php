@@ -52,11 +52,10 @@ class ProductController extends AbstractController
     {
         $productManager = new ProductManager($this->getPdo());
         $product = $productManager->selectOneById($id);
-        $products = $productManager->selectHighlightedProduct();
+        $highlightedProducts = $productManager->selectHighlightedProduct();
 
-        $length = count($products);
 
-        if (($length >= self::MAX_HIGHLIGHTED) && ($product->isHighlightedProduct() == false)) {
+        if ((count($highlightedProducts) === self::MAX_HIGHLIGHTED) && ($product->isHighlightedProduct() == false)) {
             $error = urlencode("Vous ne pouvez pas mettre plus de " . self::MAX_HIGHLIGHTED . " produits en avant");
         } else {
             $productManager->updateHighlightedProductById($product);

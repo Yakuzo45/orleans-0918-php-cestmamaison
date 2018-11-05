@@ -31,7 +31,7 @@ $routes = [
 
         ['index', '/admin/product/index', 'GET'], // action, url, method
         ['delete', '/admin/product/index', 'POST'], // action, url, method
-        ['highlightedProducts', '/admin/product/highlighted/{id:\d+}', ['GET', 'POST']],//action, url, method
+        ['highlightedProducts', '/admin/product/highlighted/{id:\d+}', ['GET']],//action, url, method
     ],
 
     'Brand' => [ // Controller

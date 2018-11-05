@@ -26,7 +26,7 @@
 
                     <td>{{ product.name }}</td>
                     {% if product.picture is not empty %}
-                        <td><img src="{{product.picture }}" alt="{{product.name}}"></td>
+                        <td><img class="img-adm" src="/../assets/images/ProductImages/{{ product.picture }}" alt="{{product.name}}"></td>
                     {% else %}
                         <td><img src="https://via.placeholder.com/150x150" alt=""></td>
                     {% endif %}

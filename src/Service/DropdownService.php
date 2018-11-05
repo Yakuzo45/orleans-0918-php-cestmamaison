@@ -9,6 +9,7 @@
 namespace Service;
 
 use Controller\AbstractController;
+use Controller\HomeController;
 use Model\CategoryManager;
 use Model\BrandManager;
 

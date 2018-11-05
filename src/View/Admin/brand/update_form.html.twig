@@ -1,0 +1,23 @@
+<form method="post" class="col-10 justify-content-center" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-5">
+            <div class="form-group">
+                <input type="hidden" value="{{ brand.id }}" name="id">
+                <label for="name">Nom : </label>
+                <input type="text" class="form-control" value="{{ brand.name }}" id="name" name="name" placeholder="chaise">
+                <div class="row justify-content-start">
+                    <div class="col-5 btn-file">
+                        <label for="fichier">Ajouter un fichier : </label>
+                        <input type="file" name="fichier"/>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-success">Valider</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-5 offset-2 justify-content-end"><img src="/assets/images/BrandImages/{{ brand.picture }}" alt="Photo de la marque"/></div>
+    </div>
+</form>

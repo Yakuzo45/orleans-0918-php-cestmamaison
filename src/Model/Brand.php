@@ -48,8 +48,9 @@ class Brand
 
     /**
      * @param int $id
+     * @return Brand
      */
-    public function setId(int $id)
+    public function setId(int $id): void
     {
         $this->id = $id;
     }

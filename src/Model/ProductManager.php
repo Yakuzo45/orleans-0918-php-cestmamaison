@@ -25,22 +25,58 @@ class ProductManager extends AbstractManager
 
     /**
      * @param int $id
+     * @return int
      */
-    public function selectAllProducts(int $id): array
+
+
+    public function insert(product $product):int
     {
-        $statement = $this->pdo->query("SELECT category.id as idCategory, category.name as nameCategory, 
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (`name`,`description`,`price`,`picture`,`brand_id`,`category_id`) VALUES (:name, :description, :price, :picture, :brand_id, :category_id)");
+        $statement->bindValue('name', $product->getName(), \PDO::PARAM_STR);
+        $statement->bindValue('description', $product->getDescription(), \PDO::PARAM_STR);
+        $statement->bindValue('price', $product->getPrice(), \PDO::PARAM_STR);
+        $statement->bindValue('picture', $product->getPicture(), \PDO::PARAM_STR);
+        $statement->bindValue('brand_id', $product->getBrandId(), \PDO::PARAM_INT);
+        $statement->bindValue('category_id', $product->getCategoryId(), \PDO::PARAM_INT);
+
+
+        if ($statement->execute()) {
+            return $this->pdo->lastInsertId();
+        }
+    }
+
+  
+
+    public function selectAllProductsByOneCategory(int $id): array
+    {
+        $statement = $this->pdo->prepare("SELECT category.id as idCategory, category.name as nameCategory, 
                                           category.picture as pictureCategory,product.id, product.name, product.picture
-                                          FROM category LEFT JOIN $this->table
-                                          ON product.category_id = category.id WHERE category_id = $id");
+                                          FROM $this->table LEFT JOIN category
+                                          ON product.category_id = category.id WHERE category_id = :id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->setFetchMode(\PDO::FETCH_ASSOC);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+
+    public function selectAllProductsByOneBrand(int $id): array
+    {
+        $statement = $this->pdo->prepare("SELECT brand.id as idBrand, brand.name as nameBrand, 
+                                          brand.picture as pictureBrand,product.id, product.name, product.picture
+                                          FROM brand LEFT JOIN $this->table
+                                          ON product.brand_id = brand.id WHERE brand_id = :id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->setFetchMode(\PDO::FETCH_ASSOC);
         return $statement->fetchAll();
     }
+
     public function delete(int $id): void
     {
         // prepared request
         $statement = $this->pdo->prepare("DELETE FROM $this->table WHERE id=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
+
     }
     /**
      * @param Product $product
@@ -64,4 +100,24 @@ class ProductManager extends AbstractManager
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
         return $statement->fetchAll();
     }
+  
+    /**
+     * @param product $product
+     * @return int
+     */
+
+    public function update(product $product):int
+    {
+        $statement = $this->pdo->prepare("UPDATE $this->table SET `name`=:name,`description`=:description,`price`=:price,`picture`=:picture,`brand_id`=:brand_id,`category_id`=:category_id WHERE id=:id");
+        $statement->bindValue('id', $product->getId(), \PDO::PARAM_INT);
+        $statement->bindValue('name', $product->getName(), \PDO::PARAM_STR);
+        $statement->bindValue('description', $product->getDescription(), \PDO::PARAM_STR);
+        $statement->bindValue('price', $product->getPrice(), \PDO::PARAM_STR);
+        $statement->bindValue('brand_id', $product->getBrandId(), \PDO::PARAM_INT);
+        $statement->bindValue('category_id', $product->getCategoryId(), \PDO::PARAM_INT);
+        $statement->bindValue('picture', $product->getPicture(), \PDO::PARAM_STR);
+
+
+        return $statement->execute();
+        }
 }

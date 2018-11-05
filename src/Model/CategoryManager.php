@@ -45,6 +45,16 @@ class CategoryManager extends AbstractManager
         $statement->bindValue('picture', $category->getPicture(), \PDO::PARAM_STR);
 
         return $statement->execute();
+    }
 
+    /**
+     * @param int $id
+     */
+    public function delete(int $id): void
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("DELETE FROM $this->table WHERE id=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
     }
 }

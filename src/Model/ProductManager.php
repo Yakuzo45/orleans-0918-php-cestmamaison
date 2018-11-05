@@ -48,14 +48,14 @@ class ProductManager extends AbstractManager
   
 
     public function selectAllProductsByOneCategory(int $id): array
-
     {
         $statement = $this->pdo->prepare("SELECT category.id as idCategory, category.name as nameCategory, 
                                           category.picture as pictureCategory,product.id, product.name, product.picture
-                                          FROM category LEFT JOIN $this->table
+                                          FROM $this->table LEFT JOIN category
                                           ON product.category_id = category.id WHERE category_id = :id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->setFetchMode(\PDO::FETCH_ASSOC);
+        $statement->execute();
         return $statement->fetchAll();
     }
 

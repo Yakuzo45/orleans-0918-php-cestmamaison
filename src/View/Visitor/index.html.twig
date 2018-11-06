@@ -36,12 +36,12 @@
 
     <section class="bg-color">
         <div class="row">
-        <div class="frise col-lg-12 text-center mt-5">
-            <h2 class="section-heading text-uppercase">Nos <span> marques</span> a la une</h2>
-            <h3 class="section-subheading ">Venez découvrir nos marques  <span>phares !</span></h3>
-
+            <div class="frise col-lg-12 text-center mt-5">
+                <h2 class="section-heading text-uppercase">Nos <span> marques</span> a la une</h2>
+                <h3 class="section-subheading ">Venez découvrir nos marques  <span>phares !</span></h3>
+             </div>
         </div>
-        <div class="container ">
+        <div class="container">
             <div class="row justify-content-between text-center">
                 {% for brand in highlightedBrands %}
                 <div class="col-sm-12 col-md-6 col-lg-4 imgCard">
@@ -50,7 +50,6 @@
                         <h4 class="cardName mr-5">{{ brand.name }}</h4>
                     </a>
                 </div>
-                {% endfor %}
             </div>
         </div>
         </div>

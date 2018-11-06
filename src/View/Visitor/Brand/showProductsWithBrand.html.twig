@@ -1,6 +1,7 @@
 {% extends 'Visitor/layout.html.twig' %}
 
 {% block content %}
+    <section class="bg-color">
         <section class="productsByBrand">
             <div class="container-fluid">
                 <img class="img-fluid img-banniere" src="/assets/images/BrandImages/{{ productAndBrand[0].pictureBrand }}" alt="Illustration de {{ brand.name }}"/>
@@ -23,4 +24,5 @@
                 </div>
             </div>
         </section>
+    </section>
 {% endblock %}

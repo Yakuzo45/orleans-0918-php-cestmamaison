@@ -141,6 +141,7 @@ nav .dropdown-menu{
     background-color:white;
     color:#df0078;
     font-family: 'Hind Vadodara', sans-serif;
+    column-count: 2;
 }
 nav .dropdown-menu:hover{
     background-color:white;

@@ -28,18 +28,19 @@
             <tr>
                 <td>{{ brand.name }}</td>
                 {% if brand.picture is not empty %}
-                    <td><img src="assets/images/BrandImages/{{ brand.picture }}" alt="Illustration de {{ brand.name }}"></td>
+                    <td><img class="img-adm" src="../assets/images/BrandImages/{{ brand.picture }}" alt="Illustration de {{ brand.name }}"></td>
                 {% else %}
                     <td><a href="https://placeholder.com"><img src="https://via.placeholder.com/150x150" alt=""></a></td>
                 {% endif %}
 
                 <td><a href="/admin/brand/update/{{ brand.id }}" class="btn btn-secondary btn-md active mr-5 mt-5">Modifier</a></td>
-                <td><button type="button" class="btn btn-danger mt-5" data-toggle="modal" data-target="#exampleModal{{ brand.id }}">Supprimer</button>
+                <td>
+                    <button type="button" class="btn btn-danger mt-5" data-toggle="modal" data-target="#exampleModal{{ brand.id }}">Supprimer</button>
                     <div class="modal fade" id="exampleModal{{ brand.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title pl-1" id="exampleModalLabel">Confirmation</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -52,7 +53,7 @@
                                         <input type="hidden"  name="deleteBrand" value="{{ brand.id }}" >
                                         <button type="submit" class="btn btn-danger" name="delete">Supprimer</button>
                                     </form>
-                                    <button type="button" class="btn btn-secondary mb-3" data-dismiss="modal">Annuler</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                                 </div>
                             </div>
                         </div>

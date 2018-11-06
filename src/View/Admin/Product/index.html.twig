@@ -26,11 +26,11 @@
 
                     <td>{{ product.name }}</td>
                     {% if product.picture is not empty %}
-                        <td><img src="{{product.picture }}" alt="{{product.name}}"></td>
+                        <td><img class="img-adm" src="/../assets/images/ProductImages/{{ product.picture }}" alt="{{product.name}}"></td>
                     {% else %}
                         <td><img src="https://via.placeholder.com/150x150" alt=""></td>
                     {% endif %}
-                    <td><a href="/product/{{ product.id }}" class="btn btn-secondary btn-md active mt-5" role="button" aria-pressed="true">Modifier</a></td>
+                    <td><a href="/admin/product/update/{{ product.id }}" class="btn btn-secondary btn-md active mt-5" role="button" aria-pressed="true">Modifier</a></td>
 
                     <td><button type="button" class="btn btn-danger mt-5" data-toggle="modal" data-target="#exampleModal{{ product.id }}">Supprimer</button>
 

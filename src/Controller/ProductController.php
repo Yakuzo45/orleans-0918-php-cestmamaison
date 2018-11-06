@@ -180,9 +180,6 @@ class ProductController extends AbstractController
         $brandManager = new BrandManager($this->getPdo());
         $brands = $brandManager->selectAll();
 
-        $productManager = new ProductManager($this->getPdo());
-        $product = $productManager->selectOneById($id);
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             foreach ($_POST as $key => $value) {
@@ -209,6 +206,8 @@ class ProductController extends AbstractController
                 $uploadFile = $uploadDir . basename($fileName);
                 move_uploaded_file($_FILES['fichier']['tmp_name'], $uploadFile);
 
+                $productManager = new ProductManager($this->getPdo());
+                $product = $productManager->selectOneById($id);
                 $product->setName($cleanPost['name']);
                 $product->setDescription($cleanPost['description']);
                 $product->setPrice($cleanPost['price']);
@@ -216,12 +215,11 @@ class ProductController extends AbstractController
                 $product->setBrandId($cleanPost['brand']);
                 $product->setCategoryId($cleanPost['category']);
 
+
                 $productManager->update($product);
 
                 header('Location:/admin/product/index');
                 exit();
-            } else {
-                $product = $cleanPost;
             }
         }
         return $this->twig->render('Admin/Product/update.html.twig', [
@@ -229,7 +227,6 @@ class ProductController extends AbstractController
             'post' => $cleanPost,
             'categories' => $categories,
             'brands' => $brands,
-            'product' => $product,
         ]);
     }
 }

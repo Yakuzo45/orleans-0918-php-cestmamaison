@@ -30,15 +30,33 @@ a {
 a:hover {
     color: #c1d261;
     text-decoration: none;
+
 }
-.highlightBrand, .highlightProduct{
-    color:black;
-.highlightBrand{
+.cardName{
     color:#DF0078;
-    min-height:30px;
-    max-height:30px;
+    min-height:80px;
+    max-height:50px;
+    min-width:350px;
+    max-width:350px;
     font-size:1.5em;
+    position: absolute;
+    top: 72%;
+    line-height: 300%;
+    background-color: rgba(255, 255, 255, 0.7);
 }
+
+.imgCard:hover img{
+
+    opacity:0.4;
+}
+.imgCard:hover .cardName{
+    color:#DF0078;
+    font-size:1.5em;
+    font-weight: bold;
+    position: absolute;
+    top:35%;
+    background-color:transparent;
+  
 .highlightBrand:hover, .highlightProduct:hover{
     color:lightblue;
 }
@@ -256,10 +274,7 @@ span{
     }
 }
 
-.service-heading {
-    margin: 15px 0;
-    text-transform: none;
-}
+
 
 #portfolio .portfolio-item {
     right: 0;
@@ -638,7 +653,7 @@ span{
     background:#87CEEB;
 }
 .imgHeight{
-    width:350px;
+    width: 350px;
     height: 350px;
 }
 

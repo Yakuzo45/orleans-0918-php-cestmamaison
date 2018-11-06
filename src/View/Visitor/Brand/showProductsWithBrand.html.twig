@@ -1,27 +1,26 @@
 {% extends 'Visitor/layout.html.twig' %}
 
 {% block content %}
-    <div class="container">
-        <section id="ProductsByCategory">
-            <div class="row justify-content-center">
-                <div class="col-7">
-                    <h1>{{ productAndBrand[0].nameBrand }}</h1>
-                </div>
-                <div class="col-7">
-                    <img class="img-fluid" src="/assets/images/CategoryImages/{{ productAndBrand[0].pictureBrand }}"/>
+        <section id="ProductsByBrand">
+            <div class="container-fluid">
+                <img class="img-fluid img-banniere" src="/assets/images/BrandImages/{{ productAndBrand[0].pictureBrand }}"/>
+                <div class="row justify-content-center">
+                    <div class="col-10 col-md-2">
+                        <h1>{{ productAndBrand[0].nameBrand }}</h1>
+                    </div>
                 </div>
             </div>
-
-            <div class="row justify-content-center">
-                {% for product in productAndBrand %}
-                    <div class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <img class="card-img-top ImgHeight" src="/assets/images/ProductImages/{{ product.picture }}" alt="">
-                            <a class="card-title ProductHeight" href="/product/{{ product.id }}">{{ product.name }}</a>
+            <div class="container">
+                <div class="row justify-content-center">
+                    {% for product in productAndBrand %}
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <img class="card-img-top imgHeight" src="/assets/images/ProductImages/{{ product.picture }}" alt="">
+                                <a class="card-title productHeight" href="/product/{{ product.id }}">{{ product.name }}</a>
+                            </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
         </section>
-    </div>
 {% endblock %}

@@ -309,7 +309,10 @@ span{
 #portfolio * {
     z-index: 2;
 }
-
+.img-banniere{
+    width:80vw;
+    height:32vw;
+}
 @media (min-width: 767px) {
     #portfolio .portfolio-item {
         margin: 0 0 30px;
@@ -602,7 +605,7 @@ span{
 .team-member p {
     margin-top: 0;
 }
-#ProductsByCategory {
+#ProductsByCategory, #ProductsByBrand {
     margin-top:200px;
     background:none;
     text-align:center;
@@ -611,12 +614,12 @@ span{
     margin-top:100px;
     background:#87CEEB;
 }
-.ImgHeight{
+.imgHeight{
     min-height: 350px;
     max-height: 350px;
 }
 
-.ProductHeight{
+.productHeight{
     min-height:30px;
     max-height:30px;
     font-size:1.5em;

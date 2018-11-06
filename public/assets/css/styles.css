@@ -693,10 +693,13 @@ span{
     text-align:center;
 }
 .card{
-    margin-top:80px;
-    background:#87CEEB;
+    margin-top:60px;
+    background:#df0078;
+    margin-bottom: 25%;
 }
-
+.category{
+    margin-top:40%;
+}
 .imgHeight{
     width: 350px;
     height: 350px;
@@ -706,6 +709,7 @@ span{
     min-height:30px;
     max-height:30px;
     font-size:1.5em;
+    font-family: 'Hind Vadodara', sans-serif;
 }
 .adresse{
     text-align: center;

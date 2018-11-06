@@ -82,6 +82,7 @@ class BrandController extends AbstractController
 
     public function index()
     {
+        $error=[];
         $brandManager = new BrandManager($this->getPdo());
         $brands = $brandManager->selectAll();
         if (isset($_GET['error'])) {

@@ -770,12 +770,23 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
     background-color: #BFD58E;
 }
 #footer {
-    background-color: #D0ADE1;
+    background-color: #FF00FF;
 }
 
 .carousel{
     margin-top: 109px;
 
+}
+.LogoFooter{
+    margin-top:15px;
+    margin-bottom:15px;
+    background:white;
+    border-radius:50%;
+    width:85px;
+    padding:10px;
+}
+.mention{
+    font-size:1.3em;
 }
 @media (max-width: 576px) {
     .horaires{

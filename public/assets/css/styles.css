@@ -49,13 +49,14 @@ a:hover {
 
     opacity:0.4;
 }
-.imgCard:hover .cardName{
-    color:#DF0078;
-    font-size:1.5em;
+.imgCard:hover .cardName {
+    color: #DF0078;
+    font-size: 1.5em;
     font-weight: bold;
     position: absolute;
-    top:35%;
-    background-color:transparent;
+    top: 35%;
+    background-color: transparent;
+}
   
 .highlightBrand:hover, .highlightProduct:hover{
     color:lightblue;

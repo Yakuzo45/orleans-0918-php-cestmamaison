@@ -27,8 +27,13 @@ class HomeController extends AbstractController
     {
         $brandManager = new BrandManager($this->getPdo());
         $highlightedBrands = $brandManager->selectHighlightedBrand();
+
+        $productManager = new ProductManager($this->getPdo());
+        $highlightedProducts = $productManager->selectHighlightedProduct();
+
         return $this->twig->render('Visitor/index.html.twig', [
             'highlightedBrands' => $highlightedBrands,
+            'highlightedProducts' => $highlightedProducts,
             'categories' => $this->dropdownService->getCategories(),
             'brands' => $this->dropdownService->getBrands(),
         ]);

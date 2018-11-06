@@ -6,14 +6,19 @@
 
 body {
     overflow-x: hidden;
-    font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';background-image:url(../images/background.jpg);background-repeat: no-repeat ;
+    font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    background-color: transparent;
+    background-repeat: no-repeat ;
 }
 .logo {
     margin-left: 0.25vw;
+    height: 60px;
+    width: 60px;
 }
 
 p {
     line-height: 1.75;
+    font-size: 1.3em;
     font-family: 'Hind Vadodara', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 }
@@ -53,14 +58,17 @@ h4,
 h5,
 h6 {
     font-weight: 700;
+    color: #df0078;
     font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 section {
     padding: 30px 0;
-    background-color:white;
-}
 
+}
+.bg-color{
+    background-color:#e9e6ea;
+}
 section h2.section-heading {
     font-size: 40px;
     margin-top: 0;
@@ -68,11 +76,12 @@ section h2.section-heading {
 }
 
 section h3.section-subheading {
-    font-size: 16px;
+    font-size: 25px;
     font-weight: 400;
     font-style: italic;
     margin-bottom: 75px;
     text-transform: none;
+    color: #df0078;
     font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
@@ -175,7 +184,8 @@ nav .dropdown-menu:hover{
     #mainNav.navbar-shrink {
         padding-top: 0;
         padding-bottom: 0;
-        background-color: #D0ADE1;
+        background-color: rgba(253, 238, 245,0.95);
+
     }
     #mainNav.navbar-shrink .navbar-brand {
         font-size: 1.25em;
@@ -644,7 +654,13 @@ section#contact {
     background-repeat: no-repeat;
     background-position: center;
 }
-
+.contact-height{
+    min-height: 100vh;
+    margin-top: -4.5vh;
+    padding-top: 5vh;
+    margin-bottom: -4.5vh;
+    padding-bottom: 5vh;
+}
 section#contact .section-heading {
     color: #fff;
 }

@@ -12,8 +12,8 @@ body {
 }
 .logo {
     margin-left: 0.25vw;
-    height: 60px;
-    width: 60px;
+    height: 100px;
+    width: 100px;
 }
 
 p {
@@ -21,13 +21,6 @@ p {
     font-size: 1.3em;
     font-family: 'Hind Vadodara', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-}
-
-.highlightBrand{
-    color:white;
-}
-.highlightBrand:hover{
-    color:black;
 }
 a {
     color: white;
@@ -37,14 +30,34 @@ a {
 a:hover {
     color: #c1d261;
     text-decoration: none;
+
 }
-.highlightBrand{
-    color:black;
-    min-height:30px;
-    max-height:30px;
+.cardName{
+    color:#DF0078;
+    min-height:80px;
+    max-height:50px;
+    min-width:350px;
+    max-width:350px;
     font-size:1.5em;
+    position: absolute;
+    top: 72%;
+    line-height: 300%;
+    background-color: rgba(255, 255, 255, 0.7);
 }
-.highlightBrand:hover{
+
+.imgCard:hover img{
+
+    opacity:0.4;
+}
+.imgCard:hover .cardName{
+    color:#DF0078;
+    font-size:1.5em;
+    font-weight: bold;
+    position: absolute;
+    top:35%;
+    background-color:transparent;
+  
+.highlightBrand:hover, .highlightProduct:hover{
     color:lightblue;
 }
 .text-primary {
@@ -54,12 +67,17 @@ a:hover {
 h1,
 h2,
 h3,
-h4,
 h5,
 h6 {
     font-weight: 700;
     color: #df0078;
     font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+h4{
+    font-family: 'Hind Vadodara', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    color:#df0078;
+
 }
 
 section {
@@ -113,7 +131,7 @@ section h3.section-subheading {
     right: 0;
     padding: 13px;
     text-transform: uppercase;
-    color: #c1d261;
+    color: #df0078;
     border: 0;
     background-color: #BFD58E;
     font-family: 'Hind Vadodara', sans-serif;
@@ -165,12 +183,14 @@ nav .dropdown-toggle:focus {
 nav .dropdown-item{
     font-family: 'Hind Vadodara', sans-serif;
     color:#df0078;
+    font-size: 1.3em;
 
 }
 nav .dropdown-item:hover{
     background-color:white;
-    color: #df0078;
-    font-weight: bold;
+    color:#c1d261;
+    font-weight: inherit;
+    font-size: 1.3em;
 }
 nav .dropdown-menu{
     background-color:white;
@@ -271,10 +291,7 @@ span{
     }
 }
 
-.service-heading {
-    margin: 15px 0;
-    text-transform: none;
-}
+
 
 #portfolio .portfolio-item {
     right: 0;
@@ -321,6 +338,7 @@ span{
 #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3,
 #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4 {
     margin: 0;
+
 }
 
 #portfolio .portfolio-item .portfolio-caption {
@@ -346,7 +364,10 @@ span{
 #portfolio * {
     z-index: 2;
 }
-
+.img-banniere{
+    width:80vw;
+    height:32vw;
+}
 @media (min-width: 767px) {
     #portfolio .portfolio-item {
         margin: 0 0 30px;
@@ -639,7 +660,7 @@ span{
 .team-member p {
     margin-top: 0;
 }
-#ProductsByCategory {
+.productsByCategory, .productsByBrand {
     margin-top:200px;
     background:none;
     text-align:center;
@@ -650,8 +671,8 @@ span{
 }
 
 .imgHeight{
-    width: 200px;
-    height: 200px;
+    width: 350px;
+    height: 350px;
 }
 
 .productHeight{

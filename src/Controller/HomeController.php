@@ -141,7 +141,14 @@ class HomeController extends AbstractController
                 }
             }
         }
-        return $this->twig->render('Visitor/Contact/index.html.twig',['errors'=>$errors,'values'=>$cleanPost, 'mailSent' =>$mailSent, 'mailNotSent' =>$mailNotSent]);
+        return $this->twig->render('Visitor/Contact/index.html.twig',[
+                                    'errors'=>$errors,
+                                    'values'=>$cleanPost,
+                                    'mailSent' =>$mailSent,
+                                    'mailNotSent' =>$mailNotSent,
+                                    'categories' => $this->dropdownService->getCategories(),
+                                    'brands' => $this->dropdownService->getBrands(),
+        ]);
     }
 }
 

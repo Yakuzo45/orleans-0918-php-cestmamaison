@@ -35,6 +35,26 @@ class Product
      * @var string
      */
     private $picture;
+    /**
+     * @var bool
+     */
+    private $highlightedProduct;
+
+    /**
+     * @return bool
+     */
+    public function isHighlightedProduct(): bool
+    {
+        return $this->highlightedProduct;
+    }
+
+    /**
+     * @param bool $highlightedProduct
+     */
+    public function setHighlightedProduct(bool $highlightedProduct)
+    {
+        $this->highlightedProduct = $highlightedProduct;
+    }
 
     /**
      * @var int

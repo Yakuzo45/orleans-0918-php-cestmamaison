@@ -329,7 +329,10 @@ span{
 #portfolio * {
     z-index: 2;
 }
-
+.img-banniere{
+    width:80vw;
+    height:32vw;
+}
 @media (min-width: 767px) {
     #portfolio .portfolio-item {
         margin: 0 0 30px;
@@ -622,7 +625,7 @@ span{
 .team-member p {
     margin-top: 0;
 }
-#ProductsByCategory {
+.productsByCategory, .productsByBrand {
     margin-top:200px;
     background:none;
     text-align:center;
@@ -632,8 +635,8 @@ span{
     background:#87CEEB;
 }
 .imgHeight{
-    width: 200px;
-    height: 200px;
+    width:350px;
+    height: 350px;
 }
 
 .productHeight{

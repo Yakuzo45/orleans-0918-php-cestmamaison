@@ -126,8 +126,8 @@ class ProductController extends AbstractController
     }
 
     public function index(): string
-
     {
+        $error=[];
         $productManager = new ProductManager($this->getPdo());
         $products = $productManager->selectAll();
 

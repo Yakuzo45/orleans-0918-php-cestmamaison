@@ -12,8 +12,8 @@ body {
 }
 .logo {
     margin-left: 0.25vw;
-    height: 60px;
-    width: 60px;
+    height: 100px;
+    width: 100px;
 }
 
 p {
@@ -96,7 +96,7 @@ section h3.section-subheading {
     right: 0;
     padding: 13px;
     text-transform: uppercase;
-    color: #c1d261;
+    color: #df0078;
     border: 0;
     background-color: #BFD58E;
     font-family: 'Hind Vadodara', sans-serif;
@@ -148,12 +148,14 @@ nav .dropdown-toggle:focus {
 nav .dropdown-item{
     font-family: 'Hind Vadodara', sans-serif;
     color:#df0078;
+    font-size: 1.3em;
 
 }
 nav .dropdown-item:hover{
     background-color:white;
-    color: #df0078;
-    font-weight: bold;
+    color:#c1d261;
+    font-weight: inherit;
+    font-size: 1.3em;
 }
 nav .dropdown-menu{
     background-color:white;

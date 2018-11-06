@@ -17,10 +17,11 @@ p {
     font-family: 'Hind Vadodara', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 }
-.highlight{
-    color:#c1d261;
+
+.highlightBrand{
+    color:white;
 }
-.highlight:hover{
+.highlightBrand:hover{
     color:black;
 }
 a {
@@ -32,7 +33,15 @@ a:hover {
     color: #c1d261;
     text-decoration: none;
 }
-
+.highlightBrand{
+    color:black;
+    min-height:30px;
+    max-height:30px;
+    font-size:1.5em;
+}
+.highlightBrand:hover{
+    color:lightblue;
+}
 .text-primary {
     color: #fed136 !important;
 }
@@ -612,12 +621,12 @@ span{
     margin-top:100px;
     background:#87CEEB;
 }
-.ImgHeight{
-    min-height: 350px;
-    max-height: 350px;
+.imgHeight{
+    width: 200px;
+    height: 200px;
 }
 
-.ProductHeight{
+.productHeight{
     min-height:30px;
     max-height:30px;
     font-size:1.5em;

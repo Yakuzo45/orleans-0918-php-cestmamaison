@@ -41,8 +41,8 @@
                 {% for brand in highlightedBrands %}
                 <div class="col-sm-12 col-md-6 col-lg-4">
                     <a href="/brand/{{ brand.id }}">
-                        <img class ="img-fluid ImgHeight" src="assets/images/BrandImages/{{ brand.picture }}" alt=""/>
-                        <a class="highlightbrand"><h4 class="service-heading">{{ brand.name }}</h4></a>
+                        <img class ="img-fluid imgHeight" src="assets/images/BrandImages/{{ brand.picture }}" alt="" />
+                        <h4 class="highlightBrand service-heading">{{ brand.name }}</h4>
                     </a>
                 </div>
                 {% endfor %}

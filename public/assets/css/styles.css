@@ -148,12 +148,14 @@ nav .dropdown-toggle:focus {
 nav .dropdown-item{
     font-family: 'Hind Vadodara', sans-serif;
     color:#df0078;
+    font-size: 1.3em;
 
 }
 nav .dropdown-item:hover{
     background-color:white;
-    color: #df0078;
-    font-weight: bold;
+    color:#c1d261;
+    font-weight: inherit;
+    font-size: 1.3em;
 }
 nav .dropdown-menu{
     background-color:white;

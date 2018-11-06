@@ -27,16 +27,20 @@ class HomeController extends AbstractController
     {
         $brandManager = new BrandManager($this->getPdo());
         $highlightedBrands = $brandManager->selectHighlightedBrand();
+
+        $productManager = new ProductManager($this->getPdo());
+        $highlightedProducts = $productManager->selectHighlightedProduct();
+
         return $this->twig->render('Visitor/index.html.twig', [
             'highlightedBrands' => $highlightedBrands,
+            'highlightedProducts' => $highlightedProducts,
             'categories' => $this->dropdownService->getCategories(),
             'brands' => $this->dropdownService->getBrands(),
         ]);
-
     }
     public function presentation()
     {
-        return $this->twig->render('Visitor/Presentation/index.html.twig',[
+        return $this->twig->render('Visitor/Presentation/index.html.twig', [
             'categories' => $this->dropdownService->getCategories(),
             'brands' => $this->dropdownService->getBrands(),
         ]);
@@ -46,7 +50,7 @@ class HomeController extends AbstractController
     {
         $productManager = new ProductManager($this->getPdo());
         $productsAndCategory = $productManager->selectAllProductsByOneCategory($id);
-        return $this->twig->render('Visitor/Category/showProductsWithCategory.html.twig',[
+        return $this->twig->render('Visitor/Category/showProductsWithCategory.html.twig', [
             'productAndCategory' => $productsAndCategory,
             'categories' => $this->dropdownService->getCategories(),
             'brands' => $this->dropdownService->getBrands(),
@@ -57,7 +61,7 @@ class HomeController extends AbstractController
     {
         $productManager = new ProductManager($this->getPdo());
         $productsAndBrand = $productManager->selectAllProductsByOneBrand($id);
-        return $this->twig->render('Visitor/Brand/showProductsWithBrand.html.twig',[
+        return $this->twig->render('Visitor/Brand/showProductsWithBrand.html.twig', [
             'productAndBrand' => $productsAndBrand,
             'categories' => $this->dropdownService->getCategories(),
             'brands' => $this->dropdownService->getBrands(),
@@ -82,24 +86,22 @@ class HomeController extends AbstractController
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             foreach ($_POST as $key => $value) {
                 $cleanPost[$key] = trim($value);
             }
-            if ($_POST){
-
+            if ($_POST) {
                 if (empty($cleanPost['firstName'])) {
                     $errors['firstName'] = "Indiquer votre Prénom";
                 } elseif (!preg_match("/^[a-zA-Z]+$/", $cleanPost['firstName'])) {
                     $errors['firstName'] = "Votre prénom ne doit pas contenir des caractères spéciaux";
-                } elseif (strlen($cleanPost['firstName'])>50){
+                } elseif (strlen($cleanPost['firstName'])>50) {
                     $errors['firstName']= 'Veuillez remplir le champ "Prénom" avec 50 caractères maxinum';
                 }
                 if (empty($cleanPost['lastName'])) {
                     $errors['lastName'] = "Indiquer votre Nom";
                 } elseif (!preg_match("/^[a-zA-Z]+$/", $cleanPost['lastName'])) {
                     $errors['lastName'] = "Votre nom ne doit pas contenir des caractères spéciaux";
-                } elseif (strlen($cleanPost['lastName'])>50){
+                } elseif (strlen($cleanPost['lastName'])>50) {
                     $errors['lastName']= 'Veuillez remplir le champ "Nom" avec 50 caractères maximum';
                 }
                 if (empty($cleanPost['msg'])) {
@@ -110,11 +112,10 @@ class HomeController extends AbstractController
                     $errors['email'] = "Indiquer votre Mail";
                 } elseif (!filter_var($cleanPost['email'], FILTER_VALIDATE_EMAIL)) {
                     $errors['email'] = "Votre mail  doit être correctement en format email";
-                } elseif (strlen($cleanPost['msg'])>50){
+                } elseif (strlen($cleanPost['msg'])>50) {
                     $errors['email']= 'Veuillez remplir le champ "E-mail" avec 50 caractères maximum';
                 }
-                if (empty($errors)){
-
+                if (empty($errors)) {
                     try {
                         $transport = (new Swift_SmtpTransport(MAIL_TRANSPORT, MAIL_PORT))
                             ->setUsername(MAIL_USER)
@@ -128,7 +129,7 @@ class HomeController extends AbstractController
                         $message->setBody("Vous avez un nouveau message de" . $cleanPost['lastName'] . " " . $cleanPost['firstName'] . " : " . $cleanPost['msg']);
                         $result=$mailer-> send($message);
                         $_SESSION['mailSent'] = 'Votre message a été envoyé';
-                    }catch (\PDOException $e){
+                    } catch (\PDOException $e) {
                         $_SESSION['mailNotSent'] = $e ->getMessage();
                     }
                     header('location:/contact');
@@ -136,10 +137,24 @@ class HomeController extends AbstractController
                 }
             }
         }
-        return $this->twig->render('Visitor/Contact/index.html.twig',['errors'=>$errors,'values'=>$cleanPost, 'mailSent' =>$mailSent, 'mailNotSent' =>$mailNotSent]);
+        return $this->twig->render('Visitor/Contact/index.html.twig',[
+                                    'errors'=>$errors,
+                                    'values'=>$cleanPost,
+                                    'mailSent' =>$mailSent,
+                                    'mailNotSent' =>$mailNotSent,
+                                    'categories' => $this->dropdownService->getCategories(),
+                                    'brands' => $this->dropdownService->getBrands(),
+        ]);
+    }
+    public function showProduct($id)
+    {
+        $productManager = new ProductManager($this->pdo);
+        $product = $productManager->selectOneById($id);
+
+        return $this->twig->render('Visitor/Product/show.html.twig', [
+            'product' => $product,
+            'categories' => $this->dropdownService->getCategories(),
+            'brands' => $this->dropdownService->getBrands(),
+            ]) ;
     }
 }
-
-
-
-

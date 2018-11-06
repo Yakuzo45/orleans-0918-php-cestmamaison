@@ -24,7 +24,7 @@
                 <div class="col-lg-6 order-1.order-md-2 mt-5">
                     <p>Votre boutique spécialisée pour les enfants sur Orléans vous propose une sélection de jouets et jeux etudiés et adaptés <span> a chaque age.</span> Besoin de decoration linge de
                         maison ou jouets pour la naissance de vos enfants ? Deux étages vous attendent pour faire vos cadeaux !</p>
-                    <div class="col-4">
+                    <div class="col-6">
                         <a class="btn btn-block btn-hallo" href="/presentation">
                             Qui sommes-nous <i class="fas fa-question"></i>
                         </a>
@@ -50,8 +50,8 @@
                         <h4 class="cardName mr-5">{{ brand.name }}</h4>
                     </a>
                 </div>
+                {% endfor %}
             </div>
-        </div>
         </div>
     </section>
 
@@ -66,10 +66,10 @@
             <div class="container">
                 <div class="row justify-content-between text-center">
                     {% for product in highlightedProducts %}
-                        <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="col-sm-12 col-md-6 col-lg-4 imgCard">
                             <a href="/product/{{ product.id }}">
                                 <img class ="img-fluid imgHeight" src="assets/images/ProductImages/{{ product.picture }}" alt="" />
-                                <h4 class="highlightProduct service-heading">{{ product.name }}</h4>
+                                <h4 class="cardName mr-5">{{ product.name }}</h4>
                             </a>
                         </div>
                     {% endfor %}

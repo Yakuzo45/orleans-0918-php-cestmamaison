@@ -168,6 +168,7 @@ class ProductController extends AbstractController
         }
         header("Location:/admin/product/index?error=$error");
         exit();
+    }
 
     public function update(int $id)
     {

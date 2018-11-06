@@ -254,6 +254,14 @@ span{
     }
 }
 
+.backgroundinfo{
+    background-image: url("../images/nounoursbackground.jpeg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 631px;
+
+}
 .service-heading {
     margin: 15px 0;
     text-transform: none;

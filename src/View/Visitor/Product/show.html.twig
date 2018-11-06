@@ -1,0 +1,17 @@
+{% extends 'Visitor/layout.html.twig' %}
+{% block content %}
+<section>
+    <div class="container mt-5">
+    <div class="row product">
+        <div class="col-lg-4 col-sm-12 img-fluid">
+            <img class ="picture" src="/assets/images/ProductImages/{{ product.picture }}" alt="Illustration de {{ product.picture }}">
+        </div>
+        <div class="col-lg-6 col-sm-12 pt-5 show">
+            <h2 class="text-center">{{ product.name }}</h2>
+            <p class="pb-5 pt-5">{{ product.description }}.</p>
+            <p class=" price text-center">{{ product.price }} €</p>
+        </div>
+    </div>
+    </div>
+</section>
+{% endblock %}

@@ -308,6 +308,9 @@ span{
     margin-top: 35px;
     color: white;
 }
+.btn-hallo:hover {
+    background-color: #df0078;
+}
 .backgroundinfo{
     background-image: url("../images/nounoursbackground.jpeg");
     background-repeat: no-repeat;

@@ -28,7 +28,7 @@
             <tr>
                 <td>{{ brand.name }}</td>
                 {% if brand.picture is not empty %}
-                    <td><img src="assets/images/BrandImages/{{ brand.picture }}" alt="Illustration de {{ brand.name }}"></td>
+                    <td><img class="img-adm" src="../assets/images/BrandImages/{{ brand.picture }}" alt="Illustration de {{ brand.name }}"></td>
                 {% else %}
                     <td><a href="https://placeholder.com"><img src="https://via.placeholder.com/150x150" alt=""></a></td>
                 {% endif %}

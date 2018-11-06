@@ -48,14 +48,14 @@ class ProductManager extends AbstractManager
   
 
     public function selectAllProductsByOneCategory(int $id): array
-
     {
         $statement = $this->pdo->prepare("SELECT category.id as idCategory, category.name as nameCategory, 
                                           category.picture as pictureCategory,product.id, product.name, product.picture
-                                          FROM category LEFT JOIN $this->table
+                                          FROM $this->table LEFT JOIN category
                                           ON product.category_id = category.id WHERE category_id = :id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->setFetchMode(\PDO::FETCH_ASSOC);
+        $statement->execute();
         return $statement->fetchAll();
     }
 
@@ -78,7 +78,29 @@ class ProductManager extends AbstractManager
         $statement->execute();
 
     }
+    /**
+     * @param Product $product
+     * @return int
+     */
+    public function updateHighlightedProductById(Product $product): int
+    {
+        $statement = $this->pdo->prepare("UPDATE $this->table SET `highlightedProduct` = :highlightedProduct WHERE id= :id");
+        $statement->bindValue('id', $product->getId(), \PDO::PARAM_INT);
+        $statement->bindValue('highlightedProduct', !$product->isHighlightedProduct(), \PDO::PARAM_BOOL);
+        return $statement->execute();
+    }
 
+
+    /**
+     * @return array
+     */
+    public function selectHighlightedProduct(): array
+    {
+        $statement = $this->pdo->query("SELECT * FROM $this->table WHERE highlightedProduct = 1");
+        $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
+        return $statement->fetchAll();
+    }
+  
     /**
      * @param product $product
      * @return int
@@ -98,5 +120,4 @@ class ProductManager extends AbstractManager
 
         return $statement->execute();
         }
-
 }

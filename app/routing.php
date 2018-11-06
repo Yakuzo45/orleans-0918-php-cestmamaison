@@ -20,7 +20,7 @@ $routes = [
         ['productsByOneCategory', '/category/{id:\d}', 'GET'],
         ['productsByOneBrand', '/brand/{id:\d}', 'GET'],
         ['contact', '/contact', ['GET', 'POST']],
-
+        ['showProduct', '/product/{id:\d+}', 'GET'],
     ],
     'Category' => [ // Controller
         ['add', '/admin/category/add', ['GET', 'POST']],// action, url, method
@@ -33,7 +33,7 @@ $routes = [
     'Product' => [ // Controller
 
         ['index', '/admin/product/index', 'GET'], // action, url, method
-        ['add','/product/add',['GET','POST']],//action, url,method
+        ['add','/admin/product/add', ['GET','POST']],//action, url,method
         ['delete', '/admin/product/index', 'POST'], // action, url, method
         ['highlightedProducts', '/admin/product/highlighted/{id:\d+}', ['GET']],//action, url, method
         ['update','/admin/product/update/{id:\d+}',['GET','POST']], //action, url, method

@@ -20,7 +20,7 @@ $routes = [
         ['productsByOneCategory', '/category/{id:\d}', 'GET'],
         ['productsByOneBrand', '/brand/{id:\d}', 'GET'],
         ['contact', '/contact', ['GET', 'POST']],
-
+        ['showProduct', '/product/{id:\d+}', 'GET'],
     ],
     'Category' => [ // Controller
         ['add', '/admin/category/add', ['GET', 'POST']],// action, url, method

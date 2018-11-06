@@ -605,7 +605,7 @@ span{
 .team-member p {
     margin-top: 0;
 }
-#ProductsByCategory, #ProductsByBrand {
+.productsByCategory, .productsByBrand {
     margin-top:200px;
     background:none;
     text-align:center;
@@ -615,8 +615,8 @@ span{
     background:#87CEEB;
 }
 .imgHeight{
-    min-height: 350px;
-    max-height: 350px;
+    width:350px;
+    height: 350px;
 }
 
 .productHeight{

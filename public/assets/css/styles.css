@@ -745,12 +745,29 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
     background-color: #BFD58E;
 }
 #footer {
-    background-color: #D0ADE1;
+    background-color: #FDEEF5;
 }
 
 .carousel{
     margin-top: 109px;
 
+}
+.logoFooter{
+    margin-top:15px;
+    margin-bottom:15px;
+    background-color:white;
+    border-radius:50%;
+    width:85px;
+    padding:10px;
+}
+.logoFacebook{
+    width:85px;
+    height:85px;
+    margin-top:15px;
+}
+.mention{
+    font-size:1.3em;
+    color:#DF0078;
 }
 @media (max-width: 576px) {
     .horaires{

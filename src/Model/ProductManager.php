@@ -51,7 +51,7 @@ class ProductManager extends AbstractManager
     {
         $statement = $this->pdo->prepare("SELECT category.id as idCategory, category.name as nameCategory, 
                                           category.picture as pictureCategory,product.id, product.name, product.picture
-                                          FROM $this->table LEFT JOIN category
+                                          FROM $this->table RIGHT JOIN category
                                           ON product.category_id = category.id WHERE category_id = :id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->setFetchMode(\PDO::FETCH_ASSOC);
@@ -63,7 +63,7 @@ class ProductManager extends AbstractManager
     {
         $statement = $this->pdo->prepare("SELECT brand.id as idBrand, brand.name as nameBrand, 
                                           brand.picture as pictureBrand,product.id, product.name, product.picture
-                                          FROM $this->table LEFT JOIN brand
+                                          FROM $this->table JOIN brand
                                           ON brand.id = product.brand_id WHERE brand_id = :id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->setFetchMode(\PDO::FETCH_ASSOC);

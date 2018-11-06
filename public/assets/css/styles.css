@@ -22,13 +22,6 @@ p {
     font-family: 'Hind Vadodara', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 }
-
-.highlightBrand{
-    color:white;
-}
-.highlightBrand:hover{
-    color:black;
-}
 a {
     color: white;
     font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -37,15 +30,35 @@ a {
 a:hover {
     color: #c1d261;
     text-decoration: none;
+
 }
-.highlightBrand{
+.cardName{
     color:#DF0078;
-    min-height:30px;
-    max-height:30px;
+    min-height:80px;
+    max-height:50px;
+    min-width:350px;
+    max-width:350px;
     font-size:1.5em;
+    position: absolute;
+    top: 72%;
+    line-height: 300%;
+    background-color: rgba(255, 255, 255, 0.7);
 }
-.highlightBrand:hover{
+
+.imgCard:hover img{
+
+    opacity:0.4;
+}
+.imgCard:hover .cardName{
     color:#DF0078;
+    font-size:1.5em;
+    font-weight: bold;
+    position: absolute;
+    top:35%;
+    background-color:transparent;
+  
+.highlightBrand:hover, .highlightProduct:hover{
+    color:lightblue;
 }
 .text-primary {
     color: #fed136 !important;
@@ -60,16 +73,45 @@ h6 {
     color: #df0078;
     font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
-
+iframe{
+    height:420px;
+}
+.textContactButton{
+    font-size:1.4em;
+    padding-top:10px;
+    padding-bottom:20px;
+    font-family:'Hind Vadodara', sans-serif;
+    background-color: #DF0078;
+}
+.button-color{
+    background-color:#DF0078;
+    color:white;
+}
 h4{
     font-family: 'Hind Vadodara', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     color:#df0078;
 
 }
-
 section {
     padding: 30px 0;
 
+}
+.product{
+    padding-top: 15%;
+    padding-bottom:9%;
+
+}
+.show{
+    margin-left: 5%;
+}
+.price{
+    color:#c1d261;
+    font-size: 2.2em;
+    font-weight: bold;
+}
+.picture{
+    width: 102%;
+    height:102%;
 }
 .bg-color{
     background-color:#e9e6ea;
@@ -260,7 +302,18 @@ span{
         font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     }
 }
-
+.btn-hallo {
+    background-color: #c1d261;
+    margin-top: 35px;
+    color: black;
+}
+.backgroundinfo{
+    background-image: url("../images/nounoursbackground.jpeg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+}
 .service-heading {
     margin: 15px 0;
     text-transform: none;
@@ -639,11 +692,12 @@ span{
     text-align:center;
 }
 .card{
-    margin-top:100px;
+    margin-top:80px;
     background:#87CEEB;
 }
+
 .imgHeight{
-    width:350px;
+    width: 350px;
     height: 350px;
 }
 
@@ -660,7 +714,6 @@ span{
     padding-top: 15%;
 }
 section#contact {
-    background-color: #212529;
     background-image: url("../img/map-image.png");
     background-repeat: no-repeat;
     background-position: center;

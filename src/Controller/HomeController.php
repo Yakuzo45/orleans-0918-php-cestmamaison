@@ -7,6 +7,7 @@ namespace Controller;
 use Model\CategoryManager;
 use Service\DropdownService;
 use Model\ProductManager;
+use Model\BrandManager;
 use \Swift_SmtpTransport;
 use \Swift_Mailer;
 use \Swift_Message;
@@ -24,7 +25,10 @@ class HomeController extends AbstractController
 
     public function index()
     {
+        $brandManager = new BrandManager($this->getPdo());
+        $highlightedBrands = $brandManager->selectHighlightedBrand();
         return $this->twig->render('Visitor/index.html.twig', [
+            'highlightedBrands' => $highlightedBrands,
             'categories' => $this->dropdownService->getCategories(),
             'brands' => $this->dropdownService->getBrands(),
         ]);

@@ -44,17 +44,18 @@ class ProductManager extends AbstractManager
             return $this->pdo->lastInsertId();
         }
     }
+
   
 
     public function selectAllProductsByOneCategory(int $id): array
-
     {
         $statement = $this->pdo->prepare("SELECT category.id as idCategory, category.name as nameCategory, 
                                           category.picture as pictureCategory,product.id, product.name, product.picture
-                                          FROM category LEFT JOIN $this->table
+                                          FROM $this->table LEFT JOIN category
                                           ON product.category_id = category.id WHERE category_id = :id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->setFetchMode(\PDO::FETCH_ASSOC);
+        $statement->execute();
         return $statement->fetchAll();
     }
 
@@ -77,4 +78,46 @@ class ProductManager extends AbstractManager
         $statement->execute();
 
     }
+    /**
+     * @param Product $product
+     * @return int
+     */
+    public function updateHighlightedProductById(Product $product): int
+    {
+        $statement = $this->pdo->prepare("UPDATE $this->table SET `highlightedProduct` = :highlightedProduct WHERE id= :id");
+        $statement->bindValue('id', $product->getId(), \PDO::PARAM_INT);
+        $statement->bindValue('highlightedProduct', !$product->isHighlightedProduct(), \PDO::PARAM_BOOL);
+        return $statement->execute();
+    }
+
+
+    /**
+     * @return array
+     */
+    public function selectHighlightedProduct(): array
+    {
+        $statement = $this->pdo->query("SELECT * FROM $this->table WHERE highlightedProduct = 1");
+        $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
+        return $statement->fetchAll();
+    }
+  
+    /**
+     * @param product $product
+     * @return int
+     */
+
+    public function update(product $product):int
+    {
+        $statement = $this->pdo->prepare("UPDATE $this->table SET `name`=:name,`description`=:description,`price`=:price,`picture`=:picture,`brand_id`=:brand_id,`category_id`=:category_id WHERE id=:id");
+        $statement->bindValue('id', $product->getId(), \PDO::PARAM_INT);
+        $statement->bindValue('name', $product->getName(), \PDO::PARAM_STR);
+        $statement->bindValue('description', $product->getDescription(), \PDO::PARAM_STR);
+        $statement->bindValue('price', $product->getPrice(), \PDO::PARAM_STR);
+        $statement->bindValue('brand_id', $product->getBrandId(), \PDO::PARAM_INT);
+        $statement->bindValue('category_id', $product->getCategoryId(), \PDO::PARAM_INT);
+        $statement->bindValue('picture', $product->getPicture(), \PDO::PARAM_STR);
+
+
+        return $statement->execute();
+        }
 }

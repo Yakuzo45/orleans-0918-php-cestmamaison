@@ -6,11 +6,16 @@
                 <h2>Où nous trouver?</h2>
                 <div class="row justify-content-center">
                     <div class="col-lg-6 col-xl-6 d-flex align-items-center">
-                        <div>
-                            <p>C’EST MA MAISON !</p>
-                            <p>306, RUE DE BOURGOGNE</p>
-                            <p>45000 ORLEANS</p>
-                            <p>Tel. : 02 38 53 72 13</p>
+                        <div class="col-lg-10 col-xl-10 imageBoutique">
+                            <div class="adresse">
+                                <p>C’EST MA MAISON !</p>
+                                <p>306, RUE DE BOURGOGNE</p>
+                                <p>45000 ORLEANS</p>
+                                <p>Tel. : 02 38 53 72 13</p>
+                            </div>
+                            <div class="">
+                                <img class="d-block w-100" src="/assets/images/boutique_ext.jpg" alt="Facade de la boutique">
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-xl-6">
@@ -18,11 +23,62 @@
                             <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=1.9038158655166628%2C47.89913920274405%2C1.9071766734123232%2C47.90071624767519&amp;layer=mapnik&amp;marker=47.899927731214625%2C1.9054962694644928" frameborder="0" scrolling="no" marginheight="0"
                                     marginwidth="0" height="420">
                             </iframe>
-                            <small>
-                                <button type="button" class="btn btn-sm btn-secondary"><a href="https://www.openstreetmap.org/?mlat=47.89993&amp;mlon=1.90550#map=19/47.89993/1.90550">Afficher une carte plus grande</a></button>
-                            </small>
+                            <button type="button" class="btn pb-0 mb-0 mt-0 btn-secondary"><a href="https://www.openstreetmap.org/?mlat=47.89993&amp;mlon=1.90550#map=19/47.89993/1.90550"><p>Afficher une carte plus grande</p></a></button>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="mt-5 mb-5 pt-5">
+                <div>
+                    <h2>Contactez-nous!</h2>
+                </div>
+                <div class="textForm">
+                    {% if errors is not empty %}
+                        <div class="text-danger">Les champs ne sont pas renseigné correctement, le mail n'a pas été envoyé</div>
+                    {% endif %}
+                    {% if mailSent is not empty %}
+                        <div class="text-danger">{{ mailSent }}</div>
+                    {% endif %}
+                    {% if mailNotSent is not empty %}
+                        <div class="text-danger">{{ mailNotSent }}</div>
+                    {% endif %}
+                </div>
+                <div class="mt-5 col-10 offset-1">
+                    <form method="post" action="/contact" enctype="multipart/form-data" novalidate="novalidate">
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName">Votre Prénom:</label>
+                                {% if errors.firstName is defined %}
+                                    <div class="text-danger">{{ errors.firstName }}</div>
+                                {% endif %}
+                                <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Votre Prénom..." value="{{ post.firstName }}" required/>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName">Votre Nom:</label>
+                                {% if errors.lastName is defined %}
+                                    <div class="text-danger">{{ errors.lastName }}</div>
+                                {% endif %}
+                                <input type="text" name="lastName" class="form-control " id="lastName" placeholder="Votre Nom..." value="{{ post.lastName }}" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="msg">Votre commentaire:</label>
+                            {% if errors.msg is defined %}
+                                <div class="text-danger">{{ errors.msg }}</div>
+                            {% endif %}
+                            <textarea class="form-control" name="msg" id="msg" rows="3" cols="25"placeholder="Ecrire votre commentaire ici..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Votre adresse mail:</label>
+                            {% if  errors.email is defined %}
+                                <div class="text-danger">{{ errors.email }}</div>
+                            {% endif %}
+                            <input type="email" name="email" class="form-control" id="email" placeholder="nom@example.com" value="{{ post.email }}"required/>
+                        </div>
+                        <button class="btn btn-secondary" type="submit">Validation du formulaire</button>
+                    </form>
                 </div>
             </div>
         </div>

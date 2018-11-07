@@ -8,20 +8,19 @@
                 <img class="img-fluid img-banniere" src="/assets/images/CategoryImages/{{ productAndCategory[0].pictureCategory }}" alt=""/>
                 <div class="row justify-content-center">
                     <div class="col-10 col-md-2">
-                        <h1>{{ productAndCategory[0].nameCategory }}</h1>
+                        <h1 class="category">{{ productAndCategory[0].nameCategory }}</h1>
                     </div>
                  </div>
              <div class="container">
-                <div class="row justify-content-center">
+                <div class="row justify-content-between">
                     {% for product in productAndCategory %}
-                        <div class="col-sm-12 col-md-6 col-lg-4">
-                            <div class="card">
+                            <div class="card col-sm-12 col-md-6 col-lg-3 mr-2">
                                 <img class="card-img-top imgHeight" src="/assets/images/ProductImages/{{ product.picture }}" alt="">
                                 <a class="card-title productHeight" href="/product/{{ product.id }}">{{ product.name }}</a>
                             </div>
-                        </div>
                     {% endfor %}
                 </div>
+            </div>
             </div>
         </section>
     </section>

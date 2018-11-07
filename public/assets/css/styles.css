@@ -36,11 +36,12 @@ a:hover {
     color:#DF0078;
     min-height:80px;
     max-height:50px;
-    min-width:350px;
-    max-width:350px;
+    min-width:300px;
+    max-width:300px;
     font-size:1.5em;
     position: absolute;
-    top: 72%;
+    top: 75%;
+    margin-left: 15px;
     line-height: 300%;
     background-color: rgba(255, 255, 255, 0.7);
 }
@@ -102,8 +103,19 @@ section {
     padding-bottom:9%;
 
 }
-.show{
+.show {
+    background-color:white;
+    border:none;
+    padding:0.5em;
+    margin-left: 0.5em;
+}
+.dropdown {
+    background-color: transparent;
     margin-left: 5%;
+}
+
+nav .btn.focus, nav .btn:focus {
+    box-shadow:none;
 }
 .price{
     color:#c1d261;
@@ -140,13 +152,12 @@ section h3.section-subheading {
 }
 
 #mainNav .navbar-toggler {
-    font-size: 12px;
+    font-size: 16pt;
     right: 0;
     padding: 13px;
     text-transform: uppercase;
     color: #df0078;
     border: 0;
-    background-color: #BFD58E;
     font-family: 'Hind Vadodara', sans-serif;
 }
 
@@ -172,10 +183,11 @@ section h3.section-subheading {
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
     color: #c1d261;
 }
+
 nav .btn {
-    background-color:#D0ADE1;
-    border:none;
+    background-color: transparent;
 }
+
 nav .dropdown-toggle{
     font-size: 23px;
     right: 0;
@@ -234,7 +246,7 @@ nav .dropdown-menu:hover{
     #mainNav.navbar-shrink {
         padding-top: 0;
         padding-bottom: 0;
-        background-color: rgba(253, 238, 245,0.95);
+        background-color: rgba(255, 255, 255,0.95);
 
     }
     #mainNav.navbar-shrink .navbar-brand {
@@ -260,15 +272,11 @@ nav .dropdown-menu:hover{
 span{
     color: #c1d261;
 }
-.masthead .intro-text {
-    padding-top: 150px;
-    padding-bottom: 100px;
-}
+
 
 .masthead .intro-text .intro-lead-in {
-    font-size: 22px;
+    font-size: 16pt;
     font-style: italic;
-    line-height: 22px;
     margin-bottom: 25px;
     font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
@@ -282,11 +290,8 @@ span{
     font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+
 @media (min-width: 768px) {
-    .masthead .intro-text {
-        padding-top: 300px;
-        padding-bottom: 200px;
-    }
     .masthead .intro-text .intro-lead-in {
         font-size: 40px;
         font-style: italic;
@@ -308,12 +313,15 @@ span{
     margin-top: 35px;
     color: white;
 }
+.btn-hallo:hover {
+    background-color: #df0078;
+}
 .backgroundinfo{
     background-image: url("../images/nounoursbackground.jpeg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
 }
 .service-heading {
     margin: 15px 0;
@@ -394,6 +402,7 @@ span{
 .img-banniere{
     width:80vw;
     height:32vw;
+    object-fit: cover;
 }
 @media (min-width: 767px) {
     #portfolio .portfolio-item {
@@ -694,22 +703,25 @@ span{
 }
 .card{
     margin-top:60px;
-    background:#df0078;
     margin-bottom: 25%;
+
 }
 .category{
     margin-top:40%;
+
 }
 .imgHeight{
-    width: 350px;
-    height: 350px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .productHeight{
-    min-height:30px;
+    min-height:50px;
     max-height:30px;
     font-size:1.5em;
     font-family: 'Hind Vadodara', sans-serif;
+    color : #DF0078;
 }
 .adresse{
     text-align: center;
@@ -782,6 +794,9 @@ section#contact :-ms-input-placeholder {
 }
 label#contact, h2{
     font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+.card-title{
+    color: #DF0078;
 }
 .card{
     border: 0px;

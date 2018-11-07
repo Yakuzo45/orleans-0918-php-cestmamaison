@@ -695,23 +695,25 @@ span{
 }
 .card{
     margin-top:60px;
-    background:#df0078;
     margin-bottom: 25%;
+
 }
 .category{
     margin-top:40%;
+
 }
 .imgHeight{
-    width: 350px;
-    height: 350px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 
 .productHeight{
-    min-height:30px;
+    min-height:50px;
     max-height:30px;
     font-size:1.5em;
     font-family: 'Hind Vadodara', sans-serif;
+    color : #DF0078;
 }
 .adresse{
     text-align: center;
@@ -784,6 +786,9 @@ section#contact :-ms-input-placeholder {
 }
 label#contact, h2{
     font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+.card-title{
+    color: #DF0078;
 }
 .card{
     border: 0px;

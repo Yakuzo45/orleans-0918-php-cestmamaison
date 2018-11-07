@@ -103,8 +103,19 @@ section {
     padding-bottom:9%;
 
 }
-.show{
+.show {
+    background-color:white;
+    border:none;
+    padding:0.5em;
+    margin-left: 0.5em;
+}
+.dropdown {
+    background-color: transparent;
     margin-left: 5%;
+}
+
+nav .btn.focus, nav .btn:focus {
+    box-shadow:none;
 }
 .price{
     color:#c1d261;
@@ -141,13 +152,12 @@ section h3.section-subheading {
 }
 
 #mainNav .navbar-toggler {
-    font-size: 12px;
+    font-size: 16pt;
     right: 0;
     padding: 13px;
     text-transform: uppercase;
     color: #df0078;
     border: 0;
-    background-color: #BFD58E;
     font-family: 'Hind Vadodara', sans-serif;
 }
 
@@ -173,10 +183,11 @@ section h3.section-subheading {
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
     color: #c1d261;
 }
+
 nav .btn {
-    background-color:#D0ADE1;
-    border:none;
+    background-color: transparent;
 }
+
 nav .dropdown-toggle{
     font-size: 23px;
     right: 0;
@@ -235,7 +246,7 @@ nav .dropdown-menu:hover{
     #mainNav.navbar-shrink {
         padding-top: 0;
         padding-bottom: 0;
-        background-color: rgba(253, 238, 245,0.95);
+        background-color: rgba(255, 255, 255,0.95);
 
     }
     #mainNav.navbar-shrink .navbar-brand {
@@ -261,15 +272,11 @@ nav .dropdown-menu:hover{
 span{
     color: #c1d261;
 }
-.masthead .intro-text {
-    padding-top: 150px;
-    padding-bottom: 100px;
-}
+
 
 .masthead .intro-text .intro-lead-in {
-    font-size: 22px;
+    font-size: 16pt;
     font-style: italic;
-    line-height: 22px;
     margin-bottom: 25px;
     font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
@@ -283,11 +290,8 @@ span{
     font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+
 @media (min-width: 768px) {
-    .masthead .intro-text {
-        padding-top: 300px;
-        padding-bottom: 200px;
-    }
     .masthead .intro-text .intro-lead-in {
         font-size: 40px;
         font-style: italic;
@@ -309,12 +313,15 @@ span{
     margin-top: 35px;
     color: white;
 }
+.btn-hallo:hover {
+    background-color: #df0078;
+}
 .backgroundinfo{
     background-image: url("../images/nounoursbackground.jpeg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
 }
 .service-heading {
     margin: 15px 0;

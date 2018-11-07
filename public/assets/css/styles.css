@@ -402,6 +402,7 @@ span{
 .img-banniere{
     width:80vw;
     height:32vw;
+    object-fit: cover;
 }
 @media (min-width: 767px) {
     #portfolio .portfolio-item {
